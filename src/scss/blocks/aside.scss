@@ -2,6 +2,7 @@
   padding: 1.2rem 0.8rem;
   gap: 1.2rem;
   background-color: $cl-grey-super-light;
+  overflow: scroll;
   &--hidden{
     width: fit-content;
     .aside{
@@ -51,5 +52,37 @@
   column-gap: 1.2rem;
   &__pic{
     width: 2rem;
+  }
+}
+.aside-nav{
+  &__item{
+    & + & {
+      margin-top: 0.8rem;
+    }
+    &--collapse{
+      padding-left: 3.6rem;
+    }
+  }
+}
+.nav-item{
+  padding: 1.2rem 1.6rem;
+  width: 100%;
+  gap: 1.2rem;
+  font-size: 1.4rem;
+  border-radius: 0.8rem;
+  &--active{
+    background-color: $cl-grey-light;
+  }
+  &:not(.collapsed){
+    .nav-item__angle{
+      transform: rotate(90deg);
+    }
+  }
+  &__title{
+    flex-grow: 1;
+    text-align: start;
+  }
+  &__angle{
+    width: 20px;
   }
 }

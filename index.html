@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div class="content container-fluid">
+  <div class="page container-fluid">
     <div class="row h-100 flex-nowrap">
       <aside id="aside" class="aside col-3 h-100 d-flex flex-column justify-content-start align-items-start">
         <header class="aside__header aside-header d-flex justify-content-between align-items-center">
@@ -31,17 +31,52 @@
             </defs>
           </svg>
           <button class="aside-header__expand aside-expand" onclick="asideToogle();">
-            <svg class="aside-expand__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.1039 5.05543C10.9086 4.86017 10.592 4.86017 10.3968 5.05543C10.2015 5.25069 10.2015 5.56728 10.3968 5.76254L14.5887 9.95449L10.3968 14.1464C10.2015 14.3417 10.2015 14.6583 10.3968 14.8536C10.592 15.0488 10.9086 15.0488 11.1039 14.8536L15.6467 10.3107C15.8419 10.1156 15.8419 9.79914 15.6469 9.60384L11.1039 5.05543ZM6.1038 5.05539C5.90854 4.86012 5.59195 4.86012 5.39669 5.05538C5.20143 5.25065 5.20143 5.56723 5.39669 5.76249L9.58865 9.95445L5.39669 14.1464C5.20143 14.3417 5.20143 14.6582 5.39669 14.8535C5.59195 15.0488 5.90854 15.0488 6.1038 14.8535L10.6466 10.3107C10.8418 10.1155 10.8419 9.79909 10.6468 9.6038L6.1038 5.05539Z" fill="black"/>
-              </g>
-            </svg>
+            <img src="./public/images/icons/expand.svg" alt="expand" class="aside-expand__icon">
           </button>
             
         </header>
-        <nav class="aside__nav aside-nav">
-          <div class="aside-nav__item">
-
+        <nav id="nav" class="aside__nav aside-nav">
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+            <img src="./public/images/icons/table.svg" alt="Данные" class="nav-item__icon">
+            <div class="nav-item__title">Данные</div>
+          </button>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);" data-bs-toggle="collapse" data-bs-parent="nav">
+            <img src="./public/images/icons/table.svg" alt="Данные" class="nav-item__icon">
+            <div class="nav-item__title">Кластеризация</div>
+          </button>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);" data-bs-toggle="collapse" data-bs-parent="nav">
+            <img src="./public/images/icons/table.svg" alt="Нормирование" class="nav-item__icon">
+            <div class="nav-item__title">Нормирование</div>
+          </button>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);" data-bs-toggle="collapse" data-bs-parent="nav">
+            <img src="./public/images/icons/table.svg" alt="Цели" class="nav-item__icon">
+            <div class="nav-item__title">Цели</div>
+          </button>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" _onclick="tabChange(this);" data-bs-toggle="collapse" data-bs-target="#nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
+            <img src="./public/images/icons/table.svg" alt="Данные" class="nav-item__icon">
+            <div class="nav-item__title">Карта процессов</div>
+            <img src="./public/images/icons/angle.svg" alt="Данные" class="nav-item__angle">
+          </button>
+          <div id="nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+              <div class="nav-item__title">Настройка</div>
+            </button>
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+              <div class="nav-item__title">Анализ</div>
+            </button>
           </div>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+            <img src="./public/images/icons/table.svg" alt="Факторный анализ" class="nav-item__icon">
+            <div class="nav-item__title">Факторный анализ</div>
+          </button>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+            <img src="./public/images/icons/table.svg" alt="Факторный анализ" class="nav-item__icon">
+            <div class="nav-item__title">Сценарии</div>
+          </button>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+            <img src="./public/images/icons/table.svg" alt="Факторный анализ" class="nav-item__icon">
+            <div class="nav-item__title">Постановщик задач</div>
+          </button>
         </nav>
         <div class="aside__profile aside-profile d-flex justify-content-between align-items-center gap-2">
           <button class="aside-profile__user user flex-grow-1 d-flex justify-content-start align-items-center">
@@ -55,8 +90,46 @@
           </button>
         </div>
       </aside>
-      <main id="main" class="main col-9">
-        main
+      <main id="content" class="col-9 content">
+        div class="accordion" id="accordionExample">
+
+  <div class="accordion-item">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Accordion Item #1
+      </button>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
+
       </main>
     </div>
   </div>
