@@ -3,4 +3,4 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../scss/style.scss'
 
 import './blocks/header'
-import './blocks/sideBar'
+import './blocks/aside'

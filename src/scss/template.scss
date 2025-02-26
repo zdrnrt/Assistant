@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline-color: $cl-purple;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,8 +31,31 @@ img {
     height: auto;
 }
 
- // базовый сброс настроекКОНЕЦ
+button{
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 
+
+ // базовый сброс настроекКОНЕЦ
+ 
+:root{
+    font-size: 10px;
+    line-height: 1.2;
+}
+body {
+    font-family: $main-font;
+    font-size: 1.2rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.content{
+    height: 100vh;
+}
+  
 #check-mark_button{ /*галочка для всех кнопок*/
     display: none;
     color: green;
