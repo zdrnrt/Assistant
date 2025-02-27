@@ -10,13 +10,28 @@ $cl-grey-purple: #F1F2FF;
 $cl-grey-light: #E9E9E9;
 $cl-grey: #EAEAF0;
 $cl-border: #EBEBEB;
+$cl-table-border: #E7E9EC;
+
+$border-radius-table: 0.4rem;
 
 $transition-time: 0.2s;
 
+:root{
+  --bs-table-border-color: $cl-table-border;
+
+  --bs-btn-padding-x: 1.2rem;
+  --bs-btn-padding-y: 0.6rem;
+  --bs-btn-line-height: 1.6;
+  --bs-border-radius: 0.8rem;
+  --bs-border-color: #EAEAF0;
+
+  --bs-btn-active-bg: $cl-purple-light;
+  --bs-btn-active-border-color: $cl-purple-light;
+}
 
 //здесь переменные
 // $main-font: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
-$main-font: 'Roboto', sans-serif;
+// $main-font: 'Roboto', sans-serif;
 // $main-font:  'Montserrat', sans-serif;
 // $main-font: 'PT Root UI', sans-serif;
 // $main-font: 'Poppins', sans-serif;

@@ -13,3 +13,5 @@ window.dataOpen = function() {
           console.error('Возникла проблема с операцией выборки:', error);
       });
 }
+
+dataOpen()

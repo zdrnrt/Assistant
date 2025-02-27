@@ -26,8 +26,7 @@ a {
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
+    min-width: 100%;
 }
 
 img {
@@ -59,7 +58,11 @@ body {
 .page{
     height: 100vh;
 }
-  
+
+.content{
+    overflow: scroll;
+}
+
 #check-mark_button{ /*галочка для всех кнопок*/
     display: none;
     color: green;

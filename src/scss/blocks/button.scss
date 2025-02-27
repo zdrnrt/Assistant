@@ -1,0 +1,23 @@
+.btn{
+  &:hover{
+    background-color: $cl-purple;
+    border-color: $cl-purple;
+  }
+  &:active{
+    background-color: $cl-purple-light!important;
+    border-color: $cl-purple-light!important;
+    color: $cl-additon!important;
+  }
+}
+.btn-primary{
+  background-color: rgba($cl-purple, 0.9);
+  border-color: rgba($cl-purple, 0.9);
+}
+.btn-outline-primary{
+  border-color: $cl-purple;
+  color: $cl-main;
+}
+.btn-outline-secondary{
+  border-color: $cl-purple-light;
+  color: $cl-main;
+}
