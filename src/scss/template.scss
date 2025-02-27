@@ -63,6 +63,10 @@ body {
     // overflow: scroll;
 }
 
+.danger{
+    color: var(--bs-danger);
+}
+
 #check-mark_button{ /*галочка для всех кнопок*/
     display: none;
     color: green;

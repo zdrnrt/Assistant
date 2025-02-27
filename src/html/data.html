@@ -1,66 +1,106 @@
-<div class="page__content page-content">
+<div class="page__content page-content data-page">
   <header class="page-content__header">
     <h1>Данные</h1>
   </header>
   <div>
+    <div class="row d-flex justify-content-between align-items-center py-3">
+      <div class="col-3 text-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
+          Настроить набор
+        </button>
+      </div>
+      <div class="col-8">
+        <div class="data-page__chart mx-auto"></div>
+      </div>
+      <div class="col-1 align-self-start">
+        <div class="m-0 alert alert-danger text-center" role="alert">
+          <i class="fa fa-exclamation-circle"></i>
+        </div>
+      </div>
+
+
+    </div>
     <div class="table">
       <table class="table__table">
         <thead>
           <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
+            <th>Тип данных</th>
+            <th>Дата загрузки</th>
+            <th>Целевое значение</th>
+            <th>Фактическое значение</th>
+            <th>% откл</th>
+            <th>Критичность</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
+            <td>Остатки</td>
+            <td>25.02.2025</td>
+            <td>15000</td>
+            <td>1000</td>
+            <td class="danger">93%</td>
+            <td>!!!</td>
           </tr>
           <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
+            <td>Продажи</td>
+            <td>25.02.2025</td>
+            <td>15000</td>
+            <td>14989</td>
+            <td>0%	</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
+    </div>
       
-      <button type="button" class="btn btn-primary">btn-primary</button>
-      <button type="button" class="btn btn-outline-primary">btn-outline-primary</button>
-      <button type="button" class="btn btn-outline-secondary">btn-outline-secondary</button>
-
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#moadlTimetable">
-  Настроить набор
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="moadlTimetable" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="moadlTimetableLabel">Настройки расписания</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    <div class="modal fade" id="modalTimetable" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="moadlTimetableLabel">Настройки расписания</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="" onsubmit="dataFilter(event);" class="form">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="dataInterval" class="form-label">Интервал</label>
+                <input type="text" class="form-control" id="dataInterval">
+              </div>
+              <div class="mb-3">
+                <label for="dataRepeat" class="form-label">Дни повторения</label>
+                <input type="text" class="form-control" id="dataRepeat">
+              </div>
+              <div class="mb-3">
+                <label for="dataTime" class="form-label">Время</label>
+                <input type="text" class="form-control" id="dataTime">
+              </div>
+              <div class="mb-3">
+                <label for="dataBegin" class="form-label">Начало</label>
+                <input type="text" class="form-control" id="dataBegin">
+              </div>
+              <div class="mb-3 row">
+                <div class="col-3"><label for="dataEnd" class="form-label">Окончание</label></div>
+                <div class="col-9">
+                  <select name="dataEnd" id="dataEnd" class="form-select mb-2">
+                    <option value="never">Никогда</option>
+                    <option value="after">Спустя</option>
+                    <option value="date">Дата</option>
+                  </select>
+                  <div>
+                    <input type="number" class="form-control" id="dataEndValue">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 
-    </div>
   </div>
 </div>

@@ -31,12 +31,5 @@
       padding: 0.4rem 1.2rem;
       border: var(--bs-border-width) solid var(--bs-table-border-color);
     }
-    thead tr th:first-child{
-    }
-    thead tr th:last-child{
-    }
-    tbody tr:last-child td:first-child,
-    tbody tr:last-child td:last-child{
-    }
   }
 }
