@@ -5,16 +5,20 @@
   // overflow: scroll;
   &--hidden{
     width: fit-content;
-    .aside{
-      &__header{
-        padding-left: 0;
-        padding-right: 0;
-      }
-      &-header__logo,
-      &__nav,
-      &__profile{ 
-        display: none!important;
-      }
+    .aside__header{
+      padding-left: 0;
+      padding-right: 0;
+      justify-content: center!important;
+    }
+    .aside-header__logo,
+    .aside-nav__item--collapse,
+    .nav-item__title,
+    .nav-item__angle,
+    .aside__profile{ 
+      display: none!important;
+    }
+    .nav-item{
+      gap: 0;
     }
     .aside-expand{
       transform: none;

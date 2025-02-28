@@ -1,6 +1,6 @@
 window.asideToogle = function(){
   const aside = document.getElementById('aside');
-  const main = document.getElementById('main');
+  const main = document.getElementById('content');
   aside.classList.toggle('aside--hidden');
   aside.classList.toggle('col-3');
   main.classList.toggle('col-9');
