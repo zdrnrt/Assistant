@@ -1,5 +1,5 @@
-window.clusteringOpen = function() {
-  fetch('./src/html/clustering.html')
+window.normingOpen = function() {
+  fetch('./src/html/norming.html')
       .then(response => {
           if (!response.ok) {
               throw new Error('Реакция сети' + response.statusText);
@@ -14,4 +14,4 @@ window.clusteringOpen = function() {
       });
 }
 
-// clusteringOpen();
+// normingOpen();

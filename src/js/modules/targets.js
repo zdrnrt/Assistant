@@ -1,5 +1,5 @@
-window.clusteringOpen = function() {
-  fetch('./src/html/clustering.html')
+window.targetsOpen = function() {
+  fetch('./src/html/targets.html')
       .then(response => {
           if (!response.ok) {
               throw new Error('Реакция сети' + response.statusText);
