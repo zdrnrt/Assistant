@@ -14,4 +14,7 @@ window.targetsOpen = function() {
       });
 }
 
-// clusteringOpen();
+window.targetsTargetsChange = function(elem){
+    document.getElementById('targetsExternal').classList.toggle('d-none');
+    document.getElementById('targetsInternal').classList.toggle('d-none');
+}

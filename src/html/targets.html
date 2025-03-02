@@ -4,69 +4,96 @@
   </header>
   <div>
     <div class="row d-flex align-items-start mb-3">
-      <div class="col-5 h-100 p-4 border">
-        <h2 class="mb-4">Загрзука целей</h2>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="competitors">
-            Конкуренты
-          </label>
-        </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="tools">
-            Оборудование
-          </label>
-        </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="square">
-            Площадь магазина
-          </label>
-        </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="type">
-            Тип магазина
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="assortment">
-            Ассортимент
-          </label>
+      <div class="col-5 h-100">
+        <div class="column">
+          <header class="column__header">Загрзука целей</header>
+          <select class="form-select" onchange="targetsTargetsChange();">
+            <option value="Internal">Внешние</option>
+            <option value="External">Внутренние</option>
+          </select>
+          <!-- TODO подумать над именованием параметров -->
+          <select id="targetsInternal" class="d-block mt-3 form-select">
+            <option value="profit">Прибыль</option>
+            <option value="sales">Продажи</option>
+            <option value="offs">Списания</option>
+            <option value="openTt">Открытия ТТ</option>
+          </select>
+          <select id="targetsExternal" class="d-block d-none mt-3 form-select">
+            <option value="reserve">Торварный запас </option>
+            <option value="presentation">Представленность</option>
+            <option value="us">УС</option>
+          </select>
+          <button class="d-block mt-3 mb-3 btn btn-outline-primary">Загрузить</button>
+          <button class="d-block btn btn-primary">Применить</button>
         </div>
       </div>
-      <div class="col-5 offset-1 col-of h-100 p-4 border">
-        <h2 class="mb-4">Текущие значения (дата)</h2>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringVariants" value="median">
-            Медиана
-          </label>
-        </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringVariants" value="kmeans">
-            K-means
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringVariants" value="dbscan">
-            DBSCAN
-          </label>
+      <div class="col-5 offset-1 h-100">
+        <div class="column">
+          <header class="column__header">План/Факт (дата)</header>
+          <div class="row mb-3">
+            <div class="col-8">
+              <select class="d-block w-100 form-select">
+                <option value="all">Все</option>
+                <option value="profit">Прибыль</option>
+                <option value="sales">Продажи</option>
+                <option value="offs">Списания</option>
+                <option value="openTt">Открытия ТТ</option>
+                <option value="reserve">Торварный запас</option>
+                <option value="presentation">Представленность</option>
+                <option value="us">УС</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <div class="p-2 border border-r">
+                10 млн/14 млн = -4 млн 	
+              </div>
+            </div>
+          </div>
+          <div class="border border-r py-5 px-3">
+            График
+          </div>
         </div>
       </div>
 
     </div>
-    <div class="d-flex justify-content-end align-items-center gap-4 mb-3">
-      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
-        Выгрузить
-      </button>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
-        Применить
-      </button>
+    <div class="row justify-content-between gap-4 mb-3">
+      <div class="col-7 d-flex justify-content-between align-items-center gap-4">
+        <!-- TODO продумать наименование и настройки -->
+        <select class="form-select">
+          <option value="">Вся сеть</option>
+          <option value="r1">Регион_1</option>
+          <option value="r2">Регион_2</option>
+          <option value="r3">Регион_3</option>
+        </select>
+        <select name="" id="" class="form-select">
+          <option value="">Категория_0</option>
+          <option value="">Категория_1</option>
+          <option value="">Категория_1.1</option>
+          <option value="">Категория_2</option>
+          <option value="">Категория_2.1</option>
+        </select>
+        <select name="" id="" class="form-select">
+          <option value="">Все</option>
+          <option value="">Прибыль</option>
+          <option value="">Продажи </option>
+          <option value="">Списания </option>
+          <option value="">Открытия ТТ</option>
+          <option value="">Торварный запас </option>
+          <option value="">Представленность</option>
+          <option value="">УС</option>
+        </select>
+        <label for="" >
+          <input type="text" placeholder="Код товара" class="w-auto form-control">
+        </label>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center gap-4">
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
+          Загрузить DNL
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
+          Скачать EX
+        </button>
+      </div>
 
     </div>
     <div class="table">
