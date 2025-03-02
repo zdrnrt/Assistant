@@ -2,7 +2,7 @@
   padding: 1.2rem 0.8rem;
   gap: 1.2rem;
   background-color: $cl-grey-super-light;
-  // overflow: scroll;
+  overflow: auto;
   &--hidden{
     width: fit-content;
     .aside__header{
@@ -14,7 +14,8 @@
     .aside-nav__item--collapse,
     .nav-item__title,
     .nav-item__angle,
-    .aside__profile{ 
+    .user__name,
+    .aside-profile__logout{ 
       display: none!important;
     }
     .nav-item{
@@ -72,7 +73,6 @@
   padding: 1.2rem 1.6rem;
   width: 100%;
   gap: 1.2rem;
-  font-size: 1.4rem;
   border-radius: 0.8rem;
   &--active{
     background-color: $cl-grey-light;
