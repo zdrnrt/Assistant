@@ -4,47 +4,35 @@
   </header>
   <div>
     <div class="row d-flex justify-content-start align-items-start mb-3">
-      <div class="col-5 h-100 p-4 border">
-        <h2 class="mb-4">Настройка параметров нормы</h2>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="competitors">
-            Конкуренты
-          </label>
+      <div class="col-5 h-100">
+        <div class="column">
+          <header class="column__header">Настройка параметров нормы</header>
+          <select class="d-block mb-3 form-select">
+            <option value="normaRc">Норма товарного запаса РЦ</option>
+            <option value="normaTt">Норма товарного запаса ТТ</option>
+            <option value="normOosRc">Норма OOS РЦ</option>
+            <option value="normaOosTt">Норма OOS ТТ</option>
+            <option value="normaUs">Норма УС</option>
+            <option value="normaAccuracy">Норма точности прогноза</option>
+          </select>
+          <button class="btn btn-primary">Настроить</button>
         </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="tools">
-            Оборудование
-          </label>
-        </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="square">
-            Площадь магазина
-          </label>
-        </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="type">
-            Тип магазина
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="clasteringSign" value="assortment">
-            Ассортимент
-          </label>
+      </div>
+      <div class="col-2 col-offset-1">
+        <div class="column">
+          <button class="d-block mb-3 w-100 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">Настроить расписание</button>
+          <button class="d-block mb-3 w-100 btn btn-outline-primary">Запуск расчета</button>
+          <button class="d-block w-100 btn btn-primary">Применить</button>
         </div>
       </div>
 
     </div>
     <div class="d-flex justify-content-end align-items-center gap-4 mb-3">
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
-        Выгрузить
+        Загрузить DNL
       </button>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
-        Применить
+        Скачать EX
       </button>
 
     </div>
@@ -76,5 +64,54 @@
     </div>
     
 
+  </div>
+</div>
+
+<!-- TODO подумать над переносом в шаблон -->
+<div class="modal fade" id="modalTimetable" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="moadlTimetableLabel">Настройки расписания</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="dataInterval" class="form-label">Интервал</label>
+            <input type="text" class="form-control" id="dataInterval">
+          </div>
+          <div class="mb-3">
+            <label for="dataRepeat" class="form-label">Дни повторения</label>
+            <input type="text" class="form-control" id="dataRepeat">
+          </div>
+          <div class="mb-3">
+            <label for="dataTime" class="form-label">Время</label>
+            <input type="text" class="form-control" id="dataTime">
+          </div>
+          <div class="mb-3">
+            <label for="dataBegin" class="form-label">Начало</label>
+            <input type="text" class="form-control" id="dataBegin">
+          </div>
+          <div class="mb-3 row">
+            <div class="col-3"><label for="dataEnd" class="form-label">Окончание</label></div>
+            <div class="col-9">
+              <select name="dataEnd" id="dataEnd" class="form-select mb-2">
+                <option value="never">Никогда</option>
+                <option value="after">Спустя</option>
+                <option value="date">Дата</option>
+              </select>
+              <div>
+                <input type="number" class="form-control" id="dataEndValue">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
