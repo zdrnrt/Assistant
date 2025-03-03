@@ -12,6 +12,7 @@ export default defineConfig({
 				clustering: resolve(__dirname, 'src/html/clustering.html'),
 				norming: resolve(__dirname, 'src/html/norming.html'),
 				targets: resolve(__dirname, 'src/html/targets.html'),
+				mapSetting: resolve(__dirname, 'src/html/mapSetting.html'),
 			}
 		}
 	}
