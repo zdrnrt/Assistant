@@ -52,12 +52,12 @@
             <img src="./public/images/icons/calendar.svg" alt="Цели" class="nav-item__icon">
             <div class="nav-item__title">Цели</div>
           </button>
-          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" _onclick="tabChange(this);" data-bs-toggle="collapse" data-bs-target="#nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#map-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
             <img src="./public/images/icons/settings.svg" alt="Данные" class="nav-item__icon">
             <div class="nav-item__title">Карта процессов</div>
             <img src="./public/images/icons/angle.svg" alt="Данные" class="nav-item__angle">
           </button>
-          <div id="nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
+          <div id="map-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); mapSettingOpen();">
               <div class="nav-item__title">Настройка</div>
             </button>
@@ -65,20 +65,38 @@
               <div class="nav-item__title">Анализ</div>
             </button>
           </div>
-          <!--
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
             <img src="./public/images/icons/table.svg" alt="Факторный анализ" class="nav-item__icon">
             <div class="nav-item__title">Факторный анализ</div>
           </button>
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
-            <img src="./public/images/icons/table.svg" alt="Факторный анализ" class="nav-item__icon">
+            <img src="./public/images/icons/table.svg" alt="Сценарии" class="nav-item__icon">
             <div class="nav-item__title">Сценарии</div>
           </button>
-          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
-            <img src="./public/images/icons/table.svg" alt="Факторный анализ" class="nav-item__icon">
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#tasks-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
+            <img src="./public/images/icons/table.svg" alt="Постановщик задач" class="nav-item__icon">
             <div class="nav-item__title">Постановщик задач</div>
+            <img src="./public/images/icons/angle.svg" alt="Данные" class="nav-item__angle">
           </button>
-          -->
+          <div id="tasks-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+              <div class="nav-item__title">Настройка</div>
+            </button>
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+              <div class="nav-item__title">Аналитика</div>
+            </button>
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+              <div class="nav-item__title">Задачи</div>
+            </button>
+          </div>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+            <img src="./public/images/icons/table.svg" alt="Информация" class="nav-item__icon">
+            <div class="nav-item__title">Информация ??</div>
+          </button>
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this);">
+            <img src="./public/images/icons/table.svg" alt="Чат бот" class="nav-item__icon">
+            <div class="nav-item__title">Чат бот ??</div>
+          </button>
         </nav>
         <div class="aside__profile aside-profile d-flex justify-content-between align-items-center gap-2">
           <button class="aside-profile__user user flex-grow-1 d-flex justify-content-start align-items-center">
