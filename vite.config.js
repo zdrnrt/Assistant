@@ -13,6 +13,12 @@ export default defineConfig({
 				norming: resolve(__dirname, 'src/html/norming.html'),
 				targets: resolve(__dirname, 'src/html/targets.html'),
 				mapSetting: resolve(__dirname, 'src/html/mapSetting.html'),
+				mapАnalysis: resolve(__dirname, 'src/html/mapАnalysis.html'),
+				factor: resolve(__dirname, 'src/html/factor.html'),
+				scenarios: resolve(__dirname, 'src/html/scenarios.html'),
+				taskSetting: resolve(__dirname, 'src/html/taskSetting.html'),
+				taskАnalytic: resolve(__dirname, 'src/html/taskАnalytic.html'),
+				taskList: resolve(__dirname, 'src/html/taskList.html'),
 			}
 		}
 	}
