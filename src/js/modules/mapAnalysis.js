@@ -1,5 +1,5 @@
 window.mapAnalysisOpen = function() {
-  fetch('./src/html/mapAnalysis.html')
+  fetch('./src/html/mapАnalysis.html')
       .then(response => {
           if (!response.ok) {
               throw new Error('Реакция сети' + response.statusText);

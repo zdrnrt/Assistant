@@ -32,7 +32,7 @@
           <header class="column__header">План/Факт (дата)</header>
           <div class="row mb-3">
             <div class="col-8">
-              <select class="d-block w-100 form-select">
+              <select id="targetsChartSelect" class="d-block w-100 form-select">
                 <option value="all">Все</option>
                 <option value="profit">Прибыль</option>
                 <option value="sales">Продажи</option>
@@ -49,8 +49,8 @@
               </div>
             </div>
           </div>
-          <div class="tasks-chart border border-r">
-            <canvas id="tasks-chart"></canvas>
+          <div class="targets-chart border border-r">
+            <canvas id="targetsChart"></canvas>
           </div>
         </div>
       </div>
