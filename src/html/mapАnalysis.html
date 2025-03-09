@@ -1,0 +1,214 @@
+<div class="page__content page-content data-page">
+  <header class="page-content__header">
+    <h1>Карта процессов: Анализ</h1>
+  </header>
+  <div>
+    <div class="mb-3">
+      <div class="h1 mb-2">Всего работающих процессов: <span id="mapSetting-total">86</span></div>
+      <div class="h2">Требующих внимания: <span id="mapSetting-warning">32</span></div>
+    </div>
+    <div class="d-flex justify-content-start gap-4 mb-5">
+      <select class="form-select col">
+        <option value="">Процесс согласования изменений в процессах управления ассортиментом, планограммами,
+          целевым стоком</option>
+        <option value="">Процесс контроля корректности входных данных</option>
+        <option value="">Процесс расчета нормативных показателей</option>
+        <option value="">Процесс контроля, анализ причин отклонений</option>
+        <option value="">Процесс прогнозирования спроса </option>
+        <option value="">Процесс планирования товарных потоков </option>
+        <option value="">Процесс заказа товара поставщикам на РЦ</option>
+        <option value="">Процесс заказа товара на ТТ</option>
+        <option value="">Процесс формирования оптимальных условий доставки </option>
+        <option value="">Процесс управления сервисом поставщиков</option>
+        <option value="">Процесс управления ценой</option>
+        <option value="">Процесс операционной логистики</option>
+        <option value="">Процессы операционные ТТ</option>
+      </select>
+      <select class="form-select col">
+        <option value="">Согласование дат включения ассортимента</option>
+        <option value="">Согласование дат включения планограммы</option>
+        <option value="">Согласование целевого запаса компании</option>
+        <option value="">Контроль неактуальных позиций РЦ/ТТ (ТБД?)</option>
+        <option value="">Контроль корректности планограммы</option>
+        <option value="">Контроль корректности ОВХ и СГ товаров </option>
+        <option value="">Контроль корректности остатков </option>
+        <option value="">Контроль оборачиваемости короба</option>
+        <option value="">Контроль корректности графиков</option>
+        <option value="">Контроль корректности минимальных партий</option>
+        <option value="">Расчет нормативного товарного запаса РЦ</option>
+        <option value="">Расчет нормативного товарного запаса ТТ</option>
+        <option value="">Расчет нормативного OOS</option>
+        <option value="">Расчет нормативного УС</option>
+        <option value="">Расчет нормативной точности прогноза</option>
+        <option value="">Контроль и анализ отклонений от нормы ТЗ РЦ</option>
+        <option value="">Контроль и анализ отклонений от нормы ТЗ ТТ</option>
+        <option value="">Контроль и анализ отклонений от нормы OOS</option>
+        <option value="">Контроль и анализ отклонений от нормы УС</option>
+        <option value="">Контроль и анализ отклонений от нормы точности прогноза</option>
+        <option value="">Процесс прогнозирования регулярного спроса</option>
+        <option value="">Процесс прогнозирования промо</option>
+        <option value="">Планирование закупки у поставщика </option>
+        <option value="">Планирование прихода на РЦ</option>
+        <option value="">Планирование отгрузки с РЦ</option>
+        <option value="">Планирование прихода на ТТ</option>
+        <option value="">Процесс регулярного заказа РЦ</option>
+        <option value="">Процесс промо заказа РЦ</option>
+        <option value="">Процесс управления товаром вне АМ РЦ</option>
+        <option value="">Процесс регулярного заказа на ТТ</option>
+        <option value="">Процесс промо заказа </option>
+        <option value="">Процесс управления дефицитом</option>
+        <option value="">Процесс управления профицитом </option>
+        <option value="">Процесс управления корректировками ТТ</option>
+        <option value="">Процесс открытия новых ТТ</option>
+        <option value="">Логистическая схема</option>
+        <option value="">Управление графиком доставки на РЦ</option>
+        <option value="">Управление min партиями РЦ</option>
+        <option value="">Управление графиком доставки на ТТ</option>
+        <option value="">Управление min партиями на ТТ</option>
+        <option value="">Управление сбором штрафов</option>
+        <option value="">Управление выставлением штрафов</option>
+        <option value="">Работа с недопоставкой поставщика</option>
+        <option value="">Работа с опозданиями поставщика</option>
+        <option value="">Процесс управления регулярной ценой</option>
+        <option value="">Процесс управления промо ценой</option>
+        <option value="">Процесс управления уценкой</option>
+        <option value="">Процесс учета остатков</option>
+        <option value="">Процесс сборки </option>
+        <option value="">Процесс отгрузки</option>
+        <option value="">Выкладка товара</option>
+        <option value="">Приемка товара</option>
+        <option value="">Учет товара</option>
+        <option value="">Заказ товара</option>
+      </select>
+      <select class="form-select col">
+        <option value="">Расчет нормативной доли вывода РЦ</option>
+        <option value="">Расчет нормативной  доли промо РЦ</option>
+        <option value="">Расчет нормативной доли оверстока РЦ</option>
+        <option value="">Расчет нормативного ТЗ РЦ</option>
+        <option value="">Расчет нормативной доли вывода ТТ</option>
+        <option value="">Расчет нормативной  доли промо ТТ</option>
+        <option value="">Расчет нормативной доли оверстока ТТ</option>
+        <option value="">Расчет нормативного ТЗ ТТ</option>
+        <option value="">Расчет нормативного OOS РЦ</option>
+        <option value="">Расчет нормативного OOS ТТ</option>
+        <option value="">Расчет нормативного УС РЦ -ТТ</option>
+        <option value="">Расчет нормативного УС поставщика</option>
+        <option value="">Анализ отклонения по доли вывода РЦ</option>
+        <option value="">Анализ отклонения по доли промо РЦ</option>
+        <option value="">Анализ отклонения по доли доли оверстока РЦ</option>
+        <option value="">Анализ отклонения от нормы ТЗ РЦ</option>
+        <option value="">Анализ отклонения по  доли вывода ТТ</option>
+        <option value="">Анализ отклонения по  доли промо ТТ</option>
+        <option value="">Анализ отклонения по доли оверстока ТТ</option>
+        <option value="">Анализ отклонения от нормы ТЗ ТТ</option>
+        <option value="">Анализ отклонения от нормы OOS РЦ</option>
+        <option value="">Анализ отклонения от нормы OOS ТТ</option>
+        <option value="">Анализ отклонения от нормы УС РЦ -ТТ</option>
+        <option value="">Анализ отклонения от нормы УС поставщика</option>
+        <option value="">Процесс чистки данных</option>
+        <option value="">Расчет внутринедельной динамики</option>
+        <option value="">Расчет сезонности</option>
+        <option value="">Расчет прогноза продаж</option>
+        <option value="">Расчет праздничных коэффициентов</option>
+        <option value="">Расчет прогнозов новых товаров</option>
+        <option value="">Расчет прогнозов новых магазинов</option>
+        <option value="">Расчет промо коэффициентов</option>
+        <option value="">Расчет страхового запаса РЦ</option>
+        <option value="">Процедура округления РЦ</option>
+        <option value="">Расчет страхового запаса ТТ</option>
+        <option value="">Расчет МПО для  ТТ</option>
+        <option value="">Процедура округления ТТ</option>
+      </select>
+      <select class="form-select col" style="max-width: 150px;">
+        <option value="">Входные данные</option>
+        <option value="">Исполнитель</option>
+        <option value="">Инструмент</option>
+        <option value="">Результат</option>
+        <option value="">KPI</option>
+        <option value="">География</option>
+      </select>
+      <button class="btn btn-primary">Выгрузить</button>
+    </div>
+    <div class="table">
+      <table class="table__table">
+        <thead>
+          <tr>
+            <th>Главный процесс</th>
+            <th>Процесс</th>
+            <th>Входные данные</th>
+            <th>Оценка</th>
+            <th>Исполнитель</th>
+            <th>Оценка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования регулярного спроса</td>
+            <td>Чистый ряд данных. Коэффициенты</td>
+            <td>3 из 5</td>
+            <td>Отдел прогнозирования</td>
+            <td>3 из 5</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования регулярного спроса</td>
+            <td>Чистый ряд данных. Коэффициенты</td>
+            <td>3 из 5</td>
+            <td>Отдел прогнозирования</td>
+            <td>3 из 5</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования регулярного спроса</td>
+            <td>Чистый ряд данных. Коэффициенты</td>
+            <td>3 из 5</td>
+            <td>Отдел прогнозирования</td>
+            <td>3 из 5</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования регулярного спроса</td>
+            <td>Чистый ряд данных. Коэффициенты</td>
+            <td>3 из 5</td>
+            <td>Отдел прогнозирования</td>
+            <td>3 из 5</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования регулярного спроса</td>
+            <td>Чистый ряд данных. Коэффициенты</td>
+            <td>3 из 5</td>
+            <td>Отдел прогнозирования</td>
+            <td>3 из 5</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования регулярного спроса</td>
+            <td>Чистый ряд данных. Коэффициенты</td>
+            <td>3 из 5</td>
+            <td>Отдел прогнозирования</td>
+            <td>3 из 5</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования регулярного спроса</td>
+            <td>Чистый ряд данных. Коэффициенты</td>
+            <td>3 из 5</td>
+            <td>Отдел прогнозирования</td>
+            <td>3 из 5</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования регулярного спроса</td>
+            <td>Чистый ряд данных. Коэффициенты</td>
+            <td>3 из 5</td>
+            <td>Отдел прогнозирования</td>
+            <td>3 из 5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
