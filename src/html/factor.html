@@ -3,6 +3,137 @@
     <h1>Факторный анализ</h1>
   </header>
   <div>
-    <h2>Страница в работе</h2>
+    <div class="row align-items-start mb-3">
+      <div class="col-4">
+        <div class="column">
+          <h2 class="mb-3 text-center fw-bold">OOS</h2>
+          <select name="" id="" class="mb-2 form-select w-100">
+            <option value="">Незапланированное изменение цены промо (вниз)</option>
+            <option value="">Незапланированное изменение цены регулярка (вниз)</option>
+            <option value="">Незапланированная уценка (вниз)</option>
+            <option value="">Недопрогноз промо</option>
+            <option value="">Недопрогноз регулярный</option>
+            <option value="">Недопрогноз прогноз новинки промо</option>
+            <option value="">Недопрогноз прогноз новинки регулярный</option>
+            <option value="">Недопрогноз прогноз новой ТТ промо</option>
+            <option value="">Недопрогноз прогноз новой ТТ регулярный</option>
+            <option value="">Заниженный регулярный заказ на РЦ</option>
+            <option value="">Заниженный регулярный заказ на ТТ</option>
+            <option value="">Заниженный промо заказ на РЦ</option>
+            <option value="">Заниженный промо заказ на ТТ</option>
+            <option value="">Виртуальный остаток/несвоевременное списание на ТТ</option>
+            <option value="">Неоприходованный товар на ТТ</option>
+            <option value="">Заниженный заказ ТТ</option>
+            <option value="">Недопоставка поставщика</option>
+            <option value="">Опоздание поставщика</option>
+            <option value="">Некорректные остатки РЦ</option>
+            <option value="">Товар был, не отгрузили</option>
+          </select>
+          <div class="btn btn-primary d-block w-50 mx-auto">Настроить</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="column">
+          <h2 class="mb-3 text-center fw-bold">OS</h2>
+          <select name="" id="" class="mb-2 form-select w-100">
+            <option value="">Незапланированное изменение цены промо (вверх)</option>
+            <option value="">Незапланированное изменение цены регулярка (вверх)</option>
+            <option value="">Перепрогноз промо</option>
+            <option value="">Перепрогноз регулярный</option>
+            <option value="">Перепрогноз прогноз новинки промо</option>
+            <option value="">Перепрогноз прогноз новинки регулярный</option>
+            <option value="">Перепрогноз прогноз новой ТТ промо</option>
+            <option value="">Перепрогноз прогноз новой ТТ регулярный</option>
+            <option value="">Завышенный регулярный заказ на РЦ</option>
+            <option value="">Завышенный регулярный заказ на ТТ</option>
+            <option value="">Завышенный промо заказ на РЦ</option>
+            <option value="">Завышенный промо заказ на ТТ</option>
+            <option value="">Завышенный заказ ТТ            </option>
+          </select>
+          <div class="btn btn-primary d-block w-50 mx-auto">Настроить</div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center gap-4 mb-3">
+    <div class="d-flex align-items-center gap-4 col-5">
+      <select name="" id="" class="form-select w-50">
+        <option value="">Ценообразование</option>
+        <option value="">Прогнозирование</option>
+        <option value="">Товародвижение</option>
+        <option value="">Оперции</option>
+        <option value="">Коммерция</option>
+        <option value="">Логистика</option>
+      </select>
+      <select name="" id="" class="form-select w-50">
+        <option value="">Процесс управления промо ценой</option>
+      </select>
+    </div>
+    <div class="d-flex align-items-center gap-4">
+      <button type="button" class="btn btn-outline-primary">
+        Загрузить DNL
+      </button>
+      <button type="button" class="btn btn-primary">
+        Скачать EX
+      </button>
+    </div>
+    </div>
+    <div class="table">
+      <table class="table__table">
+        <thead>
+          <tr>
+            <th>Фактор</th>
+            <th>Как оцениваем</th>
+            <th>На что влияет OOS/OS</th>
+            <th>Департамент</th>
+            <th>Процесс</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Незапланированное изменение цены промо (вверх)</td>
+            <td>Цена выше на X% чем плановая промо (по которой считался прогноз)</td>
+            <td>OS</td>
+            <td>Ценообразование</td>
+            <td>Процесс управления промо ценой</td>
+          </tr>
+          <tr>
+            <td>Незапланированное изменение цены регулярка (вверх)</td>
+            <td>Цена выше на X% чем плановая регулярная (по которой считался прогноз)</td>
+            <td>OS</td>
+            <td>Прогнозирование</td>
+            <td>Процесс управления регулярной ценой</td>
+          </tr>
+          <tr>
+            <td>Незапланированное изменение цены промо (вниз)</td>
+            <td>Цена ниже на X% чем плановая промо (по которой считался прогноз)</td>
+            <td>OOS</td>
+            <td>Товародвижение</td>
+            <td>Процесс управления промо ценой</td>
+          </tr>
+          <tr>
+            <td>Незапланированное изменение цены регулярка (вниз)</td>
+            <td>Цена ниже на X% чем плановая регулярная (по которой считался прогноз)</td>
+            <td>OOS</td>
+            <td>Оперции</td>
+            <td>Процесс управления регулярной ценой</td>
+          </tr>
+          <tr>
+            <td>Незапланированное изменение цены регулярка (вниз)</td>
+            <td>Цена ниже на X% чем плановая регулярная (по которой считался прогноз)</td>
+            <td>OOS</td>
+            <td>Коммерция</td>
+            <td>Процесс управления регулярной ценой</td>
+          </tr>
+          <tr>
+            <td>Незапланированное изменение цены регулярка (вниз)</td>
+            <td>Цена ниже на X% чем плановая регулярная (по которой считался прогноз)</td>
+            <td>OOS</td>
+            <td>Логистика</td>
+            <td>Процесс управления регулярной ценой</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
