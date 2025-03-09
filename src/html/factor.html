@@ -48,36 +48,37 @@
             <option value="">Завышенный регулярный заказ на ТТ</option>
             <option value="">Завышенный промо заказ на РЦ</option>
             <option value="">Завышенный промо заказ на ТТ</option>
-            <option value="">Завышенный заказ ТТ            </option>
+            <option value="">Завышенный заказ ТТ </option>
           </select>
-          <div class="btn btn-primary d-block w-50 mx-auto">Настроить</div>
+          <div class="btn btn-primary d-block w-50 mx-auto" data-bs-toggle="modal" data-bs-target="#modalOs">Настроить
+          </div>
         </div>
       </div>
     </div>
     <div class="d-flex justify-content-between align-items-center gap-4 mb-3">
-    <div class="d-flex align-items-center gap-4 col-5">
-      <select name="" id="" class="form-select w-50">
-        <option value="">Ценообразование</option>
-        <option value="">Прогнозирование</option>
-        <option value="">Товародвижение</option>
-        <option value="">Оперции</option>
-        <option value="">Коммерция</option>
-        <option value="">Логистика</option>
-      </select>
-      <select name="" id="" class="form-select w-50">
-        <option value="">Процесс управления промо ценой</option>
-      </select>
+      <div class="d-flex align-items-center gap-4 col-5">
+        <select name="" id="" class="form-select w-50">
+          <option value="">Ценообразование</option>
+          <option value="">Прогнозирование</option>
+          <option value="">Товародвижение</option>
+          <option value="">Оперции</option>
+          <option value="">Коммерция</option>
+          <option value="">Логистика</option>
+        </select>
+        <select name="" id="" class="form-select w-50">
+          <option value="">Процесс управления промо ценой</option>
+        </select>
+      </div>
+      <div class="d-flex align-items-center gap-4">
+        <button type="button" class="btn btn-outline-primary">
+          Загрузить DNL
+        </button>
+        <button type="button" class="btn btn-primary">
+          Скачать EX
+        </button>
+      </div>
     </div>
-    <div class="d-flex align-items-center gap-4">
-      <button type="button" class="btn btn-outline-primary">
-        Загрузить DNL
-      </button>
-      <button type="button" class="btn btn-primary">
-        Скачать EX
-      </button>
-    </div>
-    </div>
-    <div class="table">
+    <div class="table mb-3">
       <table class="table__table">
         <thead>
           <tr>
@@ -131,9 +132,120 @@
             <td>Логистика</td>
             <td>Процесс управления регулярной ценой</td>
           </tr>
-          
+
         </tbody>
       </table>
     </div>
+    <div class="row align-items-start mb-3">
+      <div class="col-6">
+        <div class="column">
+          <h2 class="mb-3 text-center fw-bold">OOS</h2>
+          <canvas id="oosChart"></canvas>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="column">
+          <h2 class="mb-3 text-center fw-bold">OS</h2>
+          <canvas id="osChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalOs" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="moadlTimetableLabel">Фактор: Перепрогноз промо</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="" onsubmit="" class="form">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="osProcess" class="form-label">Связь с процессом:</label>
+                <select name="osProcess" id="osProcess" class="form-select mb-2">
+                  <option value="never">Расчет прогноза продаж промо</option>
+                  <option value="never">Процесс управления оценкой</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <h3>Настройка оценки</h3>
+              </div>
+              <div class="mb-3 row justify-content-between">
+                <label class="d-flex col-6 gap-3 align-items-center">
+                  <input type="checkbox" name="osBias" value="value" id="" class="form-check-input">
+                  BIAS
+                </label>
+                <label class="d-flex col-6 gap-3 align-items-center">
+                  Коэфф откл
+                  <input type="text" name="osBiasValue" disabled value="2%">
+                </label>
+              </div>
+              <div class="mb-3 row justify-content-between">
+                <label class="d-flex col-6 gap-3 align-items-center">
+                  <input type="checkbox" name="osError" value="value" id="" class="form-check-input">
+                  Профицитная ошибка
+                </label>
+                <label class="d-flex col-6 gap-3 align-items-center">
+                  Коэфф откл
+                  <input type="text" name="osErrorValue" disabled value="2%">
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal fade" id="modalOos" tabindex="-1" aria-labelledby="modalOosLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalOosLabel">Фактор: Перепрогноз промо</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="" onsubmit="" class="form">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="oosProcess" class="form-label">Связь с процессом:</label>
+                <select name="oosProcess" id="oosProcess" class="form-select mb-2">
+                  <option value="never">Расчет прогноза продаж промо</option>
+                  <option value="never">Процесс управления оценкой</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <h3>Настройка оценки</h3>
+              </div>
+              <div class="mb-3 row justify-content-between">
+                <label class="d-flex col-6 gap-3 align-items-center">
+                  <input type="checkbox" name="oosBias" value="value" id="" class="form-check-input">
+                  BIAS
+                </label>
+                <label class="d-flex col-6 gap-3 align-items-center">
+                  Коэфф откл
+                  <input type="text" name="oosBiasValue" disabled value="-2%">
+                </label>
+              </div>
+              <div class="mb-3 row justify-content-between">
+                <label class="d-flex col-6 gap-3 align-items-center">
+                  <input type="checkbox" name="oosError" value="value" id="" class="form-check-input">
+                  Профицитная ошибка
+                </label>
+                <label class="d-flex col-6 gap-3 align-items-center">
+                  Коэфф откл
+                  <input type="text" name="oosErrorValue" disabled value="-2%">
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
   </div>
+</div>
 </div>
