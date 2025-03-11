@@ -7,6 +7,7 @@ import './blocks/header'
 import './blocks/aside'
 import './blocks/content'
 import './blocks/loading'
+import './blocks/form'
 
 import './modules/data'
 import './modules/clustering'

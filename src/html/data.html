@@ -11,7 +11,7 @@
         <button type="button" class="d-block w-100 mb-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
           Расписание отправки
         </button>
-        <button type="button" class="d-block w-100 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
+        <button type="button" class="d-block w-100 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSet">
           Настроить набор
         </button>
       </div>
@@ -38,6 +38,38 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>Остатки</td>
+            <td>25.02.2025</td>
+            <td>15000</td>
+            <td>1000</td>
+            <td class="danger">93%</td>
+            <td>!!!</td>
+          </tr>
+          <tr>
+            <td>Продажи</td>
+            <td>25.02.2025</td>
+            <td>15000</td>
+            <td>14989</td>
+            <td>0%	</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Остатки</td>
+            <td>25.02.2025</td>
+            <td>15000</td>
+            <td>1000</td>
+            <td class="danger">93%</td>
+            <td>!!!</td>
+          </tr>
+          <tr>
+            <td>Продажи</td>
+            <td>25.02.2025</td>
+            <td>15000</td>
+            <td>14989</td>
+            <td>0%	</td>
+            <td></td>
+          </tr>
           <tr>
             <td>Остатки</td>
             <td>25.02.2025</td>
@@ -86,7 +118,7 @@
               <div class="mb-3 row">
                 <div class="col-3"><label for="dataEnd" class="form-label">Окончание</label></div>
                 <div class="col-9">
-                  <select name="dataEnd" id="dataEnd" class="form-select mb-2">
+                  <select name="dataEnd" id="dataEnd" class="form-select mb-2" onchange="">
                     <option value="never">Никогда</option>
                     <option value="after">Спустя</option>
                     <option value="date">Дата</option>
@@ -102,6 +134,138 @@
               <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalSet" tabindex="-1" aria-labelledby="moadlSetLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="moadlSetLabel">Настроить набор</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body fs-5 row">
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Рассчитано
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Остатки ТТ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Остатки РЦ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Остатки ТТ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Остатки РЦ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Продажи, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              История заказов и приходов РЦ
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              История заказов и приходов ТТ
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Прочие движения ТТ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Прочие движения РЦ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              История промо
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Страховой запас
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              МПО
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Прогноз продаж
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Товарный классификатор
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Логистические данные по товарам
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Справочник ТТ/каналов сбыта
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Справочник складов
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Справочник поставщиков
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Активная матрица товаров
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Виды остатков
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Виды продаж
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Прочие свойства товара
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Ставка НДС
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Себестоимость
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Цена продажи 
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Товар-аналог
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Виды движений
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Планограмма 
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+          </div>
         </div>
       </div>
     </div>
