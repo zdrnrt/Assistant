@@ -43,11 +43,11 @@
         </header>
         <nav id="nav" class="aside__nav aside-nav">
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); dataOpen();">
-            <img src="./public/images/icons/table.svg" alt="Данные" class="nav-item__icon">
+            <img src="./public/images/icons/table.svg" class="nav-item__icon">
             <div class="nav-item__title">Данные</div>
           </button>
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); clusteringOpen();" data-bs-toggle="collapse" data-bs-parent="nav">
-            <img src="./public/images/icons/params.svg" alt="Данные" class="nav-item__icon">
+            <img src="./public/images/icons/params.svg" class="nav-item__icon">
             <div class="nav-item__title">Кластеризация</div>
           </button>
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); normingOpen();" data-bs-toggle="collapse" data-bs-parent="nav">
@@ -59,9 +59,9 @@
             <div class="nav-item__title">Цели</div>
           </button>
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#map-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
-            <img src="./public/images/icons/settings.svg" alt="Данные" class="nav-item__icon">
+            <img src="./public/images/icons/settings.svg" class="nav-item__icon">
             <div class="nav-item__title">Карта процессов</div>
-            <img src="./public/images/icons/angle.svg" alt="Данные" class="nav-item__angle">
+            <img src="./public/images/icons/angle.svg" class="nav-item__angle">
           </button>
           <div id="map-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); mapSettingOpen();">
@@ -71,10 +71,19 @@
               <div class="nav-item__title">Анализ</div>
             </button>
           </div>
-          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); factorOpen();">
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#factor-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
             <img src="./public/images/icons/table.svg" alt="Факторный анализ" class="nav-item__icon">
             <div class="nav-item__title">Факторный анализ</div>
+            <img src="./public/images/icons/angle.svg" class="nav-item__angle">
           </button>
+          <div id="factor-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); factorSettingOpen();">
+              <div class="nav-item__title">Настройка</div>
+            </button>
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); factorAnalysisOpen();">
+              <div class="nav-item__title">Анализ</div>
+            </button>
+          </div>
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); scenariosOpen();">
             <img src="./public/images/icons/table.svg" alt="Сценарии" class="nav-item__icon">
             <div class="nav-item__title">Сценарии</div>
@@ -82,7 +91,7 @@
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#tasks-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
             <img src="./public/images/icons/table.svg" alt="Постановщик задач" class="nav-item__icon">
             <div class="nav-item__title">Постановщик задач</div>
-            <img src="./public/images/icons/angle.svg" alt="Данные" class="nav-item__angle">
+            <img src="./public/images/icons/angle.svg" class="nav-item__angle">
           </button>
           <div id="tasks-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); taskSettingOpen();">
