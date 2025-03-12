@@ -19,6 +19,8 @@ export default defineConfig({
 				taskSetting: resolve(__dirname, 'src/html/taskSetting.html'),
 				taskАnalytic: resolve(__dirname, 'src/html/taskАnalytic.html'),
 				taskList: resolve(__dirname, 'src/html/taskList.html'),
+				information: resolve(__dirname, 'src/html/information.html'),
+				chatBot: resolve(__dirname, 'src/html/chatBot.html'),
 			}
 		}
 	}
