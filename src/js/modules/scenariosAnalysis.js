@@ -1,7 +1,7 @@
 import { Chart } from 'chart.js/auto'
 
-window.scenariosOpen = function() {
-  fetch('./src/html/scenarios.html')
+window.scenariosAnalysisOpen = function() {
+  fetch('./src/html/scenariosAnalysis.html')
       .then(response => {
           if (!response.ok) {
               throw new Error('Реакция сети' + response.statusText);
