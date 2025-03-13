@@ -10,6 +10,7 @@ export default defineConfig({
 				index: resolve(__dirname, "index.html"),
 				data: resolve(__dirname, 'src/html/data.html'),
 				dataInfo: resolve(__dirname, 'src/html/dataInfo.html'),
+				dataOptimisation: resolve(__dirname, 'src/html/dataOptimisation.html'),
 				clustering: resolve(__dirname, 'src/html/clustering.html'),
 				norming: resolve(__dirname, 'src/html/norming.html'),
 				targets: resolve(__dirname, 'src/html/targets.html'),

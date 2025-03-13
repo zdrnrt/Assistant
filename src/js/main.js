@@ -12,6 +12,7 @@ import './blocks/button'
 
 import './modules/data'
 import './modules/dataInfo'
+import './modules/dataOptimisation'
 import './modules/clustering'
 import './modules/norming'
 import './modules/targets'
