@@ -1,6 +1,6 @@
 <div class="page__content page-content data-page">
   <header class="page-content__header">
-    <h1>Факторный анализ</h1>
+    <h1>Факторный анализ: Настройка</h1>
   </header>
   <div>
     <div class="row align-items-start mb-3">
@@ -29,7 +29,7 @@
             <option value="">Некорректные остатки РЦ</option>
             <option value="">Товар был, не отгрузили</option>
           </select>
-          <div class="btn btn-primary d-block w-50 mx-auto">Настроить</div>
+          <div class="btn btn-primary d-block w-50 mx-auto" data-bs-toggle="modal" data-bs-target="#modalOos">Настроить</div>
         </div>
       </div>
       <div class="col-4">
@@ -66,16 +66,28 @@
           <option value="">Логистика</option>
         </select>
         <select name="" id="" class="form-select w-50">
+          <option value="" selected>Все</option>
           <option value="">Процесс управления промо ценой</option>
+          <option value="">Процесс управления регулярной ценой</option>
+          <option value="">Процесс управления уценкой</option>
+          <option value="">Расчет прогноза продаж промо</option>
+          <option value="">Расчет прогноза продаж регулярный</option>
+          <option value="">Расчет прогнозов новых товаров промо</option>
+          <option value="">Расчет прогнозов новых товаров регулярный</option>
+          <option value="">Расчет прогнозов новых магазинов промо</option>
+          <option value="">Расчет прогнозов новых магазинов регулярный</option>
+          <option value="">Процесс регулярного заказа РЦ</option>
+          <option value="">Процесс регулярного заказа на ТТ</option>
+          <option value="">Процесс промо заказа РЦ</option>
+          <option value="">Процесс промо заказа на ТТ</option>
+          <option value="">Учет товара на ТТ</option>
+          <option value="">Приемка товара на ТТ</option>
+          <option value="">Заказ товара на ТТ</option>
+          <option value="">Работа с недопоставкой поставщика</option>
+          <option value="">Работа с опозданиями поставщика</option>
+          <option value="">Процесс учета остатков на РЦ</option>
+          <option value="">Процесс отгрузки на РЦ</option>
         </select>
-      </div>
-      <div class="d-flex align-items-center gap-4">
-        <button type="button" class="btn btn-outline-primary">
-          Загрузить DNL
-        </button>
-        <button type="button" class="btn btn-primary">
-          Скачать EX
-        </button>
       </div>
     </div>
     <div class="table mb-3">
@@ -136,25 +148,11 @@
         </tbody>
       </table>
     </div>
-    <div class="row align-items-start mb-3">
-      <div class="col-6">
-        <div class="column">
-          <h2 class="mb-3 text-center fw-bold">OOS</h2>
-          <canvas id="oosChart"></canvas>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="column">
-          <h2 class="mb-3 text-center fw-bold">OS</h2>
-          <canvas id="osChart"></canvas>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="modalOs" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
+    <div class="modal fade" id="modalOs" tabindex="-1" aria-labelledby="modalOsLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="moadlTimetableLabel">Фактор: Перепрогноз промо</h5>
+            <h5 class="modal-title" id="modalOsLabel">Фактор: Перепрогноз промо</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form id="" onsubmit="" class="form">
@@ -169,24 +167,24 @@
               <div class="mb-3">
                 <h3>Настройка оценки</h3>
               </div>
-              <div class="mb-3 row justify-content-between">
+              <div class="form-group mb-3 row justify-content-between">
                 <label class="d-flex col-6 gap-3 align-items-center">
-                  <input type="checkbox" name="osBias" value="value" id="" class="form-check-input">
+                  <input type="checkbox" name="osBias" value="value" id="" class="form-check-input" onchange="formParameterValue(this);">
                   BIAS
                 </label>
                 <label class="d-flex col-6 gap-3 align-items-center">
-                  Коэфф откл
-                  <input type="text" name="osBiasValue" disabled value="2%">
+                  <span class="flex-shrink-0">Коэфф откл</span>
+                  <input type="text" name="osBiasValue" disabled value="2" class="form-control">
                 </label>
               </div>
-              <div class="mb-3 row justify-content-between">
+              <div class="form-group mb-3 row justify-content-between">
                 <label class="d-flex col-6 gap-3 align-items-center">
-                  <input type="checkbox" name="osError" value="value" id="" class="form-check-input">
+                  <input type="checkbox" name="osError" value="value" id="" class="form-check-input" onchange="formParameterValue(this);">
                   Профицитная ошибка
                 </label>
                 <label class="d-flex col-6 gap-3 align-items-center">
-                  Коэфф откл
-                  <input type="text" name="osErrorValue" disabled value="2%">
+                  <span class="flex-shrink-0">Коэфф откл</span>
+                  <input type="text" name="osErrorValue" disabled value="2" class="form-control">
                 </label>
               </div>
             </div>
@@ -217,24 +215,24 @@
               <div class="mb-3">
                 <h3>Настройка оценки</h3>
               </div>
-              <div class="mb-3 row justify-content-between">
+              <div class="form-group mb-3 row justify-content-between">
                 <label class="d-flex col-6 gap-3 align-items-center">
-                  <input type="checkbox" name="oosBias" value="value" id="" class="form-check-input">
+                  <input type="checkbox" name="oosBias" value="value" id="" class="form-check-input" onchange="formParameterValue(this);">
                   BIAS
                 </label>
                 <label class="d-flex col-6 gap-3 align-items-center">
-                  Коэфф откл
-                  <input type="text" name="oosBiasValue" disabled value="-2%">
+                  <span class="flex-shrink-0">Коэфф откл</span>
+                  <input type="text" name="oosBiasValue" disabled value="-2" class="form-control">
                 </label>
               </div>
-              <div class="mb-3 row justify-content-between">
+              <div class="form-group mb-3 row justify-content-between">
                 <label class="d-flex col-6 gap-3 align-items-center">
-                  <input type="checkbox" name="oosError" value="value" id="" class="form-check-input">
+                  <input type="checkbox" name="oosError" value="value" id="" class="form-check-input" onchange="formParameterValue(this);">
                   Профицитная ошибка
                 </label>
                 <label class="d-flex col-6 gap-3 align-items-center">
-                  Коэфф откл
-                  <input type="text" name="oosErrorValue" disabled value="-2%">
+                  <span class="flex-shrink-0">Коэфф откл</span>
+                  <input type="text" name="oosErrorValue" disabled value="-2" class="form-control">
                 </label>
               </div>
             </div>
