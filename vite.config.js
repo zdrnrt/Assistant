@@ -19,7 +19,7 @@ export default defineConfig({
 				scenariosSetting: resolve(__dirname, 'src/html/scenariosSetting.html'),
 				scenariosAnalysis: resolve(__dirname, 'src/html/scenariosAnalysis.html'),
 				taskSetting: resolve(__dirname, 'src/html/taskSetting.html'),
-				taskАnalytic: resolve(__dirname, 'src/html/taskАnalytic.html'),
+				taskAnalytic: resolve(__dirname, 'src/html/taskAnalytic.html'),
 				taskList: resolve(__dirname, 'src/html/taskList.html'),
 				information: resolve(__dirname, 'src/html/information.html'),
 				chatBot: resolve(__dirname, 'src/html/chatBot.html'),

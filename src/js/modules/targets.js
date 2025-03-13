@@ -1,5 +1,4 @@
 import Chart from "chart.js/auto";
-import { type } from "jquery";
 
 window.targetsOpen = function () {
   loadingToggle();
