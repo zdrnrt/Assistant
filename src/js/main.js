@@ -11,6 +11,7 @@ import './blocks/form'
 import './blocks/button'
 
 import './modules/data'
+import './modules/dataInfo'
 import './modules/clustering'
 import './modules/norming'
 import './modules/targets'

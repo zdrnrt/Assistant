@@ -42,10 +42,19 @@
             
         </header>
         <nav id="nav" class="aside__nav aside-nav">
-          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); dataOpen();">
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#data-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
             <img src="./public/images/icons/table.svg" class="nav-item__icon">
             <div class="nav-item__title">Данные</div>
+            <img src="./public/images/icons/angle.svg" class="nav-item__angle">
           </button>
+          <div id="data-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); dataInfoOpen();">
+              <div class="nav-item__title">Полнота и актуальнсть</div>
+            </button>
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); dataOptimisationOpen();">
+              <div class="nav-item__title">Оптимизация данных</div>
+            </button>
+          </div>
           <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); clusteringOpen();" data-bs-toggle="collapse" data-bs-parent="nav">
             <img src="./public/images/icons/params.svg" class="nav-item__icon">
             <div class="nav-item__title">Кластеризация</div>

@@ -1,0 +1,336 @@
+<div class="page__content page-content data-page">
+  <header class="page-content__header">
+    <h1>Данные: Полнота и актуальнсть</h1>
+  </header>
+  <div>
+    <div class="row mb-3">
+      <div class="col-10 row">
+        <div class="col-4">
+          <div class="h1 text-center">Olap кубы</div>
+          <canvas id="dataInfoOlap"></canvas>
+          <div class="mt-2 text-center">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetData">Настроить набор данных</button>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="h1 text-center">Автозаказ</div>
+          <canvas id="dataInfoAuto"></canvas>
+          <div class="mt-2 text-center">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetData">Настроить набор данных</button>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="h1 text-center">Прогноз</div>
+          <canvas id="dataInfoForecast"></canvas>
+          <div class="mt-2 text-center">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetData">Настроить набор данных</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <button class="btn btn-primary d-block mb-3">Добавить инструмент</button>
+        <button class="btn btn-primary d-block mb-3">Расписание проверки</button>
+        <button class="btn btn-primary d-block">Расписание отправки</button>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <canvas id="dataInfoChart"></canvas>
+      </div>
+      <div class="col-6">
+        <div class="mb-3 text-end">
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-save fa-2x"></i>
+          </button>
+        </div>
+        <div class="table">
+          <table class="table__table">
+            <thead>
+              <tr>
+                <th>Тип данных</th>
+                <th>Дата загрузки</th>
+                <th>Целевое значение</th>
+                <th>Фактическое значение</th>
+                <th>% откл</th>
+                <th>Критичность</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Остатки</td>
+                <td>25.02.2025</td>
+                <td>15000</td>
+                <td>1000</td>
+                <td class="danger">93%</td>
+                <td>!!!</td>
+              </tr>
+              <tr>
+                <td>Продажи</td>
+                <td>25.02.2025</td>
+                <td>15000</td>
+                <td>14989</td>
+                <td>0%	</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Остатки</td>
+                <td>25.02.2025</td>
+                <td>15000</td>
+                <td>1000</td>
+                <td class="danger">93%</td>
+                <td>!!!</td>
+              </tr>
+              <tr>
+                <td>Продажи</td>
+                <td>25.02.2025</td>
+                <td>15000</td>
+                <td>14989</td>
+                <td>0%	</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Остатки</td>
+                <td>25.02.2025</td>
+                <td>15000</td>
+                <td>1000</td>
+                <td class="danger">93%</td>
+                <td>!!!</td>
+              </tr>
+              <tr>
+                <td>Продажи</td>
+                <td>25.02.2025</td>
+                <td>15000</td>
+                <td>14989</td>
+                <td>0%	</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+      
+    <div class="modal fade" id="modalSetData" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalSetDataLabel">Настройки набора данных</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="" onsubmit="dataFilter(event);" class="form">
+            <div class="modal-body">
+              <div class="row">
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Остатки ТТ
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Остатки РЦ
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Продажи
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Списания ТТ
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Списания РЦ
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Прогноз продаж
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Активная матрица товаров
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Планограмма 
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Кратность короба
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  Минимальная партия
+                </label>
+              </div>
+              <div class="col-6">
+                <label class="form-check-label d-block">
+                  <input class="form-check-input" type="checkbox" name="">
+                  График заказа/доставки
+                </label>
+              </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalSet" tabindex="-1" aria-labelledby="moadlSetLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="moadlSetLabel">Настроить набор</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body fs-5 row">
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Рассчитано
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Остатки ТТ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Остатки РЦ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Остатки ТТ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Остатки РЦ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Продажи, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              История заказов и приходов РЦ
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              История заказов и приходов ТТ
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Прочие движения ТТ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Прочие движения РЦ, шт/руб
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              История промо
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Страховой запас
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              МПО
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Прогноз продаж
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Товарный классификатор
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Логистические данные по товарам
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Справочник ТТ/каналов сбыта
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Справочник складов
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Справочник поставщиков
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Активная матрица товаров
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Виды остатков
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Виды продаж
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Прочие свойства товара
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Ставка НДС
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Себестоимость
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Цена продажи 
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Товар-аналог
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Виды движений
+            </label>
+            <label class="d-block col-6 mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Планограмма 
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
