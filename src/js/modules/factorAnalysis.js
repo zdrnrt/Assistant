@@ -1,6 +1,5 @@
 import { Chart, plugins } from "chart.js/auto";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-Chart.register(ChartDataLabels);
 
 
 window.factorAnalysisOpen = function() {
@@ -35,6 +34,7 @@ window.factorOsChartDraw = function() {
         ]
       };
     window.osChart = new Chart(document.getElementById("osChart"), {
+      plugins: [ChartDataLabels],
       type: "doughnut",
       data: data,
       options: {
@@ -68,6 +68,7 @@ window.factorOosChartDraw = function() {
     const config = {
         type: "doughnut",
         data: data,
+        plugins: [ChartDataLabels],
         options: {
             plugins: {
               datalabels: {
