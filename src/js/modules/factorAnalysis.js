@@ -1,4 +1,7 @@
-import { Chart } from "chart.js";
+import { Chart, plugins } from "chart.js/auto";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+Chart.register(ChartDataLabels);
+
 
 window.factorAnalysisOpen = function() {
   fetch('./src/html/factorAnalysis.html')
@@ -31,14 +34,23 @@ window.factorOsChartDraw = function() {
           }
         ]
       };
-    const config = {
-        type: "doughnut",
-        data: data,
-        // options: {
-            // responsive: true,
-        // },
-    };
-    window.osChart = new Chart(document.getElementById('osChart'), config)
+    window.osChart = new Chart(document.getElementById("osChart"), {
+      type: "doughnut",
+      data: data,
+      options: {
+        plugins: {
+          datalabels: {
+            display: true,
+            align: "bottom",
+            backgroundColor: "#fff",
+            borderRadius: 3,
+            font: {
+              size: 14,
+            },
+          },
+        },
+      },
+    });
 }
 
 window.factorOosChartDraw = function() {
@@ -56,6 +68,19 @@ window.factorOosChartDraw = function() {
     const config = {
         type: "doughnut",
         data: data,
+        options: {
+            plugins: {
+              datalabels: {
+                display: true,
+                align: "bottom",
+                backgroundColor: "#fff",
+                borderRadius: 3,
+                font: {
+                  size: 14,
+                },
+              },
+            },
+          },
         // options: {
             // responsive: true,
         // },
