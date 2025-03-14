@@ -4,185 +4,274 @@
   </header>
   <div>
     <div class="row align-items-start mb-3">
-      <div class="col-5 h-100">
+      <div class="col-2 h-100">
         <div class="column">
           <header class="column__header">Признаки кластеров</header>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="clusteringType">
-            Тип магазина
-          </label>
+
+          <div class="mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clusteringType">
+              Тип магазина
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringSquare">
+              Площадь магазина
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringTools">
+              Оборудование
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringCompetitors">
+              Конкуренты
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringAssortment">
+              Ассортимент
+            </label>
+          </div>
         </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="clasteringSquare">
-            Площадь магазина
-          </label>
-        </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="clasteringTools">
-            Оборудование
-          </label>
-        </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="clasteringCompetitors">
-            Конкуренты
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="clasteringAssortment">
-            Ассортимент
-          </label>
-        </div>
-      </div>
 
       </div>
-      <div class="col-5 h-100">
+      <div class="col-3 h-100">
         <div class="column">
           <header class="column__header">Вариант кластризации</header>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="clasteringVariants" value="median">
-            Медиана
-          </label>
-          <!-- <button class="btn btn-outline-secondary ms-3 px-2 py-0">Настроить</button> -->
+          <div class="form-group row align-items-center mb-3">
+            <div class="col-4">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value"
+                    onchange="formParameterValue(this);">
+                  Медиана
+                </label>
+              </div>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control form-control--value" name="clasteringVariantsValue">
+            </div>
+            <!-- <button class="btn btn-outline-secondary ms-3 px-2 py-0">Настроить</button> -->
+          </div>
+          <div class="form-group row align-items-center mb-3">
+            <div class="col-4">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value"
+                    onchange="formParameterValue(this);">
+                  K-means
+                </label>
+                <!-- <button class="btn btn-outline-secondary ms-3 px-2 py-0">Настроить</button> -->
+              </div>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control form-control--value" name="clasteringVariantsValue">
+            </div>
+          </div>
+          <div class="form-group row align-items-center mb-3">
+            <div class="col-4">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value"
+                    onchange="formParameterValue(this);">
+                  DBSCAN
+                </label>
+              </div>
+            </div>
+            <div class="col-8">
+
+              <input type="text" class="form-control form-control--value" name="clasteringVariantsValue">
+            </div>
+            <!-- <button class="btn btn-outline-secondary ms-3 px-2 py-0">Настроить</button> -->
+          </div>
+          <div class="border-top">
+            <div class="pt-2 pb-2 fw-bold">Оценка качества кластеров</div>
+            <div class="d-flex">
+              <div class="col-6">
+                <div class="border border-end-0 d-flex">
+                  <div class="col p-1 border-end">VRS</div>
+                  <div class="col p-1 text-end">0,5</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="border d-flex">
+                  <div class="col p-1 border-end">D-Bindex</div>
+                  <div class="col p-1 text-end danger">2</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-check mb-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="clasteringVariants" value="kmeans">
-            K-means
-          </label>
-          <!-- <button class="btn btn-outline-secondary ms-3 px-2 py-0">Настроить</button> -->
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="clasteringVariants" value="dbscan">
-            DBSCAN
-          </label>
-          <!-- <button class="btn btn-outline-secondary ms-3 px-2 py-0">Настроить</button> -->
-        </div>
-      </div>
       </div>
       <div class="col-2 h-100">
         <!-- <div class="column"> -->
-          <button class="w-100 mb-3 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Рассчитать
-          </button>
-          <button class="w-100 btn btn-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Применить
-          </button>
+        <button class="w-100 mb-3 btn btn-outline-primary"
+          onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Рассчитать
+        </button>
+        <button class="w-100 btn btn-primary"
+          onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Применить
+        </button>
+        <button type="button" class="d-block w-100 mt-5 btn btn-primary"
+          onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Запустить оценку
+        </button>
         <!-- </div> -->
       </div>
     </div>
-    <div class="d-flex justify-content-end align-items-center gap-4 mb-3">
-      <button type="button" class="btn btn-outline-primary btn-color-primary">
-        <i class="fa fa-file-upload fa-2x"></i>
-      </button>
-      <button type="button" class="btn btn-primary">
-        <i class="fa fa-file-download fa-2x"></i>
-      </button>
-|
-      <button type="button" class="btn btn-outline-primary btn-color-primary">
-        <i class="fa fa-upload fa-2x"></i>
-      </button>
-      <button type="button" class="btn btn-primary">
-        <i class="fa fa-download fa-2x"></i>
-      </button>
+    <div class="row">
+      <div class="col-5">
+        <div class="d-flex justify-content-end align-items-center gap-2 mb-1">
+          <button type="button" class="btn btn-outline-primary btn-color-primary">
+            <i class="fa fa-filter"></i>
+          </button>
+          <button type="button" class="btn btn-outline-primary btn-color-primary">
+            <i class="fa fa-sliders-h"></i>
+          </button>
+        </div>
+        <canvas id="clusteringChart" height="300" style="max-height: 300px;"></canvas>
+      </div>
+      <div class="col-7">
+        <div class="d-flex justify-content-end align-items-center gap-2 mb-1">
+          <button type="button" class="btn btn-outline-primary btn-color-primary">
+            <i class="fa fa-file-upload"></i>
+          </button>
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-save"></i>
+          </button>
+        </div>
+        <div class="table">
+          <table class="table__table">
+            <thead>
+              <tr>
+                <th>Территория</th>
+                <th>Населенный пункт</th>
+                <th>ФИО РГМ</th>
+                <th>Торг&nbsp;пл. М<sup>2</sup></th>
+                <th>Формат</th>
+                <th>Адрес</th>
+                <th>Кластер</th>
+                <th>Признак</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Иванов Иван Иванович</td>
+                <td>870</td>
+                <td>А1</td>
+                <td>Ириновский пр. 24 корп C</td>
+                <td>1</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Иванов Иван Иванович</td>
+                <td>850</td>
+                <td>А1</td>
+                <td>СПб , Марата ул. 25</td>
+                <td>1</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Иванов Иван Иванович</td>
+                <td>910</td>
+                <td>А1</td>
+                <td>Спб, Шпалерная, 49</td>
+                <td>2</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Иванов Иван Иванович</td>
+                <td>830</td>
+                <td>А1</td>
+                <td>Санкт-Петербург, Левый пер 1, стр1</td>
+                <td>1</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Цветков Павел Николаевич</td>
+                <td>801</td>
+                <td>А1</td>
+                <td>Санкт –Петербург,  Невский пр, 25</td>
+                <td>1</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Цветков Павел Николаевич</td>
+                <td>1325</td>
+                <td>С3</td>
+                <td>Санкт-Петербург, ул. К.Заслонова, д.19 лит.Б</td>
+                <td>2</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Дорожная Галина Петровна</td>
+                <td>1599</td>
+                <td>С3</td>
+                <td>пр. М.Тореза  ул., д. 105</td>
+                <td>4</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Васильев Денис Сергеевич</td>
+                <td>1601</td>
+                <td>С3</td>
+                <td>Звенигородская улица, 36</td>
+                <td>4</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Цветков Павел Николаевич</td>
+                <td>1001</td>
+                <td>С3</td>
+                <td>г. Санкт-Петербург, Красное село, пр Ленина, 15</td>
+                <td>3</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                <td>Северо-Запад</td>
+                <td>Санкт-Петербург</td>
+                <td>Цветков Павел Николаевич</td>
+                <td>1598</td>
+                <td>С3</td>
+                <td>СПб, г.Колпино, Звездная ул., д. 86, лит. Б</td>
+                <td>4</td>
+                <td>auto</td>
+              </tr>
+              <tr>
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <div class="table">
-      <table class="table__table">
-        <thead>
-          <tr>
-            <th>Адрес</th>
-            <th>Номер</th>
-            <th>Кластер</th>
-            <th>Тип магазина</th>
-            <th>Площадь</th>
-            <th>Оборудование</th>
-            <th>Конкуренты</th>
-            <th>Ассортимент</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-
   </div>
 </div>
