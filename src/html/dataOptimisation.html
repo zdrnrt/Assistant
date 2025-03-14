@@ -1,187 +1,168 @@
 <div class="page__content page-content data-page">
   <header class="page-content__header">
-    <h1>Данные: Полнота и актуальнсть</h1>
+    <h1>Данные: Оптимизация данных</h1>
   </header>
   <div>
     <div class="row mb-3">
       <div class="col-10 row">
-        <div class="col-4">
-          <div class="h1 text-center">Olap кубы</div>
-          <canvas id="dataInfoOlap"></canvas>
-          <div class="mt-2 text-center">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetData">Настроить набор данных</button>
+        <div class="col-3 py-3">
+          <div class="column">
+            <h2 class="text-center">Кратность короба</h2>
+            <div class="data-optimisation-result mt-2 mb-2">
+              <div class="text-center">15%</div>
+            </div>
+            <button class="btn btn-primary btn-lg w-100">Правила оценки</button>
           </div>
         </div>
-        <div class="col-4">
-          <div class="h1 text-center">Автозаказ</div>
-          <canvas id="dataInfoAuto"></canvas>
-          <div class="mt-2 text-center">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetData">Настроить набор данных</button>
+        <div class="col-3 py-3">
+          <div class="column">
+            <h2 class="text-center">Мин партия</h2>
+            <div class="data-optimisation-result mt-2 mb-2">
+              <div class="text-center">20%</div>
+            </div>
+            <button class="btn btn-primary btn-lg w-100">Правила оценки</button>
           </div>
         </div>
-        <div class="col-4">
-          <div class="h1 text-center">Прогноз</div>
-          <canvas id="dataInfoForecast"></canvas>
-          <div class="mt-2 text-center">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetData">Настроить набор данных</button>
+        <div class="col-3 py-3">
+          <div class="column">
+            <h2 class="text-center">График</h2>
+            <div class="data-optimisation-result mt-2 mb-2">
+              <div class="text-center">30%</div>
+            </div>
+            <button class="btn btn-primary btn-lg w-100">Правила оценки</button>
+          </div>
+        </div>
+        <div class="col-3 py-3">
+          <div class="column">
+            <h2 class="text-center">Планограмма</h2>
+            <div class="data-optimisation-result mt-2 mb-2">
+              <div class="text-center">45%</div>
+            </div>
+            <button class="btn btn-primary btn-lg w-100">Правила оценки</button>
           </div>
         </div>
       </div>
-      <div class="col-2">
-        <button class="btn btn-primary d-block mb-3">Добавить инструмент</button>
-        <button class="btn btn-primary d-block mb-3">Расписание проверки</button>
-        <button class="btn btn-primary d-block">Расписание отправки</button>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <canvas id="dataInfoChart"></canvas>
-      </div>
-      <div class="col-6">
-        <div class="mb-3 text-end">
-          <button type="button" class="btn btn-primary">
-            <i class="fa fa-save fa-2x"></i>
-          </button>
-        </div>
-        <div class="table">
-          <table class="table__table">
-            <thead>
-              <tr>
-                <th>Тип данных</th>
-                <th>Дата загрузки</th>
-                <th>Целевое значение</th>
-                <th>Фактическое значение</th>
-                <th>% откл</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Остатки</td>
-                <td align="end">25.02.2025</td>
-                <td align="end">15000</td>
-                <td align="end">1000</td>
-                <td align="end" class="danger">93%</td>
-              </tr>
-              <tr>
-                <td>Продажи</td>
-                <td align="end">25.02.2025</td>
-                <td align="end">15000</td>
-                <td align="end">14989</td>
-                <td align="end">0%</td>
-              </tr>
-              <tr>
-                <td>Остатки</td>
-                <td align="end">25.02.2025</td>
-                <td align="end">15000</td>
-                <td align="end">1000</td>
-                <td align="end" class="danger">93%</td>
-              </tr>
-              <tr>
-                <td>Продажи</td>
-                <td align="end">25.02.2025</td>
-                <td align="end">15000</td>
-                <td align="end">14989</td>
-                <td align="end">0%</td>
-              </tr>
-              <tr>
-                <td>Остатки</td>
-                <td align="end">25.02.2025</td>
-                <td align="end">15000</td>
-                <td align="end">1000</td>
-                <td align="end" class="danger">93%</td>
-              </tr>
-              <tr>
-                <td>Продажи</td>
-                <td align="end">25.02.2025</td>
-                <td align="end">15000</td>
-                <td align="end">14989</td>
-                <td align="end">0%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="col-2 pt-3">
+        <button type="button" class="d-block w-100 mb-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSet">
+          Добавить данные
+        </button>
+        <button type="button" class="d-block w-100 mb-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
+          Расписание проверки
+        </button>
+        <button type="button" class="d-block w-100 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSet">
+          Расписание отправки
+        </button>
+        <button type="button" class="d-block w-100 mt-5 btn btn-primary">
+          Запустить оценку
+        </button>
       </div>
     </div>
-    
+    <div class="mb-3 text-end">
+      <button type="button" class="btn btn-primary">
+        <i class="fa fa-save fa-2x"></i>
+      </button>
+    </div>
+    <div class="table">
+      <table class="table__table">
+        <thead>
+          <tr>
+            <th>Данные</th>
+            <th>Товар</th>
+            <th>AS IS</th>
+            <th>TO BE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Кратность</td>
+            <td>Зеленый горошек</td>
+            <td>18</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>Минпартия</td>
+            <td>Пиво</td>
+            <td>100</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>Кратность</td>
+            <td>Зеленый горошек</td>
+            <td>18</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>Минпартия</td>
+            <td>Пиво</td>
+            <td>100</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>Кратность</td>
+            <td>Зеленый горошек</td>
+            <td>18</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>Минпартия</td>
+            <td>Пиво</td>
+            <td>100</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>Кратность</td>
+            <td>Зеленый горошек</td>
+            <td>18</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>Минпартия</td>
+            <td>Пиво</td>
+            <td>100</td>
+            <td>20</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
       
-    <div class="modal fade" id="modalSetData" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
+    <div class="modal fade" id="modalTimetable" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalSetDataLabel">Настройки набора данных</h5>
+            <h5 class="modal-title" id="moadlTimetableLabel">Настройки расписания</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form id="" onsubmit="dataFilter(event);" class="form">
             <div class="modal-body">
-              <div class="row">
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Остатки ТТ
-                </label>
+              <div class="mb-3">
+                <label for="dataInterval" class="form-label">Интервал</label>
+                <input type="text" class="form-control" id="dataInterval">
               </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Остатки РЦ
-                </label>
+              <div class="mb-3">
+                <label for="dataRepeat" class="form-label">Дни повторения</label>
+                <input type="text" class="form-control" id="dataRepeat">
               </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Продажи
-                </label>
+              <div class="mb-3">
+                <label for="dataTime" class="form-label">Время</label>
+                <input type="text" class="form-control" id="dataTime">
               </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Списания ТТ
-                </label>
+              <div class="mb-3">
+                <label for="dataBegin" class="form-label">Начало</label>
+                <input type="text" class="form-control" id="dataBegin">
               </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Списания РЦ
-                </label>
+              <div class="mb-3 row">
+                <div class="col-3"><label for="dataEnd" class="form-label">Окончание</label></div>
+                <div class="col-9">
+                  <select name="dataEnd" id="dataEnd" class="form-select mb-2" onchange="">
+                    <option value="never">Никогда</option>
+                    <option value="after">Спустя</option>
+                    <option value="date">Дата</option>
+                  </select>
+                  <div>
+                    <input type="number" class="form-control" id="dataEndValue">
+                  </div>
+                </div>
               </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Прогноз продаж
-                </label>
-              </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Активная матрица товаров
-                </label>
-              </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Планограмма 
-                </label>
-              </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Кратность короба
-                </label>
-              </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  Минимальная партия
-                </label>
-              </div>
-              <div class="col-6">
-                <label class="form-check-label d-block">
-                  <input class="form-check-input" type="checkbox" name="">
-                  График заказа/доставки
-                </label>
-              </div>
-            </div>
             </div>
             <div class="modal-footer">
               <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
