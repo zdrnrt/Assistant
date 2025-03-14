@@ -15,85 +15,102 @@
             <option value="normaUs">Норма УС</option>
             <option value="normaAccuracy">Норма точности прогноза</option>
           </select>
-          <button class="btn btn-primary">Настроить</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalParams">Настроить</button>
         </div>
       </div>
       <div class="col-2 col-offset-1">
         <div class="column">
           <button class="d-block mb-3 w-100 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">Настроить расписание</button>
-          <button class="d-block mb-3 w-100 btn btn-outline-primary">Запуск расчета</button>
-          <button class="d-block w-100 btn btn-primary">Применить</button>
+          <button class="d-block mb-3 w-100 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Запуск расчета
+          </button>
+          <button class="d-block w-100 btn btn-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Применить
+          </button>
         </div>
       </div>
 
     </div>
     <div class="d-flex justify-content-end align-items-center gap-4 mb-3">
-      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
-        Загрузить
-      </button>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
-        Скачать
-      </button>
-
+      <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
+        <button type="button" class="btn btn-outline-primary btn-color-primary">
+          <i class="fa fa-file-upload"></i>
+        </button>
+        <button type="button" class="btn btn-primary">
+          <i class="fa fa-save"></i>
+        </button>
+      </div>
     </div>
     <div class="table">
       <table class="table__table">
         <thead>
           <tr>
-            <th>Тип</th>
-            <th>Кластер</th>
-            <th>Классификатор</th>
-            <th>Норма</th>
+            <th>Магазин</th>
+            <th>Код товара</th>
+            <th>Наименование</th>
+            <th>МИН</th>
+            <th>МАКС</th>
+            <th>Признак</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
+            <td>812</td>
+            <td>187</td>
+            <td>Торт Черемушки Чародейка Классика 650г</td>
+            <td>5</td>
+            <td>9</td>
+            <td>auto</td>
           </tr>
           <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
+            <td>812</td>
+            <td>214</td>
+            <td>С/пр Улитка греч со шпинатом и сыром 100г</td>
             <td>4</td>
+            <td>7</td>
+            <td>auto</td>
           </tr>
           <tr>
-            <td>1</td>
-            <td>2</td>
+            <td>812</td>
+            <td>267</td>
+            <td>Вафли Коломен.Каприччио 220г</td>
             <td>3</td>
-            <td>4</td>
+            <td>5</td>
+            <td>auto</td>
           </tr>
           <tr>
+            <td>812</td>
+            <td>275</td>
+            <td>Мармелад Фрутелла жев.Медвежата 70г</td>
             <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
+            <td>8</td>
+            <td>auto</td>
           </tr>
           <tr>
+            <td>812</td>
+            <td>277</td>
+            <td>Мармелад Фрутелла жев.Звери 70г</td>
             <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
+            <td>8</td>
+            <td>auto</td>
           </tr>
           <tr>
-            <td>1</td>
-            <td>2</td>
+            <td>812</td>
+            <td>278</td>
+            <td>Ирис Meller с шоколадом 38г</td>
             <td>3</td>
-            <td>4</td>
+            <td>5</td>
+            <td>auto</td>
           </tr>
           <tr>
-            <td>1</td>
+            <td>812</td>
+            <td>282</td>
+            <td>Драже Ментос 37г Фрукты жевательное (св/у)</td>
             <td>2</td>
-            <td>3</td>
             <td>4</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
+            <td>auto</td>
           </tr>
         </tbody>
       </table>
@@ -103,7 +120,6 @@
   </div>
 </div>
 
-<!-- TODO подумать над переносом в шаблон -->
 <div class="modal fade" id="modalTimetable" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -132,7 +148,7 @@
           <div class="mb-3 row">
             <div class="col-3"><label for="dataEnd" class="form-label">Окончание</label></div>
             <div class="col-9">
-              <select name="dataEnd" id="dataEnd" class="form-select mb-2">
+              <select name="dataEnd" id="dataEnd" class="form-select mb-2" onchange="">
                 <option value="never">Никогда</option>
                 <option value="after">Спустя</option>
                 <option value="date">Дата</option>
@@ -140,6 +156,66 @@
               <div>
                 <input type="number" class="form-control" id="dataEndValue">
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- TODO подумать над переносом в шаблон -->
+<div class="modal fade" id="modalParams" tabindex="-1" aria-labelledby="modalParamsLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalParamsLabel">Норма ТЗ ТТ</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <div class="modal-body row">
+          <div class="col-6">
+            <div class="h4 mb-3">Настройка Минимума</div>
+            <div class="form-check mb-2">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+                СЗ от колебаний
+              </label>
+            </div>
+            <div class="form-check mb-2">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+                СЗ от точности прогноза
+              </label>
+            </div>
+            <div class="form-check mb-2">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+                СЗ от уровня сервиса
+              </label>
+            </div>
+            <button type="button" class="btn btn-primary">
+              Индивидуальные настройки
+            </button>
+          </div>
+          <div class="col-6">
+            <div class="h4 mb-3">Настройка Максимума</div>
+            <div>Рабочий + Страховой + МПО = округление до мин партии</div>
+            <div class="form-check mb-2">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+                Страховой запас
+              </label>
+            </div>
+            <div class="form-check mb-2">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+                МПО
+              </label>
             </div>
           </div>
         </div>

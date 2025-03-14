@@ -24,10 +24,12 @@
     color: $cl-additon!important;
   }
   .spinner-border{
+    display: none;
     visibility: hidden;
   }
   &--loading{
     .spinner-border{
+      display: inline-block;
       visibility: visible;
     }
   }

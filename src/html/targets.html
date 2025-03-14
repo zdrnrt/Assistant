@@ -7,24 +7,35 @@
       <div class="col-5 h-100">
         <div class="column">
           <header class="column__header">Загрузка целей</header>
-          <select class="form-select" onchange="targetsTargetsChange();">
+          <select class="form-select d-block mb-3" onchange="targetsTargetsChange();">
             <option value="Internal">Внешние</option>
             <option value="External">Внутренние</option>
           </select>
           <!-- TODO подумать над именованием параметров -->
-          <select id="targetsInternal" class="d-block mt-3 form-select">
+          <select id="targetsInternal" class="d-block mb-3 form-select">
             <option value="profit">Прибыль</option>
             <option value="sales">Продажи</option>
             <option value="offs">Списания</option>
             <option value="openTt">Открытия ТТ</option>
           </select>
-          <select id="targetsExternal" class="d-block d-none mt-3 form-select">
+          <select id="targetsExternal" class="d-block d-none mb-3 form-select">
             <option value="reserve">Торварный запас </option>
             <option value="presentation">Представленность</option>
             <option value="us">УС</option>
           </select>
-          <button class="d-block mt-3 mb-3 btn btn-outline-primary">Загрузить</button>
-          <button class="d-block btn btn-primary">Применить</button>
+
+          <button class="d-block w-50 mb-3 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Обновить
+          </button>
+          <button class="d-block w-50 mb-3 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Обновить все
+          </button>
+          <button class="d-block w-50 btn btn-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Применить
+          </button>
         </div>
       </div>
       <div class="col-5 offset-1 h-100">
@@ -87,12 +98,14 @@
         </label>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center gap-4">
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
-          Загрузить
-        </button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
-          Скачать
-        </button>
+        <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
+          <button type="button" class="btn btn-outline-primary btn-color-primary">
+            <i class="fa fa-file-upload"></i>
+          </button>
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-save"></i>
+          </button>
+        </div>
       </div>
 
     </div>
@@ -100,23 +113,79 @@
       <table class="table__table">
         <thead>
           <tr>
+            <th>Регион</th>
             <th>Цель</th>
-            <!-- <th>Номер</th> -->
-            <!-- <th>Кластер</th> -->
-            <!-- <th>Тип магазина</th> -->
-            <!-- <th>Площадь</th> -->
-            <!-- <th>Оборудование</th> -->
-            <!-- <th>Конкуренты</th> -->
-            <!-- <th>Ассортимент</th> -->
+            <th>Магазин</th>
+            <th>Код товара</th>
+            <th>Наименование</th>
+            <th>МИН</th>
+            <th>МАКС</th>
+            <th>Признак</th>
+            <th>Stock_дата</th>
+            <th>Отклонение</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>1. Снижение товарного запаса на X</td></tr>
-          <tr><td>2. Привести товарный запас в нормативный коридор</td></tr>
-          <tr><td>3. Увеличить доступность</td></tr>
-          <tr><td>4. Снизить потери </td></tr>
-          <tr><td>5. Максимизировать прибыль </td></tr>
-          <tr><td>6. Увеличить продажи</td></tr>
+          <tr><td>СПб</td>
+            <td>Товарный запас</td>
+            <td>812</td>
+            <td>187</td>
+            <td>Торт Черемушки Чародейка Классика 650г</td>
+            <td>5</td>
+            <td>9</td>
+            <td>auto</td>
+            <td>15</td>
+            <td>Over</td></tr>
+          <tr><td>СПб</td>
+            <td>Товарный запас</td>
+            <td>812</td>
+            <td>214</td>
+            <td>С/пр Улитка греч со шпинатом и сыром 100г</td>
+            <td>4</td>
+            <td>7</td>
+            <td>auto</td>
+            <td>6</td>
+            <td>Norma</td></tr>
+          <tr><td>СПб</td>
+            <td>Товарный запас</td>
+            <td>812</td>
+            <td>267</td>
+            <td>Вафли Коломен.Каприччио 220г</td>
+            <td>3</td>
+            <td>5</td>
+            <td>auto</td>
+            <td>5</td>
+            <td>Norma</td></tr>
+          <tr><td>СПб</td>
+            <td>Товарный запас</td>
+            <td>812</td>
+            <td>275</td>
+            <td>Мармелад Фрутелла жев.Медвежата 70г</td>
+            <td>10	</td>
+            <td>8</td>
+            <td>auto</td>
+            <td>2</td>
+            <td>OOS</td></tr>
+          <tr><td>СПб</td>
+            <td>Товарный запас</td>
+            <td>812</td>
+            <td>277</td>
+            <td>Мармелад Фрутелла жев.Звери 70г</td>
+            <td>10	</td>
+            <td>8</td>
+            <td>auto</td>
+            <td>3</td>
+            <td>OOS</td></tr>
+          <tr><td>СПб</td>
+            <td>Товарный запас</td>
+            <td>812</td>
+            <td>278</td>
+            <td>Ирис Meller с шоколадом 38г</td>
+            <td>3</td>
+            <td>5</td>
+            <td>auto</td>
+            <td>4</td>
+            <td>Norma</td></tr>
         </tbody>
       </table>
     </div>

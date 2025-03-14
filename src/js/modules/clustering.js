@@ -1,4 +1,4 @@
-import { Chart } from "chart.js/auto";
+import { Chart, plugins } from "chart.js/auto";
 
 window.clusteringOpen = function () {
   fetch("./src/html/clustering.html")
@@ -59,6 +59,11 @@ window.clusteringChartDraw = function () {
   ]; // Add data values to array
   // End Defining data
   var options = {
+    plugins: {
+        legend: {
+            display: false
+        }
+    },
     responsive: true, // Instruct chart js to respond nicely.
     maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
   };
