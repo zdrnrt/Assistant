@@ -19,6 +19,7 @@
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.8",
     "chartjs-plugin-datalabels": "^2.2.0",
-    "jquery": "^3.7.1"
+    "jquery": "^3.7.1",
+    "xlsx": "^0.18.5"
   }
 }

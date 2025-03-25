@@ -1,5 +1,6 @@
 import { Modal } from "bootstrap/dist/js/bootstrap.min";
 import { Chart } from "chart.js/auto";
+import * as XLSX from 'xlsx/xlsx.mjs';
 
 window.dataInfoOpen = function () {
   loadingToggle();
@@ -28,6 +29,11 @@ window.dataFilter = function (event) {
   const result = new FormData(form);
   console.log(result);
 };
+
+window.dataInfoDownload = function () {
+  var workbook = XLSX.utils.table_to_book(document.getElementById('dataInfoTable'));
+  XLSX.writeFile(workbook, `Report.xlsx`)
+}
 
 window.dataInfoChartDraw = function () {
   const chart = document.getElementById("dataInfoChart");
