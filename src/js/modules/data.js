@@ -1,5 +1,3 @@
-import { Modal } from "bootstrap/dist/js/bootstrap.min";
-
 window.dataOpen = function() {
 loadingToggle()
   fetch('./src/html/data.html')

@@ -1,5 +1,3 @@
-import { Modal } from "bootstrap/dist/js/bootstrap.min";
-
 window.mapSettingOpen = function() {
   fetch('./src/html/mapSetting.html')
       .then(response => {

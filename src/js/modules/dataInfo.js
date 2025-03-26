@@ -1,4 +1,4 @@
-import { Modal } from "bootstrap/dist/js/bootstrap.min";
+import { Modal } from "bootstrap";
 import { Chart } from "chart.js/auto";
 import * as XLSX from 'xlsx/xlsx.mjs';
 
@@ -32,7 +32,7 @@ window.dataFilter = function (event) {
 
 window.dataInfoDownload = function () {
   var workbook = XLSX.utils.table_to_book(document.getElementById('dataInfoTable'));
-  XLSX.writeFile(workbook, `Report.xlsx`)
+  XLSX.writeFile(workbook, `ассистент_данные_полнота_и_актуальность.xlsx`)
 }
 
 window.dataInfoChartDraw = function () {
