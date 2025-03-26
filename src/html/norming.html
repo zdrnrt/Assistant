@@ -7,25 +7,29 @@
       <div class="col-5 h-100">
         <div class="column">
           <header class="column__header">Настройка параметров нормы</header>
-          <select class="d-block mb-3 form-select">
+          <select id="normingSelect" class="d-block mb-3 form-select">
             <option value="normaRc">Норма товарного запаса РЦ</option>
             <option value="normaTt">Норма товарного запаса ТТ</option>
-            <option value="normOosRc">Норма OOS РЦ</option>
+            <option value="normаOosRc">Норма OOS РЦ</option>
             <option value="normaOosTt">Норма OOS ТТ</option>
-            <option value="normaUs">Норма УС</option>
+            <option value="normaUs">Норма УС поставщик</option>
+            <option value="normaUsRcTt">Норма УС РЦ-ТТ</option>
             <option value="normaAccuracy">Норма точности прогноза</option>
           </select>
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalParams">Настроить</button>
+          <button class="btn btn-primary" onclick="normingModalOpen();">Настроить</button>
         </div>
       </div>
-      <div class="col-2 col-offset-1">
+      <div class="col-3 col-offset-1">
         <div class="column">
-          <button class="d-block mb-3 w-100 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">Настроить расписание</button>
-          <button class="d-block mb-3 w-100 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <button class="d-block mb-3 w-100 btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalTimetable">Настроить расписание</button>
+          <button class="d-block mb-3 w-100 btn btn-outline-primary"
+            onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Запуск расчета
           </button>
-          <button class="d-block w-100 btn btn-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <button class="d-block w-100 btn btn-primary"
+            onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Применить
           </button>
@@ -35,16 +39,16 @@
     </div>
     <div class="d-flex justify-content-end align-items-center gap-4 mb-3">
       <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
-        <button type="button" class="btn btn-outline-primary btn-color-primary">
+        <button type="button" class="btn btn-outline-primary btn-color-primary" onclick="normingUpload();">
           <i class="fa fa-file-upload"></i>
         </button>
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" onclick="normingDownload();">
           <i class="fa fa-save"></i>
         </button>
       </div>
     </div>
     <div class="table">
-      <table class="table__table">
+      <table id="normingTable" class="table__table">
         <thead>
           <tr>
             <th>Магазин</th>
@@ -115,7 +119,7 @@
         </tbody>
       </table>
     </div>
-    
+
 
   </div>
 </div>
@@ -146,7 +150,7 @@
             <input type="text" class="form-control" id="dataBegin">
           </div>
           <div class="mb-3 row">
-            <div class="col-3"><label for="dataEnd" class="form-label">Окончание</label></div>
+            <div class="col-3 pt-4"><label for="dataEnd" class="form-label">Окончание</label></div>
             <div class="col-9">
               <select name="dataEnd" id="dataEnd" class="form-select mb-2" onchange="">
                 <option value="never">Никогда</option>
@@ -168,7 +172,334 @@
   </div>
 </div>
 
-<!-- TODO подумать над переносом в шаблон -->
+<div class="modal fade" id="normaRc" tabindex="-1" aria-labelledby="normaRcLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="normaRcLabel">Норма ТЗ РЦ</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <input type="hidden" name="type" value="normaRc">
+        <div class="modal-body">
+          <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
+          <div class="form-check mb-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              СЗ от колебаний
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              СЗ от точности прогноза
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              СЗ от уровня сервиса
+            </label>
+          </div>
+          <div class="mb-3 text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Индивидуальные настройки
+            </button>
+          </div>
+          <div class="h4 mb-3 pb-2 border-bottom">Настройка Максимума</div>
+          <div class="form-check mb-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              Страховой запас
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              МПО
+            </label>
+          </div>
+          <div class="h4 mb-3 pb-2 border-bottom">Учет вместимости РЦ</div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Настроить
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="normaTt" tabindex="-1" aria-labelledby="normaTtLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="normaTtLabel">Норма ТЗ ТТ</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <input type="hidden" name="type" value="normaTt">
+        <div class="modal-body">
+          <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
+          <div class="form-check mb-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              СЗ от колебаний
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              СЗ от точности прогноза
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              СЗ от уровня сервиса
+            </label>
+          </div>
+          <div class="mb-3 text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Индивидуальные настройки
+            </button>
+          </div>
+          <div class="h4 mb-3 pb-2 border-bottom">Настройка Максимума</div>
+          <div class="form-check mb-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              Страховой запас
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
+              МПО
+            </label>
+          </div>
+          <div class="h4 mb-3 pb-2 border-bottom">Учет вместимости ТТ</div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Настроить
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="normаOosRc" tabindex="-1" aria-labelledby="normаOosRcLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="normаOosRcLabel">Норма OOS РЦ</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <input type="hidden" name="type" value="normаOosRc">
+        <div class="modal-body">
+          <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
+          <div class="mb-2 row align-items-center">
+              <div class="form-check col-6">
+                <label class="form-check-label">
+                  <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
+                  Медиана
+                </label>
+              </div>
+            <div class="col-6 text-center">
+              <button class="btn btn-outline-primary">Период</button>
+            </div>
+          </div>
+          <div class="mb-2 row align-items-center">
+            <div class="form-check col-6">
+              <label class="form-check-label">
+                <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMax" value="value">
+                Максимум
+              </label>
+            </div>
+            <div class="col-6 text-center">
+              <button class="btn btn-outline-primary">Период</button>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Индивидуальные настройки
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="normaUs" tabindex="-1" aria-labelledby="normaUsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="normaUsLabel">Норма OOS РЦ</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <input type="hidden" name="type" value="normаOosRc">
+        <div class="modal-body">
+          <div class="mb-2 row align-items-center">
+              <div class="form-check col-6">
+                <label class="form-check-label">
+                  <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
+                  Медиана
+                </label>
+              </div>
+            <div class="col-6 text-center">
+              <button class="btn btn-outline-primary">Период</button>
+            </div>
+          </div>
+          <div class="mb-2 row align-items-center">
+            <div class="form-check col-6">
+              <label class="form-check-label">
+                <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMax" value="value">
+                Максимум
+              </label>
+            </div>
+            <div class="col-6 text-center">
+              <button class="btn btn-outline-primary">Период</button>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Индивидуальные настройки
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="normaUsRcTt" tabindex="-1" aria-labelledby="normaUsRcTtLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="normaUsRcTtLabel">Норма УС РЦ-ТТ</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <input type="hidden" name="type" value="normаOosRc">
+        <div class="modal-body">
+              <div class="mb-2 form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
+                  Медиана кластера
+                </label>
+              </div>
+            <div class="mb-2 form-check">
+              <label class="form-check-label">
+                <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMax" value="value">
+                Максимум кластера
+              </label>
+            </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Индивидуальные настройки
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="normaOosTt" tabindex="-1" aria-labelledby="normaOosTtLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="normaOosTtLabel">Норма OOS TT</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <input type="hidden" name="type" value="normаOosRc">
+        <div class="modal-body">
+          <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
+          <div class="mb-2 form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
+                  Медиана кластера
+                </label>
+              </div>
+            <div class="form-check mb-2">
+              <label class="form-check-label">
+                <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMax" value="value">
+                Максимум кластера
+              </label>
+            </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Индивидуальные настройки
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="normaAccuracy" tabindex="-1" aria-labelledby="normaAccuracyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="normaAccuracyLabel">Норма точности прогноза</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="" onsubmit="dataFilter(event);" class="form">
+        <input type="hidden" name="type" value="normаOosRc">
+        <div class="modal-body">
+          <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
+          <div class="mb-2 form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
+                  Медиана кластера
+                </label>
+              </div>
+            <div class="form-check mb-2">
+              <label class="form-check-label">
+                <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMax" value="value">
+                Максимум кластера
+              </label>
+            </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-primary">
+              Индивидуальные настройки
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="modalParams" tabindex="-1" aria-labelledby="modalParamsLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
