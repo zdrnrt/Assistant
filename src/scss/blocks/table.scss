@@ -24,6 +24,15 @@
       left: 0;
     }
   }
+  &--nowrap{
+    max-width: 100%;
+    white-space: nowrap;
+    th,
+    td{
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
   thead {
     tr:first-child{
       border-top: none;
