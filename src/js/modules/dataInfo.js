@@ -28,6 +28,8 @@ window.dataFilter = function (event) {
   const form = event.target;
   const result = new FormData(form);
   console.log(result);
+  Modal.getInstance(form.closest('.modal')).hide();
+
 };
 
 window.dataInfoDownload = function () {
@@ -36,7 +38,8 @@ window.dataInfoDownload = function () {
 }
 
 window.dataInfoChartDraw = function () {
-  const chart = document.getElementById("dataInfoChart");
+  const chartIn = document.getElementById("dataInfoChartIn");
+  const chartOut = document.getElementById("dataInfoChartOut");
   const labels = [
     "1.2",
     "2.2",
@@ -86,7 +89,14 @@ window.dataInfoChartDraw = function () {
     },
   ];
 
-  window.dataInfoChart = new Chart(chart, {
+  window.dataInfoChartIn = new Chart(chartIn, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: datasets,
+    },
+  });
+  window.dataInfoChartOut = new Chart(chartOut, {
     type: "line",
     data: {
       labels: labels,
@@ -96,17 +106,20 @@ window.dataInfoChartDraw = function () {
 };
 
 window.dataInfoSpeedDraw = function () {
-  const chartOlap = document.getElementById("dataInfoOlap").getContext("2d");
-  const chartAuto = document.getElementById("dataInfoAuto").getContext("2d");
-  const chartForecast = document.getElementById("dataInfoForecast").getContext("2d");
+  const chartOlapIn = document.getElementById("dataInfoOlapIn").getContext("2d");
+  const chartAutoIn = document.getElementById("dataInfoAutoIn").getContext("2d");
+  const chartForecastIn = document.getElementById("dataInfoForecastIn").getContext("2d");
 
-  const config = {
+  const chartOlapOut = document.getElementById("dataInfoOlapOut").getContext("2d");
+  const chartAutoOut = document.getElementById("dataInfoAutoOut").getContext("2d");
+  const chartForecastOut = document.getElementById("dataInfoForecastOut").getContext("2d");
+
+  const configOlapIn = {
     type: "doughnut",
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: ["In", "Grey"],
       datasets: [
         {
-          label: "# of Votes",
           data: [85, 15],
           backgroundColor: ["#69c97a", "#cdd5e1"],
           borderColor: ["#69c97a", "#cdd5e1"],
@@ -127,8 +140,141 @@ window.dataInfoSpeedDraw = function () {
       },
     },
   };
+  const configOlapOut = {
+    type: "doughnut",
+    data: {
+      labels: ["Out", "Grey"],
+      datasets: [
+        {
+          data: [85, 15],
+          backgroundColor: ["#555cf5", "#cdd5e1"],
+          borderColor: ["#555cf5", "#cdd5e1"],
+          needleValue: 78,
+          meterValue: 1.07,
+          borderWidth: 1,
+          cutout: "75%",
+          circumference: 180,
+          rotation: -90,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  };
+  const configAutoIn = {
+    type: "doughnut",
+    data: {
+      labels: ["In", "Grey"],
+      datasets: [
+        {
+          data: [85, 15],
+          backgroundColor: ["#69c97a", "#cdd5e1"],
+          borderColor: ["#69c97a", "#cdd5e1"],
+          needleValue: 78,
+          meterValue: 1.07,
+          borderWidth: 1,
+          cutout: "75%",
+          circumference: 180,
+          rotation: -90,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  };
+  const configAutoOut = {
+    type: "doughnut",
+    data: {
+      labels: ["Out", "Grey"],
+      datasets: [
+        {
+          data: [85, 15],
+          backgroundColor: ["#555cf5", "#cdd5e1"],
+          borderColor: ["#555cf5", "#cdd5e1"],
+          needleValue: 78,
+          meterValue: 1.07,
+          borderWidth: 1,
+          cutout: "75%",
+          circumference: 180,
+          rotation: -90,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  };
+  const configForecastIn = {
+    type: "doughnut",
+    data: {
+      labels: ["In", "Grey"],
+      datasets: [
+        {
+          data: [85, 15],
+          backgroundColor: ["#69c97a", "#cdd5e1"],
+          borderColor: ["#69c97a", "#cdd5e1"],
+          needleValue: 78,
+          meterValue: 1.07,
+          borderWidth: 1,
+          cutout: "75%",
+          circumference: 180,
+          rotation: -90,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  };
+  const configForecastOut = {
+    type: "doughnut",
+    data: {
+      labels: ["Out", "Grey"],
+      datasets: [
+        {
+          data: [85, 15],
+          backgroundColor: ["#555cf5", "#cdd5e1"],
+          borderColor: ["#555cf5", "#cdd5e1"],
+          needleValue: 78,
+          meterValue: 1.07,
+          borderWidth: 1,
+          cutout: "75%",
+          circumference: 180,
+          rotation: -90,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  };
 
-  const dataInfoOlap = new Chart(chartOlap, config);
-  const dataInfoAuto = new Chart(chartAuto, config);
-  const dataInfoForecast = new Chart(chartForecast, config);
+  const dataInfoOlapIn = new Chart(chartOlapIn, configOlapIn);
+  const dataInfoAutoIn = new Chart(chartAutoIn, configAutoIn);
+  const dataInfoForecastIn = new Chart(chartForecastIn, configForecastIn);
+  const dataInfoOlapOut = new Chart(chartOlapOut, configOlapOut);
+  const dataInfoAutoOut = new Chart(chartAutoOut, configAutoOut);
+  const dataInfoForecastOut = new Chart(chartForecastOut, configForecastOut);
 };

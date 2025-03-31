@@ -3,96 +3,191 @@
     <h1>Данные: Полнота и актуальнсть</h1>
   </header>
   <div>
-    <div class="row mb-3">
-      <div class="col-10 row">
-        <div class="col-4">
-          <div class="h1 text-center">Olap кубы</div>
-          <canvas id="dataInfoOlap"></canvas>
-          <div class="">
-            <button class="btn btn-outline-secondary mx-2"><i class="fa"></i></button>
-            <button class="btn btn-outline-secondary mx-2"><i class="fa"></i></button>
+    <div id="dataInfoIn" class="mb-5">
+      <h2 class="mb-4 fw-bold h1">Вход</h2>
+      <div class="row mb-3">
+        <div class="col-10 row">
+          <div class="col-4">
+            <div class="h2 text-center">Olap кубы</div>
+            <canvas id="dataInfoOlapIn"></canvas>
+            <div class="mt-2 text-center">
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор
+                данных</button>
+            </div>
           </div>
-          <div class="mt-2 text-center">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор
-              данных</button>
+          <div class="col-4">
+            <div class="h2 text-center">Автозаказ</div>
+            <canvas id="dataInfoAutoIn"></canvas>
+            <div class="mt-2 text-center">
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор
+                данных</button>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="h2 text-center">Прогноз</div>
+            <canvas id="dataInfoForecastIn"></canvas>
+            <div class="mt-2 text-center">
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить
+                набор данных</button>
+            </div>
           </div>
         </div>
-        <div class="col-4">
-          <div class="h1 text-center">Автозаказ</div>
-          <canvas id="dataInfoAuto"></canvas>
-          <div class="mt-2 text-center">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор
-              данных</button>
-          </div>
+        <div class="col-2">
+          <!-- <button class="btn btn-primary d-block mb-3">Добавить инструмент</button> -->
+          <button class="btn btn-primary d-block mb-3" data-bs-toggle="modal"
+          data-bs-target="#modalTimetable">Расписание проверки</button>
+          <button class="btn btn-primary d-block" data-bs-toggle="modal"
+          data-bs-target="#modalTimetable">Расписание отправки</button>
         </div>
-        <div class="col-4">
-          <div class="h1 text-center">Прогноз</div>
-          <canvas id="dataInfoForecast"></canvas>
-          <div class="mt-2 text-center">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить
-              набор данных</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-2">
-        <button class="btn btn-primary d-block mb-3">Добавить инструмент</button>
-        <button class="btn btn-primary d-block mb-3">Расписание проверки</button>
-        <button class="btn btn-primary d-block">Расписание отправки</button>
-      </div>
 
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <canvas id="dataInfoChart"></canvas>
       </div>
-      <div class="col-6">
-        <div class="mb-3 text-end">
-          <button type="button" class="btn btn-primary" onclick="dataInfoDownload();">
-            <i class="fa fa-save fa-2x"></i>
-          </button>
+      <div class="row">
+        <div class="col-6">
+          <canvas id="dataInfoChartIn"></canvas>
         </div>
-        <div class="table">
-          <table id="dataInfoTable" class="table__table">
-            <thead>
-              <tr>
-                <th>Тип данных</th>
-                <th>Дата загрузки</th>
-                <th>Целевое значение</th>
-                <th>Фактическое значение</th>
-                <th>% откл</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Остатки ТТ</td>
-                <td>25.02.2025</td>
-                <td>15 000</td>
-                <td>1 000</td>
-                <td class="danger">-93%</td>
-              </tr>
-              <tr>
-                <td>Продажи</td>
-                <td>25.02.2025</td>
-                <td>15 000</td>
-                <td>14 989</td>
-                <td> 0%</td>
-              </tr>
-              <tr>
-                <td>Остатки РЦ</td>
-                <td>25.02.2025</td>
-                <td>9 000</td>
-                <td>8 990</td>
-                <td> 0%</td>
-              </tr>
-              <tr>
-                <td>Планограмма</td>
-                <td>25.02.2025</td>
-                <td>100 000</td>
-                <td>200 000</td>
-                <td class="danger">100%</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-6">
+          <div class="mb-3 text-end">
+            <button type="button" class="btn btn-primary" onclick="dataInfoDownload();">
+              <i class="fa fa-save fa-2x"></i>
+            </button>
+          </div>
+          <div class="table">
+            <table id="dataInfoTableIn" class="table__table">
+              <thead>
+                <tr>
+                  <th>Тип данных</th>
+                  <th>Дата загрузки</th>
+                  <th>Целевое значение</th>
+                  <th>Фактическое значение</th>
+                  <th>% откл</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dataInfoOut">
+      <h2 class="mb-4 fw-bold h1">Выход</h2>
+      <div class="row mb-3">
+        <div class="col-10 row">
+          <div class="col-4">
+            <div class="h2 text-center">Olap кубы</div>
+            <canvas id="dataInfoOlapOut"></canvas>
+            <div class="mt-2 text-center">
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор
+                данных</button>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="h2 text-center">Автозаказ</div>
+            <canvas id="dataInfoAutoOut"></canvas>
+            <div class="mt-2 text-center">
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор
+                данных</button>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="h2 text-center">Прогноз</div>
+            <canvas id="dataInfoForecastOut"></canvas>
+            <div class="mt-2 text-center">
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить
+                набор данных</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <!-- <button class="btn btn-primary d-block mb-3">Добавить инструмент</button> -->
+          <button class="btn btn-primary d-block mb-3" data-bs-toggle="modal"
+          data-bs-target="#modalTimetable">Расписание проверки</button>
+          <button class="btn btn-primary d-block" data-bs-toggle="modal"
+          data-bs-target="#modalTimetable">Расписание отправки</button>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <canvas id="dataInfoChartOut"></canvas>
+        </div>
+        <div class="col-6">
+          <div class="mb-3 text-end">
+            <button type="button" class="btn btn-primary" onclick="dataInfoDownload();">
+              <i class="fa fa-save fa-2x"></i>
+            </button>
+          </div>
+          <div class="table">
+            <table id="dataInfoTableOut" class="table__table">
+              <thead>
+                <tr>
+                  <th>Тип данных</th>
+                  <th>Дата загрузки</th>
+                  <th>Целевое значение</th>
+                  <th>Фактическое значение</th>
+                  <th>% откл</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -463,6 +558,53 @@
       </div>
     </div>
 
+    <div class="modal fade" id="modalTimetable" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="moadlTimetableLabel">Настройки расписания</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="" onsubmit="dataFilter(event);" class="form">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="dataInterval" class="form-label">Интервал</label>
+                <input type="text" class="form-control" id="dataInterval">
+              </div>
+              <div class="mb-3">
+                <label for="dataRepeat" class="form-label">Дни повторения</label>
+                <input type="text" class="form-control" id="dataRepeat">
+              </div>
+              <div class="mb-3">
+                <label for="dataTime" class="form-label">Время</label>
+                <input type="text" class="form-control" id="dataTime">
+              </div>
+              <div class="mb-3">
+                <label for="dataBegin" class="form-label">Начало</label>
+                <input type="text" class="form-control" id="dataBegin">
+              </div>
+              <div class="mb-3 row">
+                <div class="col-3 pt-4"><label for="dataEnd" class="form-label">Окончание</label></div>
+                <div class="col-9">
+                  <select name="dataEnd" id="dataEnd" class="form-select mb-2" onchange="">
+                    <option value="never">Никогда</option>
+                    <option value="after">Спустя</option>
+                    <option value="date">Дата</option>
+                  </select>
+                  <div>
+                    <input type="number" class="form-control" id="dataEndValue">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>
