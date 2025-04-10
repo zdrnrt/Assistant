@@ -11,7 +11,7 @@
             <div class="data-optimisation-result mt-2 mb-2">
               <div class="text-center">15%</div>
             </div>
-            <button class="btn btn-primary btn-lg w-100">Правила оценки</button>
+            <button class="btn btn-primary btn-lg w-100" type="button" data-bs-toggle="modal" data-bs-target="#modalRule">Правила оценки</button>
           </div>
         </div>
         <div class="col-3 py-3">
@@ -20,7 +20,7 @@
             <div class="data-optimisation-result mt-2 mb-2">
               <div class="text-center">20%</div>
             </div>
-            <button class="btn btn-primary btn-lg w-100">Правила оценки</button>
+            <button class="btn btn-primary btn-lg w-100" type="button" data-bs-toggle="modal" data-bs-target="#modalRule">Правила оценки</button>
           </div>
         </div>
         <div class="col-3 py-3">
@@ -38,7 +38,7 @@
             <div class="data-optimisation-result mt-2 mb-2">
               <div class="text-center">45%</div>
             </div>
-            <button class="btn btn-primary btn-lg w-100">Правила оценки</button>
+            <button class="btn btn-primary btn-lg w-100" type="button" data-bs-toggle="modal" data-bs-target="#modalRule">Правила оценки</button>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
         <button type="button" class="d-block w-100 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSet">
           Расписание отправки
         </button>
-        <button type="button" class="d-block w-100 mt-5 btn btn-primary">
+        <button type="button" class="d-block w-100 mt-5 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalStart">
           Запустить оценку
         </button>
       </div>
@@ -266,6 +266,74 @@
             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="modal modal-sm fade" id="modalStart" tabindex="-1" aria-labelledby="modalStartLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalStartLabel">Запустить оценку</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body fs-5">
+            <label class="d-block mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Кратность короба
+            </label>
+            <label class="d-block mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Мин партия
+            </label>
+            <label class="d-block mb-3">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              Планограмма
+            </label>
+            <label class="d-block">
+              <input type="checkbox" class="form-check-input" id="" name="">
+              График
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal modal-sm fade" id="modalRule" tabindex="-1" aria-labelledby="modalRuleLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRuleLabel">Не оборачивается в</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body fs-5">
+            <div class="row align-items-center mb-3">
+              <label class="d-block col-1 p-0">
+                <input type="checkbox" class="form-check-input" id="" name="">
+              </label>
+              <div class="col-4">
+
+                <input type="text" class="form-control" value="100">
+              </div>
+                <div class="col">Срок годности</div>
+            </div>
+            <div class="row align-items-center mb-3">
+            <label class="d-block col-1 p-0">
+              <input type="checkbox" class="form-check-input" id="" name="">
+            </label>
+            <div class="col-4">
+
+              <input type="text" class="form-control" value="30">
+            </div>
+              <div class="col">Дни</div>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+          </div>
+        </form>
       </div>
     </div>
 
