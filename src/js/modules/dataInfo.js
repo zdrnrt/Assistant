@@ -1,6 +1,7 @@
 import { Modal } from "bootstrap";
 import { Chart } from "chart.js/auto";
 import * as XLSX from 'xlsx/xlsx.mjs';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 window.dataInfoOpen = function () {
   loadingToggle();
@@ -69,22 +70,19 @@ window.dataInfoChartDraw = function () {
     {
       label: "Olap",
       data: [
-        96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 40,
-        96, 96, 96, 96, 96,
+        96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 40, 96, 96, 96, 96, 96,
       ],
     },
     {
       label: "АЗ",
       data: [
-        98, 98, 80, 98, 98, 98, 98, 70, 98, 98, 98, 98, 98, 98, 98, 98, 98, 40,
-        98, 98, 98, 98, 98,
+        98, 98, 80, 98, 98, 98, 98, 70, 98, 98, 98, 98, 98, 98, 98, 98, 98, 40, 98, 98, 98, 98, 98,
       ],
     },
     {
       label: "Прогноз",
       data: [
-        97, 97, 97, 97, 97, 50, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 40,
-        97, 97, 97, 97, 97,
+        97, 97, 97, 97, 97, 50, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 40, 97, 97, 97, 97, 97,
       ],
     },
   ];
@@ -115,7 +113,8 @@ window.dataInfoSpeedDraw = function () {
   const chartForecastOut = document.getElementById("dataInfoForecastOut").getContext("2d");
 
   const configOlapIn = {
-    type: "doughnut",
+      plugins: [ChartDataLabels],
+      type: "doughnut",
     data: {
       labels: ["In", "Grey"],
       datasets: [
@@ -134,6 +133,15 @@ window.dataInfoSpeedDraw = function () {
     },
     options: {
       plugins: {
+        datalabels: {
+          display: true,
+          align: "center",
+          backgroundColor: "#fff",
+          borderRadius: 3,
+          font: {
+            size: 14,
+          },
+        },
         legend: {
           display: false,
         },
@@ -141,6 +149,7 @@ window.dataInfoSpeedDraw = function () {
     },
   };
   const configOlapOut = {
+    plugins: [ChartDataLabels],
     type: "doughnut",
     data: {
       labels: ["Out", "Grey"],
@@ -159,7 +168,15 @@ window.dataInfoSpeedDraw = function () {
       ],
     },
     options: {
-      plugins: {
+      plugins: {datalabels: {
+        display: true,
+        align: "center",
+        backgroundColor: "#fff",
+        borderRadius: 3,
+        font: {
+          size: 14,
+        },
+      },
         legend: {
           display: false,
         },
@@ -167,6 +184,7 @@ window.dataInfoSpeedDraw = function () {
     },
   };
   const configAutoIn = {
+    plugins: [ChartDataLabels],
     type: "doughnut",
     data: {
       labels: ["In", "Grey"],
@@ -186,6 +204,15 @@ window.dataInfoSpeedDraw = function () {
     },
     options: {
       plugins: {
+        datalabels: {
+          display: true,
+          align: "center",
+          backgroundColor: "#fff",
+          borderRadius: 3,
+          font: {
+            size: 14,
+          },
+        },
         legend: {
           display: false,
         },
@@ -193,7 +220,8 @@ window.dataInfoSpeedDraw = function () {
     },
   };
   const configAutoOut = {
-    type: "doughnut",
+      plugins: [ChartDataLabels],
+      type: "doughnut",
     data: {
       labels: ["Out", "Grey"],
       datasets: [
@@ -211,7 +239,15 @@ window.dataInfoSpeedDraw = function () {
       ],
     },
     options: {
-      plugins: {
+      plugins: {datalabels: {
+        display: true,
+        align: "center",
+        backgroundColor: "#fff",
+        borderRadius: 3,
+        font: {
+          size: 14,
+        },
+      },
         legend: {
           display: false,
         },
@@ -219,7 +255,8 @@ window.dataInfoSpeedDraw = function () {
     },
   };
   const configForecastIn = {
-    type: "doughnut",
+      plugins: [ChartDataLabels],
+      type: "doughnut",
     data: {
       labels: ["In", "Grey"],
       datasets: [
@@ -237,7 +274,15 @@ window.dataInfoSpeedDraw = function () {
       ],
     },
     options: {
-      plugins: {
+      plugins: {datalabels: {
+        display: true,
+        align: "center",
+        backgroundColor: "#fff",
+        borderRadius: 3,
+        font: {
+          size: 14,
+        },
+      },
         legend: {
           display: false,
         },
@@ -245,6 +290,7 @@ window.dataInfoSpeedDraw = function () {
     },
   };
   const configForecastOut = {
+    plugins: [ChartDataLabels],
     type: "doughnut",
     data: {
       labels: ["Out", "Grey"],
@@ -263,7 +309,15 @@ window.dataInfoSpeedDraw = function () {
       ],
     },
     options: {
-      plugins: {
+      plugins: {datalabels: {
+        display: true,
+        align: "center",
+        backgroundColor: "#fff",
+        borderRadius: 3,
+        font: {
+          size: 14,
+        },
+      },
         legend: {
           display: false,
         },

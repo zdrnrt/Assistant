@@ -4,16 +4,23 @@
 .table-container{
   width: 100%;
   display: block;
-  overflow-x: auto;
+  overflow: auto;
   border-radius: $border-radius;
   border: var(--bs-border-width) solid var(--bs-table-border-color);
+  &--datainfo{
+    max-height: 230px;
+  }
+  &--clustering{
+    max-height: 300px;
+    margin-top: 9px;
+  }
 }
 .table{
   --bs-table-color: #{$cl-black};
   margin-bottom: 0;
   &--fixed-head{
     thead{
-      position: fixed;
+      position: sticky;
       top: 0;
     }
   }

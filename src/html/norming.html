@@ -182,6 +182,7 @@
       <form id="" onsubmit="dataFilter(event);" class="form">
         <input type="hidden" name="type" value="normaRc">
         <div class="modal-body">
+          <div class="mb-3">
           <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
           <div class="form-check mb-2">
             <label class="form-check-label">
@@ -195,18 +196,15 @@
               СЗ от точности прогноза
             </label>
           </div>
-          <div class="form-check mb-3">
+          <div class="form-check">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
               СЗ от уровня сервиса
             </label>
           </div>
+        </div>
           <div class="mb-3">
-            Индивидуальные настройки
-            <label class="d-block mt-1">
-              <input type="file" type="button" name="normaRcFile" class="form-control">
-            </label>
-          </div>
+
           <div class="h4 mb-3 pb-2 border-bottom">Настройка Максимума</div>
           <div class="form-check mb-2">
             <label class="form-check-label">
@@ -220,12 +218,13 @@
               МПО
             </label>
           </div>
+          </div>
+          <div class="mb-3">
           <div class="h4 mb-3 pb-2 border-bottom">Учет вместимости РЦ</div>
           <div>
-            <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#normaRcConfig"> -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#normaRcConfig" aria-expanded="true">
+            <button type="button" class="btn btn-link p-0 pe-1 ps-1 nav-item text-start w-auto collapsed" data-bs-toggle="collapse" data-bs-target="#normaRcConfig" aria-expanded="true">
               Настроить
-              <img src="./public/images/icons/angle.svg" class="nav-item__angle">
+              <img src="./images/icons/angle.svg" class="nav-item__angle">
             </button>
           </div>
           <div id="normaRcConfig" class="pt-3 collapse">
@@ -242,39 +241,18 @@
               <input type="text" class="form-control" id="normaRcConfigLimit">
             </div>
           </div>
+          </div>
+          <div>
+            <div class="h4 mb-1 pb-2 border-bottom">Индивидуальные настройки</div>
+            <label class="d-block mb-1">
+              <input type="file" type="button" name="normaRcFile" class="form-control">
+            </label>
+            <div class="text-end"><a href="#">Скачать шаблон</a></div>
+          </div>
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
           <button type="submit" class="btn btn-primary">Сохранить</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="normaRcConfig" tabindex="-1" aria-labelledby="normaRcConfigLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="normaRcConfigLabel">Норма точности прогноза</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form id="" onsubmit="return false" class="form">
-        <div class="modal-body">
-          <div class="mb-3">
-            <label for="dataInterval" class="form-label">Торговая точка</label>
-            <input type="text" class="form-control" id="normaRcConfigTT">
-          </div>
-          <div class="mb-3">
-            <label for="dataInterval" class="form-label">Предел, шт</label>
-            <input type="text" class="form-control" id="normaRcConfigLimit">
-          </div>
-          <div>
-            <label for="dataInterval" class="form-label">Предел, м<sup>3</sup></label>
-            <input type="text" class="form-control" id="normaRcConfigLimit">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Применить</button>
         </div>
       </form>
     </div>
@@ -291,6 +269,7 @@
       <form id="" onsubmit="dataFilter(event);" class="form">
         <input type="hidden" name="type" value="normaTt">
         <div class="modal-body">
+          <div class="mb-3">
           <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
           <div class="form-check mb-2">
             <label class="form-check-label">
@@ -304,18 +283,14 @@
               СЗ от точности прогноза
             </label>
           </div>
-          <div class="form-check mb-3">
+          <div class="form-check">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" name="clasteringVariants" value="value">
               СЗ от уровня сервиса
             </label>
           </div>
+        </div>
           <div class="mb-3">
-            Индивидуальные настройки
-            <label class="d-block mt-1">
-              <input type="file" type="button" name="normaTtFile" class="form-control">
-            </label>
-          </div>
           <div class="h4 mb-3 pb-2 border-bottom">Настройка Максимума</div>
           <div class="form-check mb-2">
             <label class="form-check-label">
@@ -329,46 +304,41 @@
               МПО
             </label>
           </div>
+        </div>
+        <div class="mb-3">
           <div class="h4 mb-3 pb-2 border-bottom">Учет вместимости ТТ</div>
           <div>
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-            data-bs-target="#normaTtConfig">
-            Настроить
+            <button type="button" class="btn btn-link p-0 pe-1 ps-1 nav-item text-start w-auto collapsed" data-bs-toggle="collapse" data-bs-target="#normaTtConfig" aria-expanded="true">
+              Настроить
+              <img src="./images/icons/angle.svg" class="nav-item__angle">
             </button>
           </div>
+          <div id="normaTtConfig" class="pt-3 collapse">
+            <div class="mb-3">
+              <label for="dataInterval" class="form-label">Торговая точка</label>
+              <input type="text" class="form-control" id="normaRcConfigTT">
+            </div>
+            <div class="mb-3">
+              <label for="dataInterval" class="form-label">Предел, шт</label>
+              <input type="text" class="form-control" id="normaRcConfigLimit">
+            </div>
+            <div>
+              <label for="dataInterval" class="form-label">Предел, м<sup>3</sup></label>
+              <input type="text" class="form-control" id="normaRcConfigLimit">
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="h4 mb-3 pb-2 border-bottom">Индивидуальные настройки</div>
+          <label class="d-block mb-1">
+            <input type="file" type="button" name="normaTtFile" class="form-control">
+          </label>
+          <div class="text-end"><a href="#">Скачать шаблон</a></div>
+        </div>
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
           <button type="submit" class="btn btn-primary">Сохранить</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="normaTtConfig" tabindex="-1" aria-labelledby="normaTtConfigLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="normaTtConfigLabel">Норма точности прогноза</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form id="" onsubmit="return false" class="form">
-        <div class="modal-body">
-          <div class="mb-3">
-            <label for="dataInterval" class="form-label">Торговая точка</label>
-            <input type="text" class="form-control" id="normaRcConfigTT">
-          </div>
-          <div class="mb-3">
-            <label for="dataInterval" class="form-label">Предел, шт</label>
-            <input type="text" class="form-control" id="normaRcConfigLimit">
-          </div>
-          <div class="mb-3">
-            <label for="dataInterval" class="form-label">Предел, м<sup>3</sup></label>
-            <input type="text" class="form-control" id="normaRcConfigLimit">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Применить</button>
         </div>
       </form>
     </div>
@@ -385,6 +355,7 @@
       <form id="" onsubmit="dataFilter(event);" class="form">
         <input type="hidden" name="type" value="normаOosRc">
         <div class="modal-body">
+          <div class="mb-3">
           <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
           <div class="mb-2 row align-items-center">
               <div class="form-check col-6">
@@ -408,11 +379,13 @@
               <button class="btn btn-outline-primary">Период</button>
             </div>
           </div>
+          </div>
           <div>
-            Индивидуальные настройки
-            <label class="d-block mt-1">
+            <div class="h4 mb-3 pb-2 border-bottom">Индивидуальные настройки</div>
+            <label class="d-block mb-1">
               <input type="file" type="button" name="normaRcFile" class="form-control">
             </label>
+            <div class="text-end"><a href="#">Скачать шаблон</a></div>
           </div>
         </div>
         <div class="modal-footer">
@@ -433,7 +406,7 @@
       <form id="" onsubmit="dataFilter(event);" class="form">
         <input type="hidden" name="type" value="normаOosRc">
         <div class="modal-body">
-          <div class="mb-2 row align-items-center">
+          <div class="mb-3 row align-items-center">
               <div class="form-check col-6">
                 <label class="form-check-label">
                   <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
@@ -456,10 +429,11 @@
             </div>
           </div>
           <div>
-            Индивидуальные настройки
-            <label class="d-block mt-1">
+            <div class="h4 mb-3 pb-2 border-bottom">Индивидуальные настройки</div>
+            <label class="d-block mb-1">
               <input type="file" type="button" name="file" class="form-control">
             </label>
+            <div class="text-end"><a href="#">Скачать шаблон</a></div>
           </div>
         </div>
         <div class="modal-footer">
@@ -480,7 +454,7 @@
       <form id="" onsubmit="dataFilter(event);" class="form">
         <input type="hidden" name="type" value="normаOosRc">
         <div class="modal-body">
-              <div class="mb-2 form-check">
+              <div class="mb-3 form-check">
                 <label class="form-check-label">
                   <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
                   Медиана кластера
@@ -493,10 +467,12 @@
               </label>
             </div>
             <div>
-              Индивидуальные настройки
-              <label class="d-block mt-1">
+              <div class="h4 mb-3 pb-2 border-bottom">Индивидуальные настройки</div>
+
+              <label class="d-block mb-1">
                 <input type="file" type="button" name="normaRcFile" class="form-control">
               </label>
+            <div class="text-end"><a href="#">Скачать шаблон</a></div>
             </div>
         </div>
         <div class="modal-footer">
@@ -517,25 +493,28 @@
       <form id="" onsubmit="dataFilter(event);" class="form">
         <input type="hidden" name="type" value="normаOosRc">
         <div class="modal-body">
+          <div class="mb-3">
           <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
-          <div class="mb-2 form-check">
+          <div class="mb-3 form-check">
                 <label class="form-check-label">
                   <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
                   Медиана кластера
                 </label>
               </div>
-            <div class="form-check mb-3">
+            <div class="form-check">
               <label class="form-check-label">
                 <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMax" value="value">
                 Максимум кластера
               </label>
             </div>
+            </div>
             <div>
-              Индивидуальные настройки
-              <label class="d-block mt-1">
+              <div class="h4 mb-3 pb-2 border-bottom">Индивидуальные настройки</div>
+              <label class="d-block mb-1">
                 <input type="file" type="button" name="normaRcFile" class="form-control">
               </label>
-            </div>
+            <div class="text-end"><a href="#">Скачать шаблон</a></div>
+          </div>
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
@@ -555,8 +534,9 @@
       <form id="" onsubmit="dataFilter(event);" class="form">
         <input type="hidden" name="type" value="normаOosRc">
         <div class="modal-body">
+          <div class="mb-3">
           <div class="h4 mb-3 pb-2 border-bottom">Настройка Минимума</div>
-          <div class="mb-2 form-check">
+          <div class="mb-3 form-check">
                 <label class="form-check-label">
                   <input class="form-check-input mt-0" type="checkbox" name="normаOosRcMedian" value="value">
                   Медиана кластера
@@ -568,12 +548,14 @@
                 Максимум кластера
               </label>
             </div>
+            </div>
             <div class="">
-              Индивидуальные настройки
-              <label class="d-block mt-1">
+              <div class="h4 mb-3 pb-2 border-bottom">Индивидуальные настройки</div>
+              <label class="d-block mb-1">
                 <input type="file" type="button" name="normaRcFile" class="form-control">
               </label>
-            </div>
+            <div class="text-end"><a href="#">Скачать шаблон</a></div>
+          </div>
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
@@ -618,7 +600,8 @@
               <label class="d-block mt-1">
                 <input type="file" type="button" name="normaRcFile" class="form-control">
               </label>
-            </div>
+            <div class="text-end"><a href="#">Скачать шаблон</a></div>
+          </div>
           </div>
           <div class="col-6">
             <div class="h4 mb-3">Настройка Максимума</div>

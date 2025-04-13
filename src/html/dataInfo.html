@@ -11,32 +11,30 @@
             <div class="h2 text-center">Olap кубы</div>
             <canvas id="dataInfoOlapIn"></canvas>
             <div class="mt-2 text-center">
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор
-                данных</button>
+              <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор данных</button> -->
             </div>
           </div>
           <div class="col-4">
             <div class="h2 text-center">Автозаказ</div>
             <canvas id="dataInfoAutoIn"></canvas>
             <div class="mt-2 text-center">
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор
-                данных</button>
+              <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор данных</button> -->
             </div>
           </div>
           <div class="col-4">
             <div class="h2 text-center">Прогноз</div>
             <canvas id="dataInfoForecastIn"></canvas>
             <div class="mt-2 text-center">
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить
-                набор данных</button>
+              <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить набор данных</button> -->
             </div>
           </div>
         </div>
         <div class="col-2">
-          <!-- <button class="btn btn-primary d-block mb-3">Добавить инструмент</button> -->
-          <button class="btn btn-primary d-block mb-3" data-bs-toggle="modal"
+          <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
+          data-bs-target="#modalInConfig">Настроить набор данных</button>
+          <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
           data-bs-target="#modalTimetable">Расписание проверки</button>
-          <button class="btn btn-primary d-block" data-bs-toggle="modal"
+          <button class="btn btn-primary d-block w-100" data-bs-toggle="modal"
           data-bs-target="#modalTimetable">Расписание отправки</button>
         </div>
 
@@ -51,8 +49,8 @@
               <i class="fa fa-save fa-2x"></i>
             </button>
           </div>
-          <div class="table">
-            <table id="dataInfoTableIn" class="table__table">
+          <div class="table-container table-container--datainfo">
+            <table id="dataInfoTableIn" class="table table--fixed-head">
               <thead>
                 <tr>
                   <th>Тип данных</th>
@@ -63,6 +61,174 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
                 <tr>
                   <td>Остатки ТТ</td>
                   <td>25.02.2025</td>
@@ -105,32 +271,30 @@
             <div class="h2 text-center">Olap кубы</div>
             <canvas id="dataInfoOlapOut"></canvas>
             <div class="mt-2 text-center">
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор
-                данных</button>
+              <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор данных</button> -->
             </div>
           </div>
           <div class="col-4">
             <div class="h2 text-center">Автозаказ</div>
             <canvas id="dataInfoAutoOut"></canvas>
             <div class="mt-2 text-center">
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор
-                данных</button>
+              <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор данных</button> -->
             </div>
           </div>
           <div class="col-4">
             <div class="h2 text-center">Прогноз</div>
             <canvas id="dataInfoForecastOut"></canvas>
             <div class="mt-2 text-center">
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить
-                набор данных</button>
+              <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить набор данных</button> -->
             </div>
           </div>
         </div>
         <div class="col-2">
-          <!-- <button class="btn btn-primary d-block mb-3">Добавить инструмент</button> -->
-          <button class="btn btn-primary d-block mb-3" data-bs-toggle="modal"
+          <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
+          data-bs-target="#modalOutConfig">Настроить набор данных</button>
+          <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
           data-bs-target="#modalTimetable">Расписание проверки</button>
-          <button class="btn btn-primary d-block" data-bs-toggle="modal"
+          <button class="btn btn-primary d-block w-100" data-bs-toggle="modal"
           data-bs-target="#modalTimetable">Расписание отправки</button>
         </div>
 
@@ -145,8 +309,8 @@
               <i class="fa fa-save fa-2x"></i>
             </button>
           </div>
-          <div class="table">
-            <table id="dataInfoTableOut" class="table__table">
+          <div class="table-container table-container--datainfo">
+            <table id="dataInfoTableOut" class="table table--fixed-head">
               <thead>
                 <tr>
                   <th>Тип данных</th>
@@ -157,6 +321,90 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>1 000</td>
+                  <td class="danger">-93%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>25.02.2025</td>
+                  <td>15 000</td>
+                  <td>14 989</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>25.02.2025</td>
+                  <td>9 000</td>
+                  <td>8 990</td>
+                  <td> 0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>25.02.2025</td>
+                  <td>100 000</td>
+                  <td>200 000</td>
+                  <td class="danger">100%</td>
+                </tr>
                 <tr>
                   <td>Остатки ТТ</td>
                   <td>25.02.2025</td>
@@ -435,119 +683,119 @@
           </div>
           <div class="modal-body fs-5 row">
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Рассчитано
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Остатки ТТ, шт/руб
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Остатки РЦ, шт/руб
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Остатки ТТ, шт/руб
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Остатки РЦ, шт/руб
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Продажи, шт/руб
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               История заказов и приходов РЦ
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               История заказов и приходов ТТ
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Прочие движения ТТ, шт/руб
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Прочие движения РЦ, шт/руб
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               История промо
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Страховой запас
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               МПО
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Прогноз продаж
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Товарный классификатор
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Логистические данные по товарам
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Справочник ТТ/каналов сбыта
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Справочник складов
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Справочник поставщиков
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Активная матрица товаров
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Виды остатков
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Виды продаж
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Прочие свойства товара
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Ставка НДС
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Себестоимость
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Цена продажи
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Товар-аналог
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Виды движений
             </label>
             <label class="d-block col-6 mb-3">
-              <input type="checkbox" class="form-check-input" id="" name="">
+              <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
               Планограмма
             </label>
           </div>
@@ -594,6 +842,224 @@
                   <div>
                     <input type="number" class="form-control" id="dataEndValue">
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade modal-lg" id="modalInConfig" tabindex="-1" aria-labelledby="modalInConfigLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalInConfigLabel">Выбрать набор данных</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="" _onsubmit="" class="form">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-4">
+                  <p class="mb-3 h4">Набор для OLAP</p>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  Остатки ТТ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Остатки РЦ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Продажи
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Списания ТТ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Списания РЦ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Прогноз продаж
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Матрица
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Планограмма 
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Кратность короба
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  Минимальная партия
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                  График заказа/доставки
+                  </label>
+                </div>
+                <div class="col-4">
+                  <p class="mb-3 h4">Набор для OLAP</p>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Остатки ТТ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Остатки РЦ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Продажи
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Списания ТТ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Списания РЦ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Прогноз продаж
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Матрица
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Планограмма 
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Кратность короба
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Минимальная партия
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    График заказа/доставки
+                  </label>
+                </div>
+                <div class="col-4">
+                  <p class="mb-3 h4">Прогноз</p>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Остатки ТТ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Продажи
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Списания ТТ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Цены 
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Матрица
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Промо календарь
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade modal-lg" id="modalOutConfig" tabindex="-1" aria-labelledby="modalInConfigLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalOutConfigLabel">Выбрать набор данных</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="" _onsubmit="" class="form">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-4">
+                  <p class="mb-3 h4">Набор для OLAP</p>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Отчет_1
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                    Отчет_2
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                  
+                    Отчет_3
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Отчет_4
+                  </label>
+                </div>
+                <div class="col-4">
+                  <p class="mb-3 h4">Набор для Автозаказ</p>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Заказ РЦ - ТТ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Заказ Поставщик - ТТ
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Заказ на РЦ
+                  </label>
+                </div>
+                <div class="col-4">
+                  <p class="mb-3 h4">Прогноз</p>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Регулярный прогноз
+                  </label>
+                  <label class="d-block mb-2">
+                    <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
+                    Промо прогноз
+                  </label>
                 </div>
               </div>
             </div>
