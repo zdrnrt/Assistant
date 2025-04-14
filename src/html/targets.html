@@ -41,24 +41,23 @@
       <div class="col-5 offset-1 h-100">
         <div class="column">
           <header class="column__header">План/Факт (дата)</header>
-          <div class="row mb-3">
-            <div class="col-8">
+          <div class="mb-3">
+            <div class="mb-2">
               <select id="targetsChartSelect" class="d-block w-100 form-select">
-                <option value="all">Все</option>
-                <option value="profit">Прибыль</option>
-                <option value="sales">Продажи</option>
+                <option value="stock">Норма стока и структура стока ТТ</option>
                 <option value="offs">Списания</option>
+                <option value="sales">Продажи</option>
+                <!-- <option value="all">Все</option>
+                <option value="profit">Прибыль</option>
                 <option value="openTt">Открытия ТТ</option>
                 <option value="reserve">Торварный запас</option>
                 <option value="presentation">Представленность</option>
-                <option value="us">УС</option>
+                <option value="us">УС</option> -->
               </select>
             </div>
-            <div class="col-4">
-              <div class="p-2 border border-r">
-                10 млн/14 млн = -4 млн 	
+              <div class="h3 p-2 pe-3 ps-3 border border-r d-inline-block fw-medium">
+                <span id="plan">10 млн</span> / <span id="fact">14 млн</span> = <span id="delta" class="danger">-4 млн</span>
               </div>
-            </div>
           </div>
           <div class="targets-chart border border-r">
             <canvas id="targetsChart"></canvas>

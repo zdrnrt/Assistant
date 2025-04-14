@@ -3,7 +3,19 @@
     <h1>Карта процессов: Анализ</h1>
   </header>
   <div>
-    <div class="mb-3">
+    <div class="mb-3 row">
+      <div class="col-4">
+        <div class="h2 mb-3"></div>
+        <div class="analysis-value">23</div>
+      </div>
+      <div class="col-4">
+        <div class="h2 mb-3"></div>
+        <div class="analysis-value">23</div>
+      </div>
+      <div class="col-4">
+        <div class="h2 mb-3"></div>
+        <div class="analysis-value">23</div>
+      </div>
       <div class="h1 mb-2">Всего работающих процессов: <span id="mapSetting-total">86</span></div>
       <div class="h2">Требующих внимания: <span id="mapSetting-warning">32</span></div>
     </div>
@@ -211,76 +223,103 @@
           <tr>
             <th>Главный процесс</th>
             <th>Процесс</th>
+            <th>Подпроцесс</th>
             <th>Входные данные</th>
-            <th>Оценка</th>
             <th>Исполнитель</th>
+            <th>Инструмент</th>
             <th>Оценка</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td data-id="process">Процесс прогнозирования спроса</td>
-            <td>Процесс прогнозирования регулярного спроса</td>
-            <td>Чистый ряд данных. Коэффициенты</td>
-            <td>3 из 5</td>
-            <td>Отдел прогнозирования</td>
-            <td>3 из 5</td>
+            <td data-type="main-process">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет прогноза продаж</td>
+            <td data-type="input">Чистый ряд данных. Коэффициенты</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool" data-type="">Инструмент</td>
+            <td data-type="rate">3</td>
           </tr>
           <tr>
-            <td data-id="process">Процесс прогнозирования спроса</td>
-            <td>Процесс прогнозирования регулярного спроса</td>
-            <td>Чистый ряд данных. Коэффициенты</td>
-            <td>3 из 5</td>
-            <td>Отдел прогнозирования</td>
-            <td>3 из 5</td>
+            <td data-type="main-process">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет прогнозов новых товаров</td>
+            <td data-type="input">Чистый ряд данных/Сезонность</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">2</td>
           </tr>
           <tr>
-            <td data-id="process">Процесс прогнозирования спроса</td>
-            <td>Процесс прогнозирования регулярного спроса</td>
-            <td>Чистый ряд данных. Коэффициенты</td>
-            <td>3 из 5</td>
-            <td>Отдел прогнозирования</td>
-            <td>3 из 5</td>
+            <td data-type="main-process">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования промо</td>
+            <td data-type="subprocess">Расчет промо коэффициентов</td>
+            <td data-type="input">Чистый ряд данных/Сезонность</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
           </tr>
           <tr>
-            <td data-id="process">Процесс прогнозирования спроса</td>
-            <td>Процесс прогнозирования регулярного спроса</td>
-            <td>Чистый ряд данных. Коэффициенты</td>
-            <td>3 из 5</td>
-            <td>Отдел прогнозирования</td>
-            <td>3 из 5</td>
+            <td data-type="main-process">Процесс заказа товара поставщикам на РЦ</td>
+            <td data-type="process">Процесс регулярного заказа РЦ</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">График, ассортимент, остатки, прогноз</td>
+            <td data-type="executor">Отдел товародвижения РЦ	</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
           </tr>
           <tr>
-            <td data-id="process">Процесс прогнозирования спроса</td>
-            <td>Процесс прогнозирования регулярного спроса</td>
-            <td>Чистый ряд данных. Коэффициенты</td>
-            <td>3 из 5</td>
-            <td>Отдел прогнозирования</td>
-            <td>3 из 5</td>
+            <td data-type="main-process">Процесс заказа товара на ТТ</td>
+            <td data-type="process">Процесс регулярного заказа на ТТ</td>
+            <td data-type="subprocess">Расчет страхового запаса ТТ</td>
+            <td data-type="input">График, ассортимент, остатки, прогноз</td>
+            <td data-type="executor">Отдел товародвижения ТТ	</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
           </tr>
           <tr>
-            <td data-id="process">Процесс прогнозирования спроса</td>
-            <td>Процесс прогнозирования регулярного спроса</td>
-            <td>Чистый ряд данных. Коэффициенты</td>
-            <td>3 из 5</td>
-            <td>Отдел прогнозирования</td>
-            <td>3 из 5</td>
+            <td data-type="main-process">Процесс заказа товара на ТТ</td>
+            <td data-type="process">Процесс промо заказа</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">График, ассортимент, остатки, прогноз</td>
+            <td data-type="executor">Отдел товародвижения ТТ	</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
           </tr>
           <tr>
-            <td>Процесс прогнозирования спроса</td>
-            <td>Процесс прогнозирования регулярного спроса</td>
-            <td>Чистый ряд данных. Коэффициенты</td>
-            <td>3 из 5</td>
-            <td>Отдел прогнозирования</td>
-            <td>3 из 5</td>
+            <td data-type="main-process">Процесс управления сервисом поставщиков</td>
+            <td data-type="process">Работа с недопоставкой поставщика</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">УС поставщика</td>
+            <td data-type="executor">Коммерческий отдел	</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
           </tr>
           <tr>
-            <td data-id="process">Процесс прогнозирования спроса</td>
-            <td>Процесс прогнозирования регулярного спроса</td>
-            <td>Чистый ряд данных. Коэффициенты</td>
-            <td>3 из 5</td>
-            <td>Отдел прогнозирования</td>
-            <td>3 из 5</td>
+            <td data-type="main-process">Процесс операционной логистики</td>
+            <td data-type="process">Процесс учета остатков</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Приходы, отгрузки</td>
+            <td data-type="executor">Логистика</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td data-type="main-process">Процесс операционной логистики</td>
+            <td data-type="process">Процесс сборки</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Заказы</td>
+            <td data-type="executor">Логистика</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="main-process">Процесс операционной логистики</td>
+            <td data-type="process">Процесс отгрузк</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Заказы</td>
+            <td data-type="executor">Логистика</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
           </tr>
         </tbody>
       </table>

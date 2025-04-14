@@ -131,10 +131,10 @@
     <div class="row">
       <div class="col-4">
         <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
-          <button type="button" class="btn btn-outline-primary btn-color-primary">
+          <button type="button" class="btn btn-outline-primary btn-color-primary" data-bs-toggle="modal" data-bs-target="#modalInProgress">
             <i class="fa fa-filter"></i>
           </button>
-          <button type="button" class="btn btn-outline-primary btn-color-primary">
+          <button type="button" class="btn btn-outline-primary btn-color-primary" data-bs-toggle="modal" data-bs-target="#modalInProgress">
             <i class="fa fa-sliders-h"></i>
           </button>
         </div>
@@ -149,8 +149,8 @@
             <i class="fa fa-save"></i>
           </button>
         </div>
-        <div class="table-container border-bottom" style="margin-top: 9px; max-height: 300px;">
-          <table class="table table--nowrap">
+        <div class="table-container table-container--clustering border-bottom">
+          <table class="table table--nowrap table--fixed-head">
             <colgroup>
               <col width="15%">
               <col width="15%">
@@ -273,9 +273,6 @@
                 <td>СПб, г.Колпино, Звездная ул., д. 86, лит. Б</td>
                 <td>4</td>
                 <td>auto</td>
-              </tr>
-              <tr>
-                
               </tr>
             </tbody>
           </table>
