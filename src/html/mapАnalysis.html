@@ -3,21 +3,19 @@
     <h1>Карта процессов: Анализ</h1>
   </header>
   <div>
-    <div class="mb-3 row">
+    <div class="mb-5 row">
       <div class="col-4">
-        <div class="h2 mb-3"></div>
-        <div class="analysis-value">23</div>
+        <div class="h3 mb-3 text-center">Всего процессов</div>
+        <div id="all" class="analysis-value">23</div>
       </div>
       <div class="col-4">
-        <div class="h2 mb-3"></div>
-        <div class="analysis-value">23</div>
+        <div class="h3 mb-3 text-center">Оценка ниже 2</div>
+        <div id="under" class="analysis-value">23</div>
       </div>
       <div class="col-4">
-        <div class="h2 mb-3"></div>
-        <div class="analysis-value">23</div>
+        <div class="h3 mb-3 text-center">Оценка выше 4</div>
+        <div id="above" class="analysis-value">23</div>
       </div>
-      <div class="h1 mb-2">Всего работающих процессов: <span id="mapSetting-total">86</span></div>
-      <div class="h2">Требующих внимания: <span id="mapSetting-warning">32</span></div>
     </div>
     <div class="d-flex justify-content-start gap-4 mb-5">
       <select class="form-select col">
@@ -217,7 +215,7 @@
       </select>
       <button class="btn btn-primary">Выгрузить</button>
     </div>
-    <div class="table">
+    <div id="table" class="table">
       <table class="table__table">
         <thead>
           <tr>
