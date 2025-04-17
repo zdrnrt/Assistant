@@ -1,29 +1,44 @@
 <div class="page__content page-content data-page">
-  <header class="page-content__header">
+  <header class="page-content__header border-bottom">
     <h1>Данные: Полнота и актуальнсть</h1>
   </header>
   <div>
-    <div id="dataInfoIn" class="mb-5">
-      <h2 class="mb-4 fw-bold h1">Вход</h2>
+    <nav class="mb-3 h3">
+      <ul class="nav nav-tabs">
+        <li>
+          <button class="dataInfoTab nav-link active" aria-current="page" data-tab="dataInfoIn">Вход</button>
+        </li>
+        <li>
+          <button class="dataInfoTab nav-link" data-tab="dataInfoOut">Выход</button>
+        </li>
+      </ul>
+    </nav>
+    <div id="dataInfoIn" class="tab-content">
       <div class="row mb-3">
         <div class="col-10 row">
           <div class="col-4">
             <div class="h2 text-center">Olap кубы</div>
-            <canvas id="dataInfoOlapIn"></canvas>
+            <div style="aspect-ratio: 1;">
+              <canvas id="dataInfoOlapIn"></canvas>
+            </div>
             <div class="mt-2 text-center">
               <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор данных</button> -->
             </div>
           </div>
           <div class="col-4">
             <div class="h2 text-center">Автозаказ</div>
-            <canvas id="dataInfoAutoIn"></canvas>
+            <div style="aspect-ratio: 1;">
+              <canvas id="dataInfoAutoIn"></canvas>
+            </div>
             <div class="mt-2 text-center">
               <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор данных</button> -->
             </div>
           </div>
           <div class="col-4">
             <div class="h2 text-center">Прогноз</div>
-            <canvas id="dataInfoForecastIn"></canvas>
+            <div style="aspect-ratio: 1;">
+              <canvas id="dataInfoForecastIn"></canvas>
+            </div>
             <div class="mt-2 text-center">
               <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить набор данных</button> -->
             </div>
@@ -263,27 +278,32 @@
         </div>
       </div>
     </div>
-    <div id="dataInfoOut">
-      <h2 class="mb-4 fw-bold h1">Выход</h2>
+    <div id="dataInfoOut" class="tab-content d-none">
       <div class="row mb-3">
         <div class="col-10 row">
           <div class="col-4">
             <div class="h2 text-center">Olap кубы</div>
-            <canvas id="dataInfoOlapOut"></canvas>
+            <div style="aspect-ratio: 1;">
+              <canvas id="dataInfoOlapOut"></canvas>
+            </div>
             <div class="mt-2 text-center">
               <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataOlap">Настроить набор данных</button> -->
             </div>
           </div>
           <div class="col-4">
             <div class="h2 text-center">Автозаказ</div>
-            <canvas id="dataInfoAutoOut"></canvas>
+            <div style="aspect-ratio: 1;">
+              <canvas id="dataInfoAutoOut"></canvas>
+            </div>
             <div class="mt-2 text-center">
               <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataAuto">Настроить набор данных</button> -->
             </div>
           </div>
           <div class="col-4">
             <div class="h2 text-center">Прогноз</div>
-            <canvas id="dataInfoForecastOut"></canvas>
+            <div style="aspect-ratio: 1;">
+              <canvas id="dataInfoForecastOut"></canvas>
+            </div>
             <div class="mt-2 text-center">
               <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetDataForecast">Настроить набор данных</button> -->
             </div>
