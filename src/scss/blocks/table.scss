@@ -14,6 +14,12 @@
     max-height: 300px;
     margin-top: 9px;
   }
+  &--tasksetting{
+    max-height: 400px;
+  }
+  &--tasklist{
+    max-height: 400px;
+  }
 }
 .table{
   --bs-table-color: #{$cl-black};
@@ -56,9 +62,12 @@
       }
     }
   }
+  tr:nth-child(2n){
+    background-color: $cl-grey-middle;
+  }
   th{
     background-color: $cl-table-bg;
-    font-weight: 500;
+    font-weight: 700;
     vertical-align: baseline;
   }
   td, 

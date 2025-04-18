@@ -1,5 +1,4 @@
 window.dataOpen = function() {
-loadingToggle()
   fetch('./src/html/data.html')
       .then(response => {
           if (!response.ok) {
@@ -9,11 +8,9 @@ loadingToggle()
       })
       .then(html => {
           document.getElementById('content').innerHTML = html;
-          loadingToggle();
       })
       .catch(error => {
           console.error('Возникла проблема с операцией выборки:', error);
-          loadingToggle();
       });
 }
 

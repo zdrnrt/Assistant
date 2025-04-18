@@ -1,5 +1,4 @@
 .aside{
-  padding: 1.2rem 0.8rem;
   gap: 1.2rem;
   background-color: $cl-grey-light;
   &--hidden{
@@ -42,7 +41,7 @@
   padding: 1.2rem 1.6rem;
   border-bottom: 0.1rem solid $cl-grey-middle;
   &__logo{
-    width: 14.5rem;
+    width: 13.5rem;
   }
 }
 .aside-menu{
@@ -79,6 +78,12 @@
 }
 .aside-profile{
   padding: 1.2rem 1.6rem;
+  &__logout{
+    border-radius: $border-radius;
+    &:hover{
+      background-color: $cl-grey-middle;
+    }
+  }
 }
 .user{
   column-gap: 1.2rem;
@@ -87,6 +92,8 @@
   }
 }
 .aside-nav{
+  padding: 0 0.8rem;
+  flex-grow: 1;
   &__item{
     & + & {
       margin-top: 0.8rem;
@@ -105,6 +112,9 @@
   gap: 1.2rem;
   border-radius: 0.8rem;
   &--active{
+    background-color: $cl-grey-middle;
+  }
+  &:hover{
     background-color: $cl-grey-middle;
   }
   &:not(.collapsed){

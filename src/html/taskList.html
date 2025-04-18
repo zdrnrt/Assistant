@@ -1,110 +1,274 @@
 <div class="page__content page-content data-page">
-  <header class="page-content__header">
+  <header class="page-content__header border-bottom">
     <h1>Постановщик задач: Задачи</h1>
   </header>
   <div>
-    <div class="row justify-content-between mb-3">
-      <div class="col-7 d-flex gap-3">
-        <select name="" id="" class="col form-select">
-          <option value="">Коммерция</option>
-          <option value="">Операции</option>
-          <option value="">Товародвижение</option>
-          <option value="">Маркетинг</option>
-          <option value="">Прогнозирование</option>
-          <option value="">Логистика</option>
-        </select>
-        <select name="" id="" class="col form-select">
-          <option value="">Процесс согласования изменений в процессах управления ассортиментом, планограммами, целевым
-            стоком</option>
-          <option value="">Процесс контроля корректности входных данных</option>
-          <option value="">Процесс расчета нормативных показателей</option>
-          <option value="">Процесс контроля, анализ причин отклонений</option>
-          <option value="">Процесс прогнозирования спроса </option>
-          <option value="">Процесс планирования товарных потоков </option>
-          <option value="">Процесс заказа товара поставщикам на РЦ</option>
-          <option value="">Процесс заказа товара на ТТ</option>
-          <option value="">Процесс формирования оптимальных условий доставки </option>
-          <option value="">Процесс управления сервисом поставщиков</option>
-          <option value="">Процесс управления ценой</option>
-          <option value="">Процесс операционной логистики</option>
-          <option value="">Процессы операционные ТТ</option>
-        </select>
-        <select name="" id="" class="col form-select">
-          <option value="">Любая</option>
-          <option value="">Высокая</option>
-          <option value="">Средняя</option>
-          <option value="">Низкая</option>
-        </select>
-      </div>
-      <div class="col-3 d-flex justify-content-end gap-3">
-        <label class="d-flex gap-2 align-items-center form-label mb-0">
-          <span>Cроки</span>
-          <!-- TODO добавить возможность выбора периода -->
-          <input type="date" name="" id="" class="form-control" ra>
-        </label>
-        <button class="btn btn-primary">Выгрузить</button>
-      </div>
+    <div class="column">
+      <header class="column__header">Настройка отклонения</header>
+      
     </div>
-    <div class="table">
-      <table class="table__table">
+    <div class="d-flex gap-3 mb-3">
+      <select name="" id="" class="col form-select">
+        <option value="">Коммерция</option>
+        <option value="">Операции</option>
+        <option value="">Товародвижение</option>
+        <option value="">Маркетинг</option>
+        <option value="">Прогнозирование</option>
+        <option value="">Логистика</option>
+      </select>
+      <select name="" id="" class="col form-select">
+        <option value="">Процесс согласования изменений в процессах управления ассортиментом, планограммами, целевым
+          стоком</option>
+        <option value="">Процесс контроля корректности входных данных</option>
+        <option value="">Процесс расчета нормативных показателей</option>
+        <option value="">Процесс контроля, анализ причин отклонений</option>
+        <option value="">Процесс прогнозирования спроса </option>
+        <option value="">Процесс планирования товарных потоков </option>
+        <option value="">Процесс заказа товара поставщикам на РЦ</option>
+        <option value="">Процесс заказа товара на ТТ</option>
+        <option value="">Процесс формирования оптимальных условий доставки </option>
+        <option value="">Процесс управления сервисом поставщиков</option>
+        <option value="">Процесс управления ценой</option>
+        <option value="">Процесс операционной логистики</option>
+        <option value="">Процессы операционные ТТ</option>
+      </select>
+      <select name="" id="" class="col form-select">
+        <option value="">Любая</option>
+        <option value="">Высокая</option>
+        <option value="">Средняя</option>
+        <option value="">Низкая</option>
+      </select>
+      <label class="col d-flex align-items-center form-label mb-0 gap-2">
+        <span class="">Дата задачи</span>
+        <span class="col p-0">
+          <input type="date" name="" id="" class="form-control" ra>
+        </span>
+      </label>
+    </div>
+    <div class="mb-3 text-end">
+      <button class="btn btn-primary">Выгрузить</button>
+    </div>
+    <div class="table-container table-container--tasklist border-bottom">
+      <table class="table table--nowrap table--fixed-head">
         <thead>
           <tr>
+            <th>Код ТТ</th>
+            <th>Код товара</th>
+            <th>Наименование</th>
+            <th>Группа товаров</th>
+            <th>Поставщик</th>
+            <th>Номер проблемы</th>
+            <th>Причина Лидер</th>
+            <th>ТИП</th>
             <th>Подразделение</th>
-            <th>Процесс</th>
-            <th>Задача</th>
-            <th>Описание</th>
-            <th>Сроки</th>
-            <th>Важность</th>
+            <th>Действие</th>
+            <th>OOS\OS</th>
+            <th>Текущее значение</th>
+            <th>Новое значение</th>
+            <th>ТОП ВЛИЯНИЯ</th>
+            <th>ФИО</th>
+            <th>Срок исполнения план</th>
+
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Коммерция</td>
-            <td>Управлние УС</td>
-            <td>Повысить УС поставщика</td>
-            <td>За последнюю неделю УС поставщика "Северный ветер" составил 76%, сумма недопоставки 35 000 рублей, сумма упущенной продажи 15 000</td>
-            <td>до 14.03</td>
-            <td>Средняя</td>
+            <td>77001</td>
+            <td>8703</td>
+            <td>Леденцы Halls Оригинальный 25г</td>
+            <td>Кондитерские изделия</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>20</td>
+            <td>10</td>
+            <td>1</td>
+            <td>Василенко</td>
+            <td>23.01.2025</td>
           </tr>
           <tr>
-            <td>Прогнозирование</td>
-            <td>Прогнозирование спроса</td>
-            <td>Исправить прогноз по товарам</td>
-            <td>Точность прогноза по позиции Курица Тушка охл, 65%, необходимо срочно испрвить прогноз</td>
-            <td>до 04.03</td>
-            <td>Высокая</td>
+            <td>77002</td>
+            <td>8701</td>
+            <td>Леденцы Halls Мед и лимон 25г</td>
+            <td>Кондитерские изделия</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>20</td>
+            <td>10</td>
+            <td>1</td>
+            <td>Василенко</td>
+            <td>23.01.2025</td>
           </tr>
           <tr>
-            <td>Коммерция</td>
-            <td>Управлние УС</td>
-            <td>Повысить УС поставщика</td>
-            <td>За последнюю неделю УС поставщика "Северный ветер" составил 76%, сумма недопоставки 35 000 рублей, сумма упущенной продажи 15 000</td>
-            <td>до 14.03</td>
-            <td>Средняя</td>
+            <td>77003</td>
+            <td>41037</td>
+            <td>К/рыб Килька Вкусн консер в т/с 240г (св/у)</td>
+            <td>Бакалея</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>15</td>
+            <td>7</td>
+            <td>1</td>
+            <td>Васина</td>
+            <td>23.01.2025</td>
           </tr>
           <tr>
-            <td>Прогнозирование</td>
-            <td>Прогнозирование спроса</td>
-            <td>Исправить прогноз по товарам</td>
-            <td>Точность прогноза по позиции Курица Тушка охл, 65%, необходимо срочно испрвить прогноз</td>
-            <td>до 04.03</td>
-            <td>Высокая</td>
+            <td>77003</td>
+            <td>38357</td>
+            <td>Приправа Orient для свинины 20г</td>
+            <td>Соусы, специи, приправы</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>100</td>
+            <td>50</td>
+            <td>1</td>
+            <td>Васина</td>
+            <td>23.01.2025</td>
           </tr>
           <tr>
-            <td>Коммерция</td>
-            <td>Управлние УС</td>
-            <td>Повысить УС поставщика</td>
-            <td>За последнюю неделю УС поставщика "Северный ветер" составил 76%, сумма недопоставки 35 000 рублей, сумма упущенной продажи 15 000</td>
-            <td>до 14.03</td>
-            <td>Средняя</td>
+            <td>77003</td>
+            <td>10732</td>
+            <td>Пакет майка 390*90*600мм,25мкм (св/у)</td>
+            <td>Сопутствующие товары</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>1000000</td>
+            <td>500000</td>
+            <td>1</td>
+            <td>Круглова</td>
+            <td>23.01.2025</td>
           </tr>
           <tr>
-            <td>Прогнозирование</td>
-            <td>Прогнозирование спроса</td>
-            <td>Исправить прогноз по товарам</td>
-            <td>Точность прогноза по позиции Курица Тушка охл, 65%, необходимо срочно испрвить прогноз</td>
-            <td>до 04.03</td>
-            <td>Высокая</td>
+            <td>77003</td>
+            <td>4741</td>
+            <td>С/пр Язычок с творогом 55г (св/у)</td>
+            <td>Хлеб, хлебобулочные изделия</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>5</td>
+            <td>2</td>
+            <td>1</td>
+            <td>Огурцов</td>
+            <td>23.01.2025</td>
+          </tr>
+          <tr>
+            <td>77003</td>
+            <td>47545</td>
+            <td>Орехи Арахис Белкино хрус. кор.сл.чили 100г(св/у)</td>
+            <td>Сухие п/ф и закуски</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>15</td>
+            <td>7</td>
+            <td>1</td>
+            <td>Пупкина</td>
+            <td>23.01.2025</td>
+          </tr>
+          <tr>
+            <td>77003</td>
+            <td>32430</td>
+            <td>Желатин "%" 10г (св/у)</td>
+            <td>Сухие п/ф и закуски</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>100</td>
+            <td>50</td>
+            <td>1</td>
+            <td>Пупкина</td>
+            <td>23.01.2025</td>
+          </tr>
+          <tr>
+            <td>77003</td>
+            <td>39878</td>
+            <td>Напиток энергет.Берн 0,449л</td>
+            <td>Напитки безалкогольные</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>70</td>
+            <td>35</td>
+            <td>1</td>
+            <td>Радужкин</td>
+            <td>23.01.2025</td>
+          </tr>
+          <tr>
+            <td>77003</td>
+            <td>25774</td>
+            <td>Напиток Кока-Кола 0,5л</td>
+            <td>Напитки безалкогольные</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>150</td>
+            <td>75</td>
+            <td>1</td>
+            <td>Радужкин</td>
+            <td>23.01.2025</td>
+          </tr>
+          <tr>
+            <td>77003</td>
+            <td>21802</td>
+            <td>П/ф Котлеты Белорусские сочные 560г</td>
+            <td>Замороженные продукты</td>
+            <td>Склад</td>
+            <td>16</td>
+            <td>Исправить страховой запас ТТ</td>
+            <td>Пополнение ТТ</td>
+            <td>ОТД</td>
+            <td>Исправить заказ на ТТ</td>
+            <td>OS</td>
+            <td>10</td>
+            <td>5</td>
+            <td>1</td>
+            <td>Ткаченко</td>
+            <td>23.01.2025</td>
           </tr>
         </tbody>
       </table>

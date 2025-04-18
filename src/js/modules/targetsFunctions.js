@@ -1,8 +1,5 @@
-import Chart from "chart.js/auto";
-import {formatNumber} from '../tools'
-
-window.targetsOpen = function () {
-  fetch("./src/html/targets.html")
+window.targetsFunctionOpen = function () {
+  fetch("./src/html/targetsFunctions.html")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Реакция сети" + response.statusText);
@@ -11,8 +8,6 @@ window.targetsOpen = function () {
     })
     .then((html) => {
       document.getElementById("content").innerHTML = html;
-      targetsChartDraw();
-      changeResult('stock');
     })
     .catch((error) => {
       console.error("Возникла проблема с операцией выборки:", error);

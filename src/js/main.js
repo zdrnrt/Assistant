@@ -3,6 +3,9 @@ import * as Bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../scss/style.scss'
 
+import './tools'
+import './config'
+
 import './blocks/header'
 import './blocks/aside'
 import './blocks/content'
@@ -15,7 +18,8 @@ import './modules/dataInfo'
 import './modules/dataOptimisation'
 import './modules/clustering'
 import './modules/norming'
-import './modules/targets'
+import './modules/targetsIndex'
+import './modules/targetsFunctions'
 import './modules/mapSetting'
 import './modules/mapAnalysis'
 import './modules/factorAnalysis'
