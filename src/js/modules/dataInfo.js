@@ -20,14 +20,15 @@ window.dataInfoOpen = function () {
 		});
 };
 
-dataInfoOpen();
-
 function dataInfoInit() {
 	const tabs = document.querySelectorAll('.dataInfoTab');
 	for (const tab of tabs) {
 		tab.addEventListener('click', dataInfoTabOpen);
 	}
 	dataInfoChartInDraw()
+	for (const btn of document.querySelectorAll('.dataInfoTableDownload')){
+		btn.addEventListener('click', dataInfoDownload)
+	}
 }
 
 
@@ -60,11 +61,16 @@ window.dataFilter = function (event) {
 	Modal.getInstance(form.closest('.modal')).hide();
 };
 
-window.dataInfoDownload = function () {
+function dataInfoDownload (event) {
+	const elem = event.target.closest('button');
 	var workbook = XLSX.utils.table_to_book(
-		document.getElementById('dataInfoTable')
+		document.getElementById(elem.dataset.target)
 	);
-	XLSX.writeFile(workbook, `ассистент_данные_полнота_и_актуальность.xlsx`);
+	const names = {
+		'dataInfoTableIn': 'ассистент_данные_вход',
+		'dataInfoTableOut': 'ассистент_данные_выход'
+	}
+	XLSX.writeFile(workbook, `${names[elem.dataset.target]}.xlsx`);
 };
 
 

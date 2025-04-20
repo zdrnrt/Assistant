@@ -1,0 +1,824 @@
+<div class="page__content page-content data-page">
+  <header class="page-content__header border-bottom">
+    <h1>Карта процессов: Анализ</h1>
+  </header>
+  <div>
+    <div class="mb-5 row">
+      <div class="col-4">
+        <div class="h3 mb-3 text-center">Всего процессов</div>
+        <div id="all" class="analysis-value">&mdash;</div>
+      </div>
+      <div class="col-4">
+        <div class="h3 mb-3 text-center">Оценка ниже 2</div>
+        <div id="under" class="analysis-value">&mdash;</div>
+      </div>
+      <div class="col-4">
+        <div class="h3 mb-3 text-center">Оценка выше 4</div>
+        <div id="above" class="analysis-value">&mdash;</div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-start gap-4 mb-5">
+      <select data-id="mainprocess" class="form-select col">
+      </select>
+      <select data-id="process" class="form-select col">
+      </select>
+      <select data-id="subprocess" class="form-select col">
+      </select>
+      <!-- <select id="input" class="form-select col" style="max-width: 150px;">
+      </select> -->
+      <button class="btn btn-primary">Выгрузить</button>
+    </div>
+    <div id="table" class="table-container table-container--mapanalysis">
+      <table class="table _table--nowrap">
+        <thead>
+          <tr>
+            <th>Главный процесс</th>
+            <th>Процесс</th>
+            <th>Подпроцесс</th>
+            <th>Входные данные</th>
+            <th>Исполнитель</th>
+            <th>Инструмент</th>
+            <th>Оценка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет прогноза продаж</td>
+            <td data-type="input">Чистый ряд данных. Коэффициенты</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool" data-type="">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+
+          <tr>
+            <td data-type="mainprocess">Процесс согласования изменений в процессах управления ассортиментом, планограммами, целевым стоком</td>
+            <td data-type="process">Согласование дат включения ассортимента</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input"></td>
+            <td data-type="executor">Отдел согласования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс согласования изменений в процессах управления ассортиментом, планограммами, целевым стоком</td>
+            <td data-type="process">Согласование дат включения планограммы</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input"></td>
+            <td data-type="executor">Отдел согласования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс согласования изменений в процессах управления ассортиментом,
+              планограммами, целевым стоком</td>
+            <td data-type="process">Согласование целевого запаса компании</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input"></td>
+            <td data-type="executor">Отдел согласования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля корректности входных данных</td>
+            <td data-type="process">Контроль неактуальных позиций РЦ/ТТ (ТБД?)</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Ассортимент с привязкой, отгрузки, прогноз</td>
+            <td data-type="executor">Отдел контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля корректности входных данных</td>
+            <td data-type="process">Контроль корректности планограммы</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Планограмма, прогноз, полочное пространоство</td>
+            <td data-type="executor">Отдел контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля корректности входных данных</td>
+            <td data-type="process">Контроль корректности ОВХ и СГ товаров</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Матрица, ОВХ, СГ, прогноз </td>
+            <td data-type="executor">Отдел контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля корректности входных данных</td>
+            <td data-type="process">Контроль корректности остатков</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Остатки, движения</td>
+            <td data-type="executor">Отдел контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля корректности входных данных</td>
+            <td data-type="process">Контроль оборачиваемости короба</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Матрица, прогноз, короб, СГ </td>
+            <td data-type="executor">Отдел контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля корректности входных данных</td>
+            <td data-type="process">Контроль корректности графиков</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Матрица, графики, прогнозы, данные для заказа</td>
+            <td data-type="executor">Отдел контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля корректности входных данных</td>
+            <td data-type="process">Контроль корректности минимальных партий</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Мин партии, прогноз </td>
+            <td data-type="executor">Отдел контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного товарного запаса РЦ </td>
+            <td data-type="subprocess">Расчет нормативной доли вывода РЦ</td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели</td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного товарного запаса РЦ</td>
+            <td data-type="subprocess">Расчет нормативной доли промо РЦ</td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели</td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного товарного запаса РЦ</td>
+            <td data-type="subprocess">Расчет нормативной доли оверстока РЦ</td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели</td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного товарного запаса РЦ</td>
+            <td data-type="subprocess">Расчет нормативного ТЗ РЦ</td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели</td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного товарного запаса ТТ</td>
+            <td data-type="subprocess">Расчет нормативной доли вывода ТТ</td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели</td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного товарного запаса ТТ</td>
+            <td data-type="subprocess">Расчет нормативной доли промо ТТ </td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели </td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного товарного запаса ТТ</td>
+            <td data-type="subprocess">Расчет нормативной доли оверстока ТТ </td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели </td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного товарного запаса ТТ</td>
+            <td data-type="subprocess">Расчет нормативного ТЗ ТТ </td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели </td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного OOS</td>
+            <td data-type="subprocess">Расчет нормативного OOS РЦ </td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели </td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного OOS</td>
+            <td data-type="subprocess">Расчет нормативного OOS ТТ </td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели </td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного УС</td>
+            <td data-type="subprocess">Расчет нормативного УС РЦ-ТТ</td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели </td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативного УС</td>
+            <td data-type="subprocess">Расчет нормативного УС поставщика</td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели </td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс расчета нормативных показателей</td>
+            <td data-type="process">Расчет нормативной точности прогноза</td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Остатки, прогноз, график, страховой запас, цели </td>
+            <td data-type="executor">Отдел нормирования и контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы ТЗ РЦ</td>
+            <td data-type="subprocess">Анализ отклонения по доли вывода РЦ </td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы ТЗ РЦ</td>
+            <td data-type="subprocess">Анализ отклонения по доли промо РЦ </td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы ТЗ РЦ</td>
+            <td data-type="subprocess">Анализ отклонения по доли доли оверстока РЦ </td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы ТЗ РЦ</td>
+            <td data-type="subprocess">Анализ отклонения от нормы ТЗ РЦ </td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы ТЗ ТТ</td>
+            <td data-type="subprocess">Анализ отклонения по доли вывода ТТ </td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы ТЗ ТТ</td>
+            <td data-type="subprocess">Анализ отклонения по доли промо ТТ </td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы ТЗ ТТ</td>
+            <td data-type="subprocess">Анализ отклонения по доли оверстока ТТ </td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы ТЗ ТТ</td>
+            <td data-type="subprocess">Анализ отклонения от нормы ТЗ ТТ</td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы OOS</td>
+            <td data-type="subprocess">Анализ отклонения от нормы OOS РЦ</td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы OOS</td>
+            <td data-type="subprocess">Анализ отклонения от нормы OOS ТТ</td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы УС</td>
+            <td data-type="subprocess">Анализ отклонения от нормы УС РЦ -ТТ</td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы УС</td>
+            <td data-type="subprocess">Анализ отклонения от нормы УС поставщика</td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс контроля, анализ причин отклонений</td>
+            <td data-type="process">Контроль и анализ отклонений от нормы точности прогноза </td>
+            <td data-type="subprocess"></td>
+            <td data-type="input">Норма/Факт</td>
+            <td data-type="executor">Отдел нормирования контроля</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Процесс чистки данных</td>
+            <td data-type="input">Продажи, остатки, промо</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет внутринедельной динамики</td>
+            <td data-type="input">Продажи, остатки, промо</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет сезонности</td>
+            <td data-type="input">Продажи, остатки, промо</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет прогноза продаж регулярный</td>
+            <td data-type="input">Чистый ряд данных. Коэффициенты</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет праздничных коэффициентов</td>
+            <td data-type="input">Чистый ряд данных. Коэффициенты</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет прогнозов новых товаров регулярный</td>
+            <td data-type="input">Чистый ряд данных/Сезонность</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">2</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования регулярного спроса</td>
+            <td data-type="subprocess">Расчет прогнозов новых магазинов регулярный</td>
+            <td data-type="input">Чистый ряд данных/Сезонность</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">2</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования промо</td>
+            <td data-type="subprocess">Процесс чистки данных </td>
+            <td data-type="input">Продажи, акции, остатки</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования промо</td>
+            <td data-type="subprocess">Расчет внутринедельной динамики</td>
+            <td data-type="input">Чистый ряд данных </td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования промо</td>
+            <td data-type="subprocess">Расчет сезонности</td>
+            <td data-type="input">Чистый ряд данных </td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">5</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования промо</td>
+            <td data-type="subprocess">Расчет прогноза продаж промо</td>
+            <td data-type="input">Чистый ряд данных. Коэффициенты</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс прогнозирования спроса</td>
+            <td data-type="process">Процесс прогнозирования промо</td>
+            <td data-type="subprocess">Расчет промо коэффициентов</td>
+            <td data-type="input">Чистый ряд данных/Сезонность</td>
+            <td data-type="executor">Отдел прогнозирования</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования промо</td>
+            <td>Расчет прогнозов новых товаров промо</td>
+            <td>Чистый ряд данных/Сезонность</td>
+            <td>Отдел прогнозирования</td>
+            <td>Инструмент</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Процесс прогнозирования спроса</td>
+            <td>Процесс прогнозирования промо</td>
+            <td>Расчет прогнозов новых магазинов промо</td>
+            <td>Чистый ряд данных/Сезонность</td>
+            <td>Отдел прогнозирования</td>
+            <td>Инструмент</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Процесс планирования товарных потоков</td>
+            <td>Планирование закупки у поставщика</td>
+            <td></td>
+            <td>План пополнения ТТ/РЦ</td>
+            <td>Отдел планирования</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс планирования товарных потоков</td>
+            <td>Планирование прихода на РЦ</td>
+            <td></td>
+            <td>План заказа на РЦ </td>
+            <td>Отдел планирования</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс планирования товарных потоков</td>
+            <td>Планирование отгрузки с РЦ</td>
+            <td></td>
+            <td>План отгрузки </td>
+            <td>Отдел планирования</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс планирования товарных потоков</td>
+            <td>Планирование прихода на ТТ</td>
+            <td></td>
+            <td>План прихода на ТТ</td>
+            <td>Отдел планирования</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс заказа товара поставщикам на РЦ</td>
+            <td>Процесс регулярного заказа РЦ</td>
+            <td>Расчет страхового запаса РЦ</td>
+            <td>График, ассортимент, остатки, прогноз </td>
+            <td data-type="executor">Отдел товародвижения РЦ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс заказа товара поставщикам на РЦ</td>
+            <td>Процесс регулярного заказа РЦ</td>
+            <td>Расчет регулярного заказа РЦ</td>
+            <td>График, ассортимент, остатки, прогноз </td>
+            <td data-type="executor">Отдел товародвижения РЦ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс заказа товара поставщикам на РЦ</td>
+            <td>Процесс промо заказа РЦ</td>
+            <td>Расчет промо заказа РЦ</td>
+            <td>График, ассортимент, остатки, прогноз</td>
+            <td data-type="executor">Отдел товародвижения РЦ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td data-type="mainprocess">Процесс заказа товара поставщикам на РЦ</td>
+            <td>Процесс управления товаром вне АМ РЦ</td>
+            <td></td>
+            <td>График, ассортимент, остатки, прогноз</td>
+            <td data-type="executor">Отдел товародвижения РЦ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td>Процесс заказа товара на ТТ</td>
+            <td>Процесс регулярного заказа на ТТ</td>
+            <td>Расчет страхового запаса ТТ</td>
+            <td>График, ассортимент, остатки, прогноз</td>
+            <td data-type="executor">Отдел товародвижения ТТ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td>Процесс заказа товара на ТТ</td>
+            <td>Процесс регулярного заказа на ТТ</td>
+            <td>Процедура округления ТТ</td>
+            <td>График, ассортимент, остатки, прогноз</td>
+            <td data-type="executor">Отдел товародвижения ТТ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td>Процесс заказа товара на ТТ</td>
+            <td>Процесс регулярного заказа на ТТ</td>
+            <td>Расчет регулярного заказа ТТ</td>
+            <td>График, ассортимент, остатки, прогноз</td>
+            <td data-type="executor">Отдел товародвижения ТТ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td>Процесс заказа товара на ТТ</td>
+            <td>Процесс промо заказа на ТТ</td>
+            <td>Расчет промо заказа ТТ</td>
+            <td>График, ассортимент, остатки, прогноз </td>
+            <td data-type="executor">Отдел товародвижения ТТ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td>Процесс заказа товара на ТТ</td>
+            <td>Процесс управления дефицитом</td>
+            <td></td>
+            <td>Объем, прогноз, правила </td>
+            <td data-type="executor">Отдел товародвижения ТТ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">3</td>
+          </tr>
+          <tr>
+            <td>Процесс заказа товара на ТТ</td>
+            <td>Процесс управления профицитом</td>
+            <td></td>
+            <td>Объем, прогноз, правила </td>
+            <td data-type="executor">Отдел товародвижения ТТ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">2</td>
+          </tr>
+          <tr>
+            <td>Процесс заказа товара на ТТ</td>
+            <td>Процесс управления корректировками ТТ</td>
+            <td></td>
+            <td>Заказы, % корректировок, правила </td>
+            <td data-type="executor">Отдел товародвижения ТТ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td>Процесс заказа товара на ТТ</td>
+            <td>Процесс открытия новых ТТ</td>
+            <td></td>
+            <td>Прогноз ТТ аналога </td>
+            <td data-type="executor">Отдел товародвижения ТТ</td>
+            <td data-type="tool">Инструмент</td>
+            <td data-type="rate">4</td>
+          </tr>
+          <tr>
+            <td>Процесс формирования оптимальных условий доставки</td>
+            <td>Логистическая схема </td>
+            <td></td>
+            <td>Прогноз, цена, условия</td>
+            <td>Отдел оптимизации</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс формирования оптимальных условий доставки</td>
+            <td>Управление графиком доставки на РЦ</td>
+            <td></td>
+            <td>Прогноз, цена, условия</td>
+            <td>Отдел оптимизации</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс формирования оптимальных условий доставки</td>
+            <td>Управление min партиями РЦ</td>
+            <td></td>
+            <td>Прогноз, цена, условия</td>
+            <td>Отдел оптимизации</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс формирования оптимальных условий доставки</td>
+            <td>Управление графиком доставки на ТТ</td>
+            <td></td>
+            <td>Прогноз, цена, условия</td>
+            <td>Отдел оптимизации</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс формирования оптимальных условий доставки</td>
+            <td>Управление min партиями на ТТ</td>
+            <td></td>
+            <td>Прогноз, цена, условия</td>
+            <td>Отдел оптимизации</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс управления сервисом поставщиков</td>
+            <td>Управление сбором штрафов</td>
+            <td></td>
+            <td>УС, условия, поступление денег</td>
+            <td>Отдел штрафов</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс управления сервисом поставщиков</td>
+            <td>Управление выставлением штрафов</td>
+            <td></td>
+            <td>Ус, условия, заявка</td>
+            <td>Отдел штрафов</td>
+            <td>Инструмент</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>Процесс управления сервисом поставщиков</td>
+            <td>Работа с недопоставкой поставщика УС поставщика</td>
+            <td></td>
+            <td>Коммерческий отдел</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс управления сервисом поставщиков</td>
+            <td>Работа с опозданиями поставщика УС поставщика</td>
+            <td></td>
+            <td>Коммерческий отдел</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс управления ценой</td>
+            <td>Процесс управления регулярной ценой</td>
+            <td></td>
+            <td>Цена, период</td>
+            <td>Ценообразование</td>
+            <td>Инструмент</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Процесс управления ценой</td>
+            <td>Процесс управления промо ценой</td>
+            <td></td>
+            <td>Цена, период</td>
+            <td>Ценообразование</td>
+            <td>Инструмент</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Процесс управления ценой</td>
+            <td>Процесс управления уценкой</td>
+            <td></td>
+            <td>Цена, период</td>
+            <td>Ценообразование</td>
+            <td>Инструмент</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Процесс операционной логистики</td>
+            <td>Процесс учета остатков на РЦ</td>
+            <td></td>
+            <td>Приходы, отгрузки</td>
+            <td>Логистика</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процесс операционной логистики</td>
+            <td>Процесс сборки на РЦ</td>
+            <td></td>
+            <td>Логистика</td>
+            <td>Заказы Инструмент
+            <td></td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Процесс операционной логистики</td>
+            <td>Процесс отгрузки с РЦ</td>
+            <td></td>
+            <td>Заказы</td>
+            <td>Логистика</td>
+            <td>Инструмент</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Процессы операционные ТТ</td>
+            <td>Выкладка товара</td>
+            <td></td>
+            <td>Остатки</td>
+            <td>Операции</td>
+            <td>Инструмент</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Процессы операционные ТТ</td>
+            <td>Приемка товара на ТТ</td>
+            <td></td>
+            <td>Заказ</td>
+            <td>Операции</td>
+            <td>Инструмент</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Процессы операционные ТТ</td>
+            <td>Учет товара на ТТ</td>
+            <td></td>
+            <td>Остатки, продажи, списани</td>
+            <td>Операции</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Процессы операционные ТТ</td>
+            <td>Заказ товара на ТТ</td>
+            <td></td>
+            <td>Прогноз, остатки, график, ассортимен</td>
+            <td>Операции</td>
+            <td>Инструмент</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

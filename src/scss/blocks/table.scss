@@ -20,6 +20,9 @@
   &--tasklist{
     max-height: 400px;
   }
+  &--mapanalysis{
+    max-height: 425px;
+  }
 }
 .table{
   --bs-table-color: #{$cl-black};
@@ -57,13 +60,13 @@
   tbody {
     tr:last-child{
       border: none;
-      td{
+      td {
         border-bottom: none;
       }
     }
   }
   tr:nth-child(2n){
-    background-color: $cl-grey-middle;
+    background-color: $cl-table-bg;
   }
   th{
     background-color: $cl-table-bg;

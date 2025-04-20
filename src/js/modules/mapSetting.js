@@ -1,3 +1,4 @@
+import {fillDictionary} from '../tools';
 import * as XLSX from 'xlsx/xlsx.mjs';
 
 window.mapSettingOpen = function() {
@@ -10,10 +11,26 @@ window.mapSettingOpen = function() {
       })
       .then(html => {
           document.getElementById('content').innerHTML = html;
-      })
-      .catch(error => {
-          console.error('Возникла проблема с операцией выборки:', error);
-      });
+          mapSettingInit()
+        })
+        .catch(error => {
+            console.error('Возникла проблема с операцией выборки:', error);
+        });
+    }
+    
+function mapSettingInit(){
+    mapSettingTableSchema();
+    fillDictionary();
+}
+
+function mapSettingTableSchema(){
+    const schema = [ 'mainprocess'];
+    const tdList = document.getElementById('mapSettingTable').querySelectorAll('tbody tr td:first-child');
+    for (const td of tdList){
+        // tr.querySelectorAll('td').forEach((td, i) => {
+            td.setAttribute('data-type', schema[0]);
+        // })
+    }
 }
 
 // TODO перенести в функцию

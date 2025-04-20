@@ -16,7 +16,7 @@ export default defineConfig({
 				targetsIndex: resolve(__dirname, 'src/html/targetsIndex.html'),
 				targetsFunctions: resolve(__dirname, 'src/html/targetsFunctions.html'),
 				mapSetting: resolve(__dirname, 'src/html/mapSetting.html'),
-				mapАnalysis: resolve(__dirname, 'src/html/mapАnalysis.html'),
+				mapAnalysis: resolve(__dirname, 'src/html/mapAnalysis.html'),
 				factorSetting: resolve(__dirname, 'src/html/factorSetting.html'),
 				factorAnalysis: resolve(__dirname, 'src/html/factorAnalysis.html'),
 				scenariosSetting: resolve(__dirname, 'src/html/scenariosSetting.html'),

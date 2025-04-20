@@ -1,8 +1,8 @@
-import { MAINPROCESS, PROCESS, SUBPROCESS } from "../config";
 import {fillDictionary} from '../tools';
+import * as XLSX from 'xlsx'
 
 window.mapAnalysisOpen = function() {
-  fetch('./src/html/mapАnalysis.html')
+  fetch('./src/html/mapAnalysis.html')
       .then(response => {
           if (!response.ok) {
               throw new Error('Реакция сети' + response.statusText);
@@ -18,46 +18,75 @@ window.mapAnalysisOpen = function() {
       });
 }
 
-function mapAnalysisInit() {
-    mapAnalysisStats();
-    fillDictionary();
-    document.getElementById('mainprocess').addEventListener('change', mapAnalysisFilter)
-    document.getElementById('process').addEventListener('change', mapAnalysisFilter)
-    document.getElementById('subprocess').addEventListener('change', mapAnalysisFilter)
-    document.getElementById('input').addEventListener('change', mapAnalysisFilter)
-}
+mapAnalysisOpen();
 
-function mapAnalysisCheck(active) {
+
+function mapAnalysisInit() {
     const filters = [
         document.getElementById('mainprocess'),
         document.getElementById('process'),
         document.getElementById('subprocess'),
-        document.getElementById('input'),
     ]
-    return filters.reduce((result, filter) => {
-        console.log(filter.value !== '')
-        console.log(active, filter !== active)
-        if (filter.value !== '' && filter !== active){
-            return false
-        }
-    }, true)
+
+    mapAnalysisTableSchema();
+    mapAnalysisStats();
+    fillDictionary();
+    for (const filter of filters){
+        filter.addEventListener('change', mapAnalysisFilter)
+    }
+    // document.getElementById('process').addEventListener('change', mapAnalysisFilter)
+    // document.getElementById('subprocess').addEventListener('change', mapAnalysisFilter)
+    // document.getElementById('input').addEventListener('change', mapAnalysisFilter)
+
 }
-function mapAnalysisFilter(event) {
-    console.log('mapAnalysisCheck', mapAnalysisCheck(event.target))
-    const value = event.target.value;
+
+function mapAnalysisTableSchema() {
+    const schema = [ 'mainprocess', 'process', 'subprocess', 'input', 'executor', 'tool', 'rate', ];
+    const trList = document.getElementById('table').querySelectorAll('tbody tr');
+    for (const tr of trList){
+        tr.querySelectorAll('td').forEach((td, i) => {
+            td.setAttribute('data-type', schema[i]);
+        })
+    }
+}
+
+function mapAnalysisClear(filters) {
+    return filters.every((filter) => filter.value === '' )
+}
+
+function mapAnalysisFilter() {
+    const filters = [
+        document.getElementById('mainprocess'),
+        document.getElementById('process'),
+        document.getElementById('subprocess'),
+    ];
+
+    const clearFilters = mapAnalysisClear(filters);
     const table = document.getElementById('table');
-    // const trList = table.querySelectorAll('tr');
-    const type = event.target.id;
-    const tdList = table.querySelectorAll(`[data-type="${type}"]`)
-    for (const td of tdList){
-        if (td.textContent ===  value || value === ''){
-            td.closest('tr').classList.remove('d-none')
-        } else {
-            td.closest('tr').classList.add('d-none')
+    for (const tr of table.querySelectorAll('tr')){
+        tr.classList.remove('d-none')
+    }
+    if (clearFilters){
+        return
+    }
+    
+    for (const filter of filters){
+        const value = filter.value;
+        if (value === ''){
+            continue
+        }
+        
+        const type = filter.id;
+        const tdList = table.querySelectorAll(`${clearFilters ? 'tr td' : 'tr:not(.d-none) td'}[data-type="${type}"]`);
+        console.log(tdList)
+        for (const td of tdList){
+            if (td.textContent !== value){
+                td.closest('tr').classList.add('d-none')
+            }
         }
     }
-    mapAnalysisStats();
 
+    mapAnalysisStats();
 
 }
 
