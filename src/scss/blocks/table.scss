@@ -1,89 +1,147 @@
-:root{
+:root {
   --bs-table-border-color: #{$cl-table-border};
 }
-.table-container{
+
+.table-container {
   width: 100%;
   display: block;
   overflow: auto;
   border-radius: $border-radius;
   border: var(--bs-border-width) solid var(--bs-table-border-color);
-  &--datainfo{
+
+  &--datainfo {
     max-height: 230px;
   }
-  &--clustering{
+
+  &--clustering {
     max-height: 300px;
     margin-top: 9px;
   }
-  &--tasksetting{
+
+  &--tasksetting {
     max-height: 400px;
   }
-  &--tasklist{
+
+  &--tasklist {
     max-height: 400px;
   }
-  &--mapanalysis{
+
+  &--mapanalysis {
     max-height: 425px;
   }
 }
-.table{
+
+.table-targetsFunctions{
+  tbody{
+    vertical-align: middle;
+  }
+  [data-action="submit"]{
+    display: none;
+  }
+  [data-id="value"] input{
+    display: inline-block;
+    width: 100px;
+  }
+  .danger {
+    [data-id="status"],
+    [data-id="value"],
+    [data-id="risk"],
+    [data-id="value"] input{
+
+      color: var(--bs-danger);
+    }
+  }
+  [data-state="edit"]{
+    [data-action="update"]{
+      display: none;
+    }
+    [data-action="submit"]{
+      display: inline-block;
+    }
+  }
+  tr:not([data-state="edit"]){
+    .form-control {
+      text-align: start;
+      border-color: transparent;
+      pointer-events: none;
+    }
+  }
+}
+
+.table {
   --bs-table-color: #{$cl-black};
   margin-bottom: 0;
-  &--fixed-head{
-    thead{
+
+  &--fixed-head {
+    thead {
       position: sticky;
       top: 0;
     }
   }
-  &--fixed-left{
+
+  &--fixed-left {
+
     thead tr th:first-child,
     tbody tr td:first-child {
       position: sticky;
       left: 0;
     }
   }
-  &--nowrap{
+
+  &--nowrap {
     max-width: 100%;
     white-space: nowrap;
+
     th,
-    td{
+    td {
       overflow: hidden;
       text-overflow: ellipsis;
     }
   }
+
   thead {
-    tr:first-child{
+    tr:first-child {
       border-top: none;
+
       th {
         border-top: none;
       }
     }
   }
+
   tbody {
-    tr:last-child{
+    tr:last-child {
       border: none;
+
       td {
         border-bottom: none;
       }
     }
   }
-  tr:nth-child(2n){
+
+  tr:nth-child(2n) {
     background-color: $cl-table-bg;
   }
-  th{
+
+  th {
     background-color: $cl-table-bg;
     font-weight: 700;
     vertical-align: baseline;
   }
-  td, 
-  th{
+
+  td,
+  th {
     padding: 0.4rem 1.2rem;
     border: var(--bs-border-width) solid var(--bs-table-border-color);
   }
+
   th:first-child,
-  td:first-child{
+  td:first-child {
     border-left: none;
   }
+
   th:last-child,
-  td:last-child{
+  td:last-child {
     border-right: none;
   }
 }

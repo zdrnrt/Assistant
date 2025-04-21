@@ -11,18 +11,23 @@ window.targetsIndexOpen = function () {
     })
     .then((html) => {
       document.getElementById("content").innerHTML = html;
+      targetsIndexInit();
     })
     .catch((error) => {
       console.error("Возникла проблема с операцией выборки:", error);
     });
 };
 
+function targetsIndexInit(){
+  targetsChartDraw()
+}
+
 window.targetsTargetsChange = function (elem) {
   document.getElementById("targetsExternal").classList.toggle("d-none");
   document.getElementById("targetsInternal").classList.toggle("d-none");
 };
 
-window.targetsChartDraw = async function () {
+async function targetsChartDraw () {
 
   const data = {
     title: {

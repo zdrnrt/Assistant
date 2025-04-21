@@ -48,5 +48,4 @@ window.mapSettingFilter = (elem) => {
             td.closest('tr').classList.remove('d-none');
         }
     }
-    console.log(table)
 }

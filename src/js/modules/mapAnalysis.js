@@ -1,4 +1,4 @@
-import {fillDictionary} from '../tools';
+import { fillDictionary } from '../tools';
 import * as XLSX from 'xlsx'
 
 window.mapAnalysisOpen = function() {
@@ -18,14 +18,13 @@ window.mapAnalysisOpen = function() {
       });
 }
 
-mapAnalysisOpen();
-
+mapAnalysisOpen()
 
 function mapAnalysisInit() {
     const filters = [
-        document.getElementById('mainprocess'),
-        document.getElementById('process'),
-        document.getElementById('subprocess'),
+        document.querySelector('[data-id="mainprocess"]'),
+        document.querySelector('[data-id="process"]'),
+        document.querySelector('[data-id="subprocess"]'),
     ]
 
     mapAnalysisTableSchema();
@@ -34,10 +33,6 @@ function mapAnalysisInit() {
     for (const filter of filters){
         filter.addEventListener('change', mapAnalysisFilter)
     }
-    // document.getElementById('process').addEventListener('change', mapAnalysisFilter)
-    // document.getElementById('subprocess').addEventListener('change', mapAnalysisFilter)
-    // document.getElementById('input').addEventListener('change', mapAnalysisFilter)
-
 }
 
 function mapAnalysisTableSchema() {
@@ -56,9 +51,9 @@ function mapAnalysisClear(filters) {
 
 function mapAnalysisFilter() {
     const filters = [
-        document.getElementById('mainprocess'),
-        document.getElementById('process'),
-        document.getElementById('subprocess'),
+        document.querySelector('[data-id="mainprocess"]'),
+        document.querySelector('[data-id="process"]'),
+        document.querySelector('[data-id="subprocess"]'),
     ];
 
     const clearFilters = mapAnalysisClear(filters);
@@ -76,9 +71,8 @@ function mapAnalysisFilter() {
             continue
         }
         
-        const type = filter.id;
+        const type = filter.dataset.id;
         const tdList = table.querySelectorAll(`${clearFilters ? 'tr td' : 'tr:not(.d-none) td'}[data-type="${type}"]`);
-        console.log(tdList)
         for (const td of tdList){
             if (td.textContent !== value){
                 td.closest('tr').classList.add('d-none')
