@@ -18,7 +18,7 @@ window.mapAnalysisOpen = function() {
       });
 }
 
-mapAnalysisOpen()
+// mapAnalysisOpen()
 
 function mapAnalysisInit() {
     const filters = [

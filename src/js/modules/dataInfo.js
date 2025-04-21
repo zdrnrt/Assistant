@@ -20,6 +20,8 @@ window.dataInfoOpen = function () {
 		});
 };
 
+dataInfoOpen();
+
 function dataInfoInit() {
 	const tabs = document.querySelectorAll('.dataInfoTab');
 	for (const tab of tabs) {

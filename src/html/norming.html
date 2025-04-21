@@ -47,75 +47,65 @@
         </button>
       </div>
     </div>
-    <div class="table">
-      <table id="normingTable" class="table__table">
+    <div class="table-container">
+      <table id="normingTable" class="table table--nowrap">
+        <colgroup>
+          <col width="80">
+          <col width="200">
+          <col width="56">
+          <col width="120">
+          <col width="140">
+          <col width="140">
+          <col width="135">
+          <col width="">
+          <col width="80">
+          <col width="90">
+        </colgroup>
         <thead>
           <tr>
-            <th>Магазин</th>
-            <th>Код товара</th>
-            <th>Наименование</th>
-            <th>МИН</th>
-            <th>МАКС</th>
-            <th>Признак</th>
+            <th>Сеть</th>
+            <th style="width: 200px;">Категория</th>
+            <th>SKU</th>
+            <th>Прогноз, шт/дн</th>
+            <th>Факт Остаток, шт</th>
+            <th>Факт Остаток, руб </th>
+            <th>План Остаток, шт</th>
+            <th>План Остаток, руб</th>
+            <th>МИН, шт</th>
+            <th>МАКС, шт</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>812</td>
-            <td>187</td>
-            <td>Торт Черемушки Чародейка Классика 650г</td>
-            <td>5</td>
-            <td>9</td>
-            <td>auto</td>
-          </tr>
-          <tr>
-            <td>812</td>
-            <td>214</td>
-            <td>С/пр Улитка греч со шпинатом и сыром 100г</td>
-            <td>4</td>
-            <td>7</td>
-            <td>auto</td>
-          </tr>
-          <tr>
-            <td>812</td>
-            <td>267</td>
-            <td>Вафли Коломен.Каприччио 220г</td>
-            <td>3</td>
-            <td>5</td>
-            <td>auto</td>
-          </tr>
-          <tr>
-            <td>812</td>
-            <td>275</td>
-            <td>Мармелад Фрутелла жев.Медвежата 70г</td>
-            <td>1</td>
-            <td>8</td>
-            <td>auto</td>
-          </tr>
-          <tr>
-            <td>812</td>
-            <td>277</td>
-            <td>Мармелад Фрутелла жев.Звери 70г</td>
-            <td>1</td>
-            <td>8</td>
-            <td>auto</td>
-          </tr>
-          <tr>
-            <td>812</td>
-            <td>278</td>
-            <td>Ирис Meller с шоколадом 38г</td>
-            <td>3</td>
-            <td>5</td>
-            <td>auto</td>
-          </tr>
-          <tr>
-            <td>812</td>
-            <td>282</td>
-            <td>Драже Ментос 37г Фрукты жевательное (св/у)</td>
-            <td>2</td>
-            <td>4</td>
-            <td>auto</td>
-          </tr>
+          <tr><td>Вся сеть</td><td>Алкоголь</td><td> 1 190 </td><td> 690 </td><td> 16 273 </td><td> 1 886 332 </td><td> 14 646 </td><td> 1 697 699 </td><td> 11 717 </td><td> 17 575 </td></tr>
+          <tr><td>Вся сеть</td><td>Бакалея</td><td> 1 051 </td><td> 643 </td><td> 15 771 </td><td> 883 687 </td><td> 14 194 </td><td> 795 318 </td><td> 11 355 </td><td> 17 033 </td></tr>
+          <tr><td>Вся сеть</td><td>Готовая кулинария, салаты</td><td> 102 </td><td> 35 </td><td> 435 </td><td> 21 663 </td><td> 392 </td><td> 19 496 </td><td> 313 </td><td> 470 </td></tr>
+          <tr><td>Вся сеть</td><td>Детские товары</td><td> 68 </td><td> 10 </td><td> 714 </td><td> 76 408 </td><td> 643 </td><td> 68 767 </td><td> 514 </td><td> 771 </td></tr>
+          <tr><td>Вся сеть</td><td>Детское питание</td><td> 727 </td><td> 234 </td><td> 7 680 </td><td> 274 294 </td><td> 6 912 </td><td> 246 865 </td><td> 5 530 </td><td> 8 294 </td></tr>
+          <tr><td>Вся сеть</td><td>Диабетическое питание</td><td> 85 </td><td> 30 </td><td> 1 093 </td><td> 39 290 </td><td> 984 </td><td> 35 361 </td><td> 787 </td><td> 1 180 </td></tr>
+          <tr><td>Вся сеть</td><td>Замороженные продукты</td><td> 425 </td><td> 170 </td><td> 4 549 </td><td> 288 011 </td><td> 4 094 </td><td> 259 210 </td><td> 3 275 </td><td> 4 913 </td></tr>
+          <tr><td>Вся сеть</td><td>Кондитерские изделия</td><td> 1 574 </td><td> 733 </td><td> 23 092 </td><td> 1 548 114 </td><td> 20 783 </td><td> 1 393 302 </td><td> 16 626 </td><td> 24 939 </td></tr>
+          <tr><td>Вся сеть</td><td>Корма для животных</td><td> 217 </td><td> 191 </td><td> 7 384 </td><td> 188 055 </td><td> 6 646 </td><td> 169 249 </td><td> 5 316 </td><td> 7 975 </td></tr>
+          <tr><td>Вся сеть</td><td>Молочная гастрономия</td><td> 1 494 </td><td> 1 409 </td><td> 15 863 </td><td> 888 050 </td><td> 14 277 </td><td> 799 245 </td><td> 11 422 </td><td> 17 132 </td></tr>
+          <tr><td>Вся сеть</td><td>Мясная гастрономия</td><td> 701 </td><td> 320 </td><td> 3 442 </td><td> 338 411 </td><td> 3 098 </td><td> 304 570 </td><td> 2 478 </td><td> 3 718 </td></tr>
+          <tr><td>Вся сеть</td><td>Мясо и мясные изделия</td><td> 205 </td><td> 325 </td><td> 682 </td><td> 94 800 </td><td> 614 </td><td> 85 320 </td><td> 491 </td><td> 737 </td></tr>
+          <tr><td>Вся сеть</td><td>Напитки безалкогольные</td><td> 550 </td><td> 463 </td><td> 10 457 </td><td> 474 372 </td><td> 9 411 </td><td> 426 935 </td><td> 7 529 </td><td> 11 294 </td></tr>
+          <tr><td>Вся сеть</td><td>Овощи - Фрукты</td><td> 671 </td><td> 1 002 </td><td> 7 593 </td><td> 801 888 </td><td> 6 833 </td><td> 721 699 </td><td> 5 467 </td><td> 8 200 </td></tr>
+          <tr><td>Вся сеть</td><td>Одежда</td><td> 44 </td><td> 10 </td><td> 594 </td><td> 26 868 </td><td> 535 </td><td> 24 182 </td><td> 428 </td><td> 642 </td></tr>
+          <tr><td>Вся сеть</td><td>Рыбная гастрономия</td><td> 342 </td><td> 136 </td><td> 1 792 </td><td> 120 371 </td><td> 1 613 </td><td> 108 334 </td><td> 1 290 </td><td> 1 935 </td></tr>
+          <tr><td>Вся сеть</td><td>Сад и огород</td><td> 2 </td><td> 1 </td><td> 16 </td><td> 419 </td><td> 14 </td><td> 377 </td><td> 12 </td><td> 17 </td></tr>
+          <tr><td>Вся сеть</td><td>Сопутствующие товары</td><td> 801 </td><td> 583 </td><td> 22 492 </td><td> 809 622 </td><td> 20 243 </td><td> 728 659 </td><td> 16 194 </td><td> 24 291 </td></tr>
+          <tr><td>Вся сеть</td><td>Соусы, специи, приправы</td><td> 494 </td><td> 186 </td><td> 8 216 </td><td> 206 965 </td><td> 7 394 </td><td> 186 269 </td><td> 5 916 </td><td> 8 873 </td></tr>
+          <tr><td>Вся сеть</td><td>Сухие п/ф и закуски</td><td> 855 </td><td> 707 </td><td> 15 805 </td><td> 478 783 </td><td> 14 225 </td><td> 430 905 </td><td> 11 380 </td><td> 17 069 </td></tr>
+          <tr><td>Вся сеть</td><td>Табачные аксессуары</td><td> 46 </td><td> 25 </td><td> 778 </td><td> 112 222 </td><td> 700 </td><td> 100 999 </td><td> 560 </td><td> 840 </td></tr>
+          <tr><td>Вся сеть</td><td>Табачные изделия</td><td> 214 </td><td> 260 </td><td> 4 496 </td><td> 639 851 </td><td> 4 046 </td><td> 575 866 </td><td> 3 237 </td><td> 4 856 </td></tr>
+          <tr><td>Вся сеть</td><td>Товары для дома</td><td> 54 </td><td> 18 </td><td> 1 629 </td><td> 58 755 </td><td> 1 466 </td><td> 52 879 </td><td> 1 173 </td><td> 1 759 </td></tr>
+          <tr><td>Вся сеть</td><td>Товары для животных</td><td> 8 </td><td> 3 </td><td> 35 </td><td> 2 621 </td><td> 32 </td><td> 2 359 </td><td> 25 </td><td> 38 </td></tr>
+          <tr><td>Вся сеть</td><td>Товары для праздника и активного отдыха</td><td> 6 </td><td> 1 </td><td> 110 </td><td> 8 561 </td><td> 99 </td><td> 7 705 </td><td> 79 </td><td> 119 </td></tr>
+          <tr><td>Вся сеть</td><td>Товары для ремонта</td><td> 2 </td><td> 1 </td><td> 2 </td><td> 31 </td><td> 2 </td><td> 28 </td><td> 1 </td><td> 2 </td></tr>
+          <tr><td>Вся сеть</td><td>Хлеб, хлебобулочные изделия</td><td> 549 </td><td> 942 </td><td> 5 009 </td><td> 91 591 </td><td> 4 508 </td><td> 82 432 </td><td> 3 607 </td><td> 5 410 </td></tr>
+          <tr><td>Вся сеть</td><td>Чай, кофе, какао</td><td> 556 </td><td> 130 </td><td> 8 260 </td><td> 1 045 304 </td><td> 7 434 </td><td> 940 774 </td><td> 5 947 </td><td> 8 921 </td></tr>
+          <tr><td>Вся сеть</td><td>Яйцо</td><td> 40 </td><td> 236 </td><td> 1 283 </td><td> 88 549 </td><td> 1 155 </td><td> 79 694 </td><td> 924 </td><td> 1 386 </td></tr>
+          
         </tbody>
       </table>
     </div>
