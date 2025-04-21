@@ -62,6 +62,7 @@ function mapAnalysisFilter() {
         tr.classList.remove('d-none')
     }
     if (clearFilters){
+        mapAnalysisStats();
         return
     }
     

@@ -17,13 +17,19 @@
         <div id="above" class="analysis-value">&mdash;</div>
       </div>
     </div>
-    <div class="d-flex justify-content-start gap-4 mb-5">
-      <select data-id="mainprocess" class="form-select col">
-      </select>
-      <select data-id="process" class="form-select col">
-      </select>
-      <select data-id="subprocess" class="form-select col">
-      </select>
+    <div class="d-flex justify-content-start align-items-center gap-4 mb-5">
+      <div class="col">
+        <div class="fw-bold h5">Главный процесс</div>
+        <select data-id="mainprocess" class="form-select w-100"></select>
+      </div>
+      <div class="col">
+        <div class="fw-bold h5">Процесс</div>
+        <select data-id="process" class="form-select w-100"></select>
+      </div>
+      <div class="col">
+        <div class="fw-bold h5">Подпроцесс</div>
+        <select data-id="subprocess" class="form-select w-100"></select>
+      </div>
       <!-- <select id="input" class="form-select col" style="max-width: 150px;">
       </select> -->
       <button class="btn btn-primary">Выгрузить</button>

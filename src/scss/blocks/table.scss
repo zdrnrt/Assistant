@@ -71,7 +71,9 @@
 .table {
   --bs-table-color: #{$cl-black};
   margin-bottom: 0;
-
+  &--fix{
+    table-layout: fixed;
+  }
   &--fixed-head {
     thead {
       position: sticky;
