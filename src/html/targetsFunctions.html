@@ -4,191 +4,109 @@
   </header>
   <div>
     <div class="row d-flex align-items-start mb-3">
-      <div class="col-5 h-100">
+      <div class="col-6 h-100">
         <div class="column">
-          <header class="column__header">Загрузка целей</header>
-          <select class="form-select d-block mb-3" onchange="targetsTargetsChange();">
-            <option value="Internal">Внешние</option>
-            <option value="External">Внутренние</option>
-          </select>
-          <!-- TODO подумать над именованием параметров -->
-          <select id="targetsInternal" class="d-block mb-3 form-select">
-            <option value="profit">Прибыль</option>
-            <option value="sales">Продажи</option>
-            <option value="offs">Списания</option>
-            <option value="openTt">Открытия ТТ</option>
-          </select>
-          <select id="targetsExternal" class="d-block d-none mb-3 form-select">
-            <option value="reserve">Торварный запас </option>
-            <option value="presentation">Представленность</option>
-            <option value="us">УС</option>
-          </select>
+          <div class="row">
+            <div class="col-7">
 
-          <button class="d-block w-50 mb-3 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Обновить
-          </button>
-          <button class="d-block w-50 mb-3 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Обновить все
-          </button>
-          <button class="d-block w-50 btn btn-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Применить
-          </button>
-        </div>
-      </div>
-      <div class="col-5 offset-1 h-100">
-        <div class="column">
-          <header class="column__header">План/Факт (дата)</header>
-          <div class="mb-3">
-            <div class="mb-2">
-              <select id="targetsChartSelect" class="d-block w-100 form-select">
-                <option value="stock">Норма стока и структура стока ТТ</option>
-                <option value="offs">Списания</option>
-                <option value="sales">Продажи</option>
-                <!-- <option value="all">Все</option>
-                <option value="profit">Прибыль</option>
-                <option value="openTt">Открытия ТТ</option>
-                <option value="reserve">Торварный запас</option>
-                <option value="presentation">Представленность</option>
-                <option value="us">УС</option> -->
+              <header class="column__header">Выбрать целевую функцию</header>
+              <select id="targetsFunctionsType" class="form-select d-block mb-3">
+                <option value="low">Снижение товарного запаса на X%</option>
+                <option value="to">Привести товарный запас к нормам</option>
+                <option value="increase">Увеличить доступность на X%</option>
+                <option value="lowLose">Снизить потери на X%</option>
+                <option value="max">Максимизировать прибыль</option>
               </select>
+              <button id="targetsFunctionsAdd" class="d-block w-50 btn btn-primary" _onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+                Выбрать
+              </button>
             </div>
-              <div class="h3 p-2 pe-3 ps-3 border border-r d-inline-block fw-medium">
-                <span id="plan">10 млн</span> / <span id="fact">14 млн</span> = <span id="delta" class="danger">-4 млн</span>
-              </div>
-          </div>
-          <div class="targets-chart border border-r">
-            <canvas id="targetsChart"></canvas>
+            <div class="offset-1 col-4">
+              <button id="openConfig" class="d-block w-100 mb-3 btn btn-outline-primary">
+                Настроить
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="row justify-content-between gap-4 mb-3">
-      <div class="col-7 d-flex justify-content-between align-items-center gap-4">
-        <!-- TODO продумать наименование и настройки -->
-        <select class="form-select">
-          <option value="">Вся сеть</option>
-          <option value="r1">Регион_1</option>
-          <option value="r2">Регион_2</option>
-          <option value="r3">Регион_3</option>
-        </select>
-        <select name="" id="" class="form-select">
-          <option value="">Категория_0</option>
-          <option value="">Категория_1</option>
-          <option value="">Категория_1.1</option>
-          <option value="">Категория_2</option>
-          <option value="">Категория_2.1</option>
-        </select>
-        <select name="" id="" class="form-select">
-          <option value="">Все</option>
-          <option value="">Прибыль</option>
-          <option value="">Продажи </option>
-          <option value="">Списания </option>
-          <option value="">Открытия ТТ</option>
-          <option value="">Торварный запас </option>
-          <option value="">Представленность</option>
-          <option value="">УС</option>
-        </select>
-        <label for="" >
-          <input type="text" placeholder="Код товара" class="w-auto form-control">
-        </label>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center gap-4">
-        <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
-          <button type="button" class="btn btn-outline-primary btn-color-primary">
-            <i class="fa fa-file-upload"></i>
-          </button>
-          <button type="button" class="btn btn-primary">
-            <i class="fa fa-save"></i>
-          </button>
-        </div>
-      </div>
-
-    </div>
-    <div class="table">
-      <table class="table__table">
+    <div class="table-container table-container--targetsFunctions">
+      <table id="table" class="table table-targetsFunctions">
+        <colgroup>
+          <col width="95">
+          <col width="360">
+          <col width="145">
+          <col>
+          <col>
+          <col width="165">
+          <col width="145">
+        </colgroup>
         <thead>
           <tr>
-            <th>Регион</th>
+            <th>Приоритет</th>
             <th>Цель</th>
-            <th>Магазин</th>
-            <th>Код товара</th>
-            <th>Наименование</th>
-            <th>МИН</th>
-            <th>МАКС</th>
-            <th>Признак</th>
-            <th>Stock_дата</th>
-            <th>Отклонение</th>
+            <th>Значени</th>
+            <th>Результат</th>
+            <th>Риски</th>
+            <th>Допустимое значение</th>
+            <th>Действие</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>187</td>
-            <td>Торт Черемушки Чародейка Классика 650г</td>
-            <td>5</td>
-            <td>9</td>
-            <td>auto</td>
-            <td>15</td>
-            <td>Over</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>214</td>
-            <td>С/пр Улитка греч со шпинатом и сыром 100г</td>
-            <td>4</td>
-            <td>7</td>
-            <td>auto</td>
-            <td>6</td>
-            <td>Norma</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>267</td>
-            <td>Вафли Коломен.Каприччио 220г</td>
-            <td>3</td>
-            <td>5</td>
-            <td>auto</td>
-            <td>5</td>
-            <td>Norma</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>275</td>
-            <td>Мармелад Фрутелла жев.Медвежата 70г</td>
-            <td>10	</td>
-            <td>8</td>
-            <td>auto</td>
-            <td>2</td>
-            <td>OOS</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>277</td>
-            <td>Мармелад Фрутелла жев.Звери 70г</td>
-            <td>10	</td>
-            <td>8</td>
-            <td>auto</td>
-            <td>3</td>
-            <td>OOS</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>278</td>
-            <td>Ирис Meller с шоколадом 38г</td>
-            <td>3</td>
-            <td>5</td>
-            <td>auto</td>
-            <td>4</td>
-            <td>Norma</td></tr>
+          
         </tbody>
       </table>
     </div>
     
 
+  </div>
+</div>
+
+<div class="modal modal-sm fade" id="modalConfig" tabindex="-1" aria-labelledby="modalConfigLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalConfigLabel">&mdash;</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body fs-5">
+        <select name="category" class="form-select d-block mb-3">
+          <option value="">Все категории</option>
+          <option value="1">Категория_1</option>
+          <option value="2">Категория_2</option>
+          <option value="3">Категория_3</option>
+        </select>
+        <select name="region" class="form-select d-block mb-3">
+          <option value="">Вся сеть</option>
+          <option value="1">Регион_1</option>
+          <option value="2">Регион_2</option>
+          <option value="3">Регион_3</option>
+        </select>
+        <label class="row align-items-center mb-3">
+          <div class="col-5">Процент увеличения, %</div>
+          <div class="col-7"><input name="increase" type="number" class="form-control"></div>
+        </label>
+        <label class="row align-items-center mb-3">
+          <div class="col-5">Процент снижения, %</div>
+          <div class="col-7"><input name="decrease" type="number" class="form-control"></div>
+        </label>
+        <label class="row align-items-center mb-3">
+          <div class="col-5">Лимит, руб</div>
+          <div class="col-7"><input name="limit" type="number" class="form-control"></div>
+        </label>
+        <div class="pt-3 border-top">
+          <div class="h4 mb-2">Зазгрузить из файла</div>
+          <label class="d-block mb-1">
+            <input type="file" type="button" name="normaRcFile" class="form-control">
+          </label>
+          <div class="text-end"><a href="#">Скачать шаблон</a></div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+      </div>
+    </form>
   </div>
 </div>
