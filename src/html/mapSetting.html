@@ -15,10 +15,12 @@
         Создание процесса
       </button>
     </div>
-    <div class="d-flex justify-content-start gap-4 mb-3">
-      <select data-id="mainprocess" class="form-select w-50" onchange="mapSettingFilter(this);">
-      </select>
-      <button class="btn btn-primary" onclick="mapSettingDownload();">Выгрузить</button>
+    <div class="d-flex justify-content-start align-items-end gap-4 mb-3">
+      <div class="w-50">
+        <div class="fw-bold h5">Главный процесс</div>
+        <select data-id="mainprocess" class="form-select w-100" onchange="mapSettingFilter(this);"></select>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="mapSettingDownload();">Выгрузить</button>
     </div>
     <div class="table-container">
       <table id="mapSettingTable" class="table table--nowrap">

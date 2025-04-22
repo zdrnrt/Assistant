@@ -4,191 +4,233 @@
   </header>
   <div>
     <div class="row d-flex align-items-start mb-3">
-      <div class="col-5 h-100">
+      <div class="col-7 h-100">
         <div class="column">
           <header class="column__header">Загрузка целей</header>
           <select class="form-select d-block mb-3" onchange="targetsTargetsChange();">
-            <option value="Internal">Внешние</option>
-            <option value="External">Внутренние</option>
+            <option value="internal">Внешние</option>
+            <option value="external">Внутренние</option>
           </select>
           <!-- TODO подумать над именованием параметров -->
-          <select id="targetsInternal" class="d-block mb-3 form-select">
+          <select id="targetsInternal" _data-id="internal" class="d-block mb-3 form-select">
             <option value="profit">Прибыль</option>
             <option value="sales">Продажи</option>
             <option value="offs">Списания</option>
             <option value="openTt">Открытия ТТ</option>
           </select>
-          <select id="targetsExternal" class="d-block d-none mb-3 form-select">
+          <select id="targetsExternal" _data-id="external" class="d-block d-none mb-3 form-select">
             <option value="reserve">Торварный запас </option>
             <option value="presentation">Представленность</option>
             <option value="us">УС</option>
           </select>
 
-          <button class="d-block w-50 mb-3 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <button class="d-block w-50 mb-3 btn btn-outline-primary"
+            onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Обновить
           </button>
-          <button class="d-block w-50 mb-3 btn btn-outline-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <button class="d-block w-50 mb-3 btn btn-outline-primary"
+            onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Обновить все
           </button>
-          <button class="d-block w-50 btn btn-primary" onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <button class="d-block w-50 btn btn-primary"
+            onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Применить
           </button>
         </div>
       </div>
-      <div class="col-5 offset-1 h-100">
+      <div class="col-5 h-100">
         <div class="column">
-          <header class="column__header">План/Факт (дата)</header>
+          <header class="column__header">План/Факт (дата) внешние</header>
           <div class="mb-3">
             <div class="mb-2">
-              <select id="targetsChartSelect" class="d-block w-100 form-select">
-                <option value="stock">Норма стока и структура стока ТТ</option>
+              <select id="targetsIndexExternalSelect" class="d-block w-100 form-select">
+                <option value="norma">Норма стока и структура стока ТТ</option>
                 <option value="offs">Списания</option>
-                <option value="sales">Продажи</option>
-                <!-- <option value="all">Все</option>
-                <option value="profit">Прибыль</option>
-                <option value="openTt">Открытия ТТ</option>
-                <option value="reserve">Торварный запас</option>
-                <option value="presentation">Представленность</option>
-                <option value="us">УС</option> -->
+                <option value="sells">Продажи</option>
+                <option value="normaRc">Норма стока стока РЦ</option>
+                <option value="normaOosTt">Норма OOS  ТТ</option>
+                <option value="normaUc">Норма УС  поставщика</option>
+                <option value="normaUcRcTt">Норма УС РЦ-ТТ</option>
               </select>
             </div>
-              <div class="h3 p-2 pe-3 ps-3 border border-r d-inline-block fw-medium">
-                <span id="plan">10 млн</span> / <span id="fact">14 млн</span> = <span id="delta" class="danger">-4 млн</span>
-              </div>
+            <div class="h3 p-2 pe-3 ps-3 border border-r d-inline-block fw-medium">
+              <span id="plan">10 млн</span> / <span id="fact">14 млн</span> = <span id="delta" class="danger">-4
+                млн</span>
+            </div>
           </div>
           <div class="targets-chart border border-r">
-            <canvas id="targetsChart"></canvas>
+            <canvas id="targetsChartExternal"></canvas>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="row justify-content-between gap-4 mb-3">
-      <div class="col-7 d-flex justify-content-between align-items-center gap-4">
-        <!-- TODO продумать наименование и настройки -->
-        <select class="form-select">
-          <option value="">Вся сеть</option>
-          <option value="r1">Регион_1</option>
-          <option value="r2">Регион_2</option>
-          <option value="r3">Регион_3</option>
-        </select>
-        <select name="" id="" class="form-select">
-          <option value="">Категория_0</option>
-          <option value="">Категория_1</option>
-          <option value="">Категория_1.1</option>
-          <option value="">Категория_2</option>
-          <option value="">Категория_2.1</option>
-        </select>
-        <select name="" id="" class="form-select">
-          <option value="">Все</option>
-          <option value="">Прибыль</option>
-          <option value="">Продажи </option>
-          <option value="">Списания </option>
-          <option value="">Открытия ТТ</option>
-          <option value="">Торварный запас </option>
-          <option value="">Представленность</option>
-          <option value="">УС</option>
-        </select>
-        <label for="" >
-          <input type="text" placeholder="Код товара" class="w-auto form-control">
-        </label>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center gap-4">
-        <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
-          <button type="button" class="btn btn-outline-primary btn-color-primary">
-            <i class="fa fa-file-upload"></i>
-          </button>
-          <button type="button" class="btn btn-primary">
-            <i class="fa fa-save"></i>
-          </button>
+    <div class="row">
+      <div class="col-7">
+        <div class="mb-3 row align-items-center">
+          <div class="col-10 d-flex justify-content-between align-items-center gap-4">
+            <!-- TODO продумать наименование и настройки -->
+            <select class="form-select">
+              <option value="">Вся сеть</option>
+              <option value="r1">Регион_1</option>
+              <option value="r2">Регион_2</option>
+              <option value="r3">Регион_3</option>
+            </select>
+            <select name="" id="" class="form-select">
+              <option value="">Категория_0</option>
+              <option value="">Категория_1</option>
+              <option value="">Категория_1.1</option>
+              <option value="">Категория_2</option>
+              <option value="">Категория_2.1</option>
+            </select>
+            <select name="" id="" class="form-select">
+              <option value="">Все</option>
+              <option value="">Прибыль</option>
+              <option value="">Продажи </option>
+              <option value="">Списания </option>
+              <option value="">Открытия ТТ</option>
+              <option value="">Торварный запас </option>
+              <option value="">Представленность</option>
+              <option value="">УС</option>
+            </select>
+            <label for="">
+              <input type="text" placeholder="Код товара" class="w-auto form-control">
+            </label>
+          </div>
+          <div class="col-2 d-flex justify-content-end align-items-center gap-4">
+            <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
+              <button type="button" class="btn btn-outline-primary btn-color-primary">
+                <i class="fa fa-file-upload"></i>
+              </button>
+              <button type="button" class="btn btn-primary">
+                <i class="fa fa-save"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Регион</th>
+                <th>Цель</th>
+                <th>Магазин</th>
+                <th>Код товара</th>
+                <th>Наименование</th>
+                <th>МИН</th>
+                <th>МАКС</th>
+                <th>Признак</th>
+                <th>Stock_дата</th>
+                <th>Отклонение</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>СПб</td>
+                <td>Товарный запас</td>
+                <td>812</td>
+                <td>187</td>
+                <td>Торт Черемушки Чародейка Классика 650г</td>
+                <td>5</td>
+                <td>9</td>
+                <td>auto</td>
+                <td>15</td>
+                <td>Over</td>
+              </tr>
+              <tr>
+                <td>СПб</td>
+                <td>Товарный запас</td>
+                <td>812</td>
+                <td>214</td>
+                <td>С/пр Улитка греч со шпинатом и сыром 100г</td>
+                <td>4</td>
+                <td>7</td>
+                <td>auto</td>
+                <td>6</td>
+                <td>Norma</td>
+              </tr>
+              <tr>
+                <td>СПб</td>
+                <td>Товарный запас</td>
+                <td>812</td>
+                <td>267</td>
+                <td>Вафли Коломен.Каприччио 220г</td>
+                <td>3</td>
+                <td>5</td>
+                <td>auto</td>
+                <td>5</td>
+                <td>Norma</td>
+              </tr>
+              <tr>
+                <td>СПб</td>
+                <td>Товарный запас</td>
+                <td>812</td>
+                <td>275</td>
+                <td>Мармелад Фрутелла жев.Медвежата 70г</td>
+                <td>10 </td>
+                <td>8</td>
+                <td>auto</td>
+                <td>2</td>
+                <td>OOS</td>
+              </tr>
+              <tr>
+                <td>СПб</td>
+                <td>Товарный запас</td>
+                <td>812</td>
+                <td>277</td>
+                <td>Мармелад Фрутелла жев.Звери 70г</td>
+                <td>10 </td>
+                <td>8</td>
+                <td>auto</td>
+                <td>3</td>
+                <td>OOS</td>
+              </tr>
+              <tr>
+                <td>СПб</td>
+                <td>Товарный запас</td>
+                <td>812</td>
+                <td>278</td>
+                <td>Ирис Meller с шоколадом 38г</td>
+                <td>3</td>
+                <td>5</td>
+                <td>auto</td>
+                <td>4</td>
+                <td>Norma</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
+      <div class="col-5 h-100">
+        <div class="column">
+          <header class="column__header">План/Факт (дата) внутренние</header>
+          <div class="mb-3">
+            <div class="mb-2">
+              <select id="targetsIndexInternalSelect" data-id="internal" class="d-block w-100 form-select">
+                <option value="norma">Норма стока и структура стока ТТ</option>
+                <option value="offs">Списания</option>
+                <option value="sells">Продажи</option>
+                <option value="normaRc">Норма стока стока РЦ</option>
+                <option value="normaOosTt">Норма OOS  ТТ</option>
+                <option value="normaUc">Норма УС  поставщика</option>
+                <option value="normaUcRcTt">Норма УС РЦ-ТТ</option>
+              </select>
+            </div>
+            <div class="h3 p-2 pe-3 ps-3 border border-r d-inline-block fw-medium">
+              <span id="plan">10 млн</span> / <span id="fact">14 млн</span> = <span id="delta" class="danger">-4
+                млн</span>
+            </div>
+          </div>
+          <div class="targets-chart border border-r">
+            <canvas id="targetsChartInternal"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    </div>
-    <div class="table">
-      <table class="table__table">
-        <thead>
-          <tr>
-            <th>Регион</th>
-            <th>Цель</th>
-            <th>Магазин</th>
-            <th>Код товара</th>
-            <th>Наименование</th>
-            <th>МИН</th>
-            <th>МАКС</th>
-            <th>Признак</th>
-            <th>Stock_дата</th>
-            <th>Отклонение</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>187</td>
-            <td>Торт Черемушки Чародейка Классика 650г</td>
-            <td>5</td>
-            <td>9</td>
-            <td>auto</td>
-            <td>15</td>
-            <td>Over</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>214</td>
-            <td>С/пр Улитка греч со шпинатом и сыром 100г</td>
-            <td>4</td>
-            <td>7</td>
-            <td>auto</td>
-            <td>6</td>
-            <td>Norma</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>267</td>
-            <td>Вафли Коломен.Каприччио 220г</td>
-            <td>3</td>
-            <td>5</td>
-            <td>auto</td>
-            <td>5</td>
-            <td>Norma</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>275</td>
-            <td>Мармелад Фрутелла жев.Медвежата 70г</td>
-            <td>10	</td>
-            <td>8</td>
-            <td>auto</td>
-            <td>2</td>
-            <td>OOS</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>277</td>
-            <td>Мармелад Фрутелла жев.Звери 70г</td>
-            <td>10	</td>
-            <td>8</td>
-            <td>auto</td>
-            <td>3</td>
-            <td>OOS</td></tr>
-          <tr><td>СПб</td>
-            <td>Товарный запас</td>
-            <td>812</td>
-            <td>278</td>
-            <td>Ирис Meller с шоколадом 38г</td>
-            <td>3</td>
-            <td>5</td>
-            <td>auto</td>
-            <td>4</td>
-            <td>Norma</td></tr>
-        </tbody>
-      </table>
-    </div>
-    
 
   </div>
 </div>
