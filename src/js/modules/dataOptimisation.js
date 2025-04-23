@@ -1,15 +1,27 @@
+import {moduleOpen, downloadTable} from '../tools'
+
+
 window.dataOptimisationOpen = function() {
-  fetch('./src/html/dataOptimisation.html')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Реакция сети' + response.statusText);
-          }
-          return response.text(); 
-      })
-      .then(html => {
-          document.getElementById('content').innerHTML = html;
-      })
-      .catch(error => {
-          console.error('Возникла проблема с операцией выборки:', error);
-      });
+    moduleOpen('./src/html/dataOptimisation.html')
+    .then( () => {
+        dataOptimisationInit()
+    })
+}
+
+function dataOptimisationInit(){
+    document.getElementById('filter').addEventListener('change', dataOptimisationFilter)
+    // document.getElementById('download').addEventListener('change', () => console.log('ассистент_данные_оптимизация'))
+    document.getElementById('download').addEventListener('click', () => downloadTable('ассистент_данные_оптимизация'))
+}
+
+function dataOptimisationFilter(event){
+    const value = event.target.value;
+	const tdList = document.querySelectorAll('#table tbody td:first-child');
+	for (const td of tdList) {
+		if (td.textContent !== value && value != '') {
+			td.closest('tr').classList.add('d-none');
+		} else {
+			td.closest('tr').classList.remove('d-none');
+		}
+	}
 }
