@@ -1,5 +1,4 @@
-import { fillDictionary } from '../tools';
-import * as XLSX from 'xlsx'
+import { fillDictionary, downloadTable } from '../tools';
 
 window.mapAnalysisOpen = function() {
   fetch('./src/html/mapAnalysis.html')
@@ -33,6 +32,8 @@ function mapAnalysisInit() {
     for (const filter of filters){
         filter.addEventListener('change', mapAnalysisFilter)
     }
+
+    document.getElementById('download').addEventListener('click', () => downloadTable('ассистент_карта_процессов_анализ'))
 }
 
 function mapAnalysisTableSchema() {
@@ -88,7 +89,7 @@ function mapAnalysisFilter() {
 function mapAnalysisStats() {
     const table = document.getElementById('table');
     const list = Array.from(table.querySelectorAll('tr:not(.d-none) [data-type="rate"]'));
-    document.getElementById('all').textContent = list.length;
+    document.getElementById('all').textContent = list.reduce((result, el) => Number(el.textContent) == 5 ? result + 1 : result, 0);
     document.getElementById('under').textContent = list.reduce((result, el) => Number(el.textContent) <= 2 ? result + 1 : result, 0)
-    document.getElementById('above').textContent = list.reduce((result, el) => Number(el.textContent) > 4 ? result + 1 : result, 0)
+    document.getElementById('above').textContent = list.reduce((result, el) => (Number(el.textContent) == 3 || Number(el.textContent) == 4) ? result + 1 : result, 0)
 }

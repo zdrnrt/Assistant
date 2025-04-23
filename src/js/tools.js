@@ -1,4 +1,5 @@
 import { MAINPROCESS, PROCESS, SUBPROCESS, INPUT, KPI, GEO, CATEGORY, INTERNAL, EXTERNAL } from "./config";
+import * as XLSX from 'xlsx'
 
 export function formatNumber(number) {
   return Intl.NumberFormat('ru-RU').format(number);
@@ -25,4 +26,9 @@ export function fillDictionary(filter = false){
       }
     }
   }
+}
+
+export function downloadTable(title, id = 'table') {
+  var workbook = XLSX.utils.table_to_book(document.getElementById(id));
+  XLSX.writeFile(workbook, `${title}.xlsx`)
 }

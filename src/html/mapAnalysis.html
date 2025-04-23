@@ -5,37 +5,46 @@
   <div>
     <div class="mb-5 row">
       <div class="col-4">
-        <div class="h3 mb-3 text-center">Всего процессов</div>
-        <div id="all" class="analysis-value">&mdash;</div>
+        <!-- <div class="h3 mb-3 text-center">Всего процессов</div> -->
+        <div id="under" class="analysis-value analysis-value--red">&mdash;</div>
       </div>
       <div class="col-4">
-        <div class="h3 mb-3 text-center">Оценка ниже 2</div>
-        <div id="under" class="analysis-value">&mdash;</div>
+        <!-- <div class="h3 mb-3 text-center">Оценка ниже 2</div> -->
+        <div id="above" class="analysis-value analysis-value--yellow">&mdash;</div>
       </div>
       <div class="col-4">
-        <div class="h3 mb-3 text-center">Оценка выше 4</div>
-        <div id="above" class="analysis-value">&mdash;</div>
+        <!-- <div class="h3 mb-3 text-center">Оценка выше 4</div> -->
+        <div id="all" class="analysis-value analysis-value--green">&mdash;</div>
       </div>
     </div>
     <div class="d-flex justify-content-start align-items-end gap-4 mb-5">
       <div class="col">
         <div class="fw-bold h5">Главный процесс</div>
-        <select data-id="mainprocess" class="form-select w-100"></select>
+        <select data-id="mainprocess" class="form-select w-100">
+          <option value="">Все</option>
+        </select>
       </div>
       <div class="col">
         <div class="fw-bold h5">Процесс</div>
-        <select data-id="process" class="form-select w-100"></select>
+        <select data-id="process" class="form-select w-100">
+          <option value="">Все</option>
+        </select>
       </div>
       <div class="col">
         <div class="fw-bold h5">Подпроцесс</div>
-        <select data-id="subprocess" class="form-select w-100"></select>
+        <select data-id="subprocess" class="form-select w-100">
+          <option value="">Все</option>
+        </select>
       </div>
       <!-- <select id="input" class="form-select col" style="max-width: 150px;">
       </select> -->
-      <button class="btn btn-primary btn-lg">Выгрузить</button>
+      <button id="download" type="button" class="btn btn-primary btn-lg">
+        <i class="fa fa-save"></i>
+      </button>
+      <!-- <button class="btn btn-primary btn-lg">Выгрузить</button> -->
     </div>
-    <div id="table" class="table-container table-container--mapanalysis">
-      <table class="table _table--nowrap">
+    <div class="table-container table-container--mapanalysis">
+      <table id="table" class="table _table--nowrap">
         <thead>
           <tr>
             <th>Главный процесс</th>

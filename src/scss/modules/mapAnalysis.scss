@@ -7,9 +7,17 @@
   justify-content: center;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: $cl-purple-bright;
   font-weight: bold;
   color: $cl-white;
   font-size: 4rem;
   line-height: 1;
+  &--red{
+    background-color: var(--bs-danger);
+  }
+  &--green{
+    background-color: $succes;
+  }
+  &--yellow{
+    background-color: $warning;
+  }
 }

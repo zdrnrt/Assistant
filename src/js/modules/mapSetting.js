@@ -1,4 +1,4 @@
-import {fillDictionary} from '../tools';
+import {downloadTable, fillDictionary} from '../tools';
 import * as XLSX from 'xlsx/xlsx.mjs';
 
 window.mapSettingOpen = function() {
@@ -21,11 +21,13 @@ window.mapSettingOpen = function() {
 function mapSettingInit(){
     mapSettingTableSchema();
     fillDictionary();
+    document.getElementById('download').addEventListener('click', () => downloadTable('ассистент_карта_процессов_настройка'))
+    document.getElementById('filter').addEventListener('change', mapSettingFilter)
 }
 
 function mapSettingTableSchema(){
     const schema = [ 'mainprocess'];
-    const tdList = document.getElementById('mapSettingTable').querySelectorAll('tbody tr td:first-child');
+    const tdList = document.getElementById('table').querySelectorAll('tbody tr td:first-child');
     for (const td of tdList){
         // tr.querySelectorAll('td').forEach((td, i) => {
             td.setAttribute('data-type', schema[0]);
@@ -33,16 +35,11 @@ function mapSettingTableSchema(){
     }
 }
 
-// TODO перенести в функцию
-window.mapSettingDownload = function () {
-  var workbook = XLSX.utils.table_to_book(document.getElementById('mapSettingTable'));
-  XLSX.writeFile(workbook, `ассистент_карта_процессов.xlsx`)
-}
-
-window.mapSettingFilter = (elem) => {
-    const table = document.querySelectorAll('#mapSettingTable tbody td:first-child');
-    for (const td of table){
-        if (td.textContent !== elem.value && elem.value != ''){
+function mapSettingFilter(event) {
+    const value = event.target.value;
+    const tdList = document.querySelectorAll('#table tbody td:first-child');
+    for (const td of tdList){
+        if (td.textContent !== value && value != ''){
             td.closest('tr').classList.add('d-none');
         } else {
             td.closest('tr').classList.remove('d-none');
