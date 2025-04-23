@@ -18,7 +18,7 @@ window.targetsIndexOpen = function () {
     });
 };
 
-targetsIndexOpen();
+// targetsIndexOpen();
 
 function targetsIndexInit(){
   fillDictionary()

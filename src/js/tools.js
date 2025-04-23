@@ -1,6 +1,22 @@
 import { MAINPROCESS, PROCESS, SUBPROCESS, INPUT, KPI, GEO, CATEGORY, INTERNAL, EXTERNAL } from "./config";
 import * as XLSX from 'xlsx'
 
+export function moduleOpen(path) {
+  return fetch(path)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Реакция сети' + response.statusText);
+      }
+      return response.text();
+    })
+    .then((html) => {
+      document.getElementById('content').innerHTML = html;
+    })
+    .catch((error) => {
+      console.error('Возникла проблема с операцией выборки:', error);
+    });
+}
+
 export function formatNumber(number) {
   return Intl.NumberFormat('ru-RU').format(number);
 }
