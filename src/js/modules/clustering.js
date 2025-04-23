@@ -1,25 +1,15 @@
 import { Chart, plugins } from "chart.js/auto";
+import {moduleOpen, downloadTable} from '../tools'
 
 window.clusteringOpen = function () {
-  fetch("./src/html/clustering.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Реакция сети" + response.statusText);
-      }
-      return response.text();
-    })
-    .then((html) => {
-      document.getElementById("content").innerHTML = html;
+  moduleOpen('./src/html/clustering.html')
+    .then( () => {
       clusteringChartDraw();
+      document.getElementById('download').addEventListener('click', () => downloadTable('ассистент_кластеризация'))
     })
-    .catch((error) => {
-      console.error("Возникла проблема с операцией выборки:", error);
-    });
 };
 
-// clusteringOpen();
-
-window.clusteringChartDraw = function () {
+function clusteringChartDraw () {
   const chart = document.getElementById("clusteringChart");
 
   // Define the data
@@ -56,6 +46,62 @@ window.clusteringChartDraw = function () {
       x: 6,
       y: 12,
     },
+    {
+      x: 2,
+      y: 10,
+    },
+    {
+      x: 1,
+      y: 12,
+    },
+    {
+      x: 5,
+      y: 5,
+    },
+    {
+      x: 6,
+      y: 6,
+    },
+    {
+      x: 9,
+      y: 9,
+    },
+    {
+      x: 2,
+      y: 7,
+    },
+    {
+      x: 6,
+      y: 7,
+    },
+    {
+      x: 6,
+      y: 10,
+    },
+    {
+      x: 2,
+      y: 7,
+    },
+    {
+      x: 4,
+      y: 7,
+    },
+    {
+      x: 4,
+      y: 9,
+    },
+    {
+      x: 8,
+      y: 3,
+    },
+    {
+      x: 8,
+      y: 13,
+    },
+    {
+      x: 8,
+      y: 8,
+    },
   ]; // Add data values to array
   // End Defining data
   var options = {
@@ -74,10 +120,10 @@ window.clusteringChartDraw = function () {
     data: {
       datasets: [
         {
-          label: "Population", // Name the series
+          label: "Данные", // Name the series
           data: data, // Specify the data values array
-          borderColor: "#2196f3", // Add custom color border
-          backgroundColor: "#2196f3", // Add custom color background (Points and Fill)
+          borderColor: "#dc3545", // Add custom color border
+          backgroundColor: "#dc3545", // Add custom color background (Points and Fill)
         },
       ],
     },

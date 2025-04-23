@@ -4,10 +4,9 @@
   </header>
   <div>
     <div class="row align-items-start mb-3">
-      <div class="col-2 h-100">
+      <div class="col-3 h-100">
         <div class="column">
-          <header class="column__header">Признаки кластеров</header>
-
+          <header class="column__header">Признаки кластеров торговых точек</header>
           <div class="mb-3">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" name="clusteringType">
@@ -36,6 +35,43 @@
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" name="clasteringAssortment">
               Ассортимент
+            </label>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-3 h-100">
+        <div class="column">
+          <header class="column__header">Признаки кластеров товаров</header>
+
+          <div class="mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="">
+              Товарная группа
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="">
+              Продажи, шт
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="">
+              Продажти, руб
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="">
+              Маржа
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="">
+              Георграфия 
             </label>
           </div>
         </div>
@@ -123,7 +159,7 @@
         <button type="button" class="d-block w-100 mt-5 btn btn-primary"
           onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-          Запустить оценку
+          Авторасчет
         </button>
         <!-- </div> -->
       </div>
@@ -145,12 +181,12 @@
           <button type="button" class="btn btn-outline-primary btn-color-primary">
             <i class="fa fa-file-upload"></i>
           </button>
-          <button type="button" class="btn btn-primary">
+          <button id="download" type="button" class="btn btn-primary">
             <i class="fa fa-save"></i>
           </button>
         </div>
         <div class="table-container table-container--clustering border-bottom">
-          <table class="table table--nowrap table--fixed-head">
+          <table id="table" class="table table--nowrap table--fixed-head">
             <colgroup>
               <col width="15%">
               <col width="15%">
