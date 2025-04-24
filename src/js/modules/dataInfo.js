@@ -137,7 +137,7 @@ function dataInfoChartInDraw() {
 	}
 	setTimeout(() => {
 		window.dataInfoChartIn = new Chart(chartIn, {
-			type: 'line',
+			type: 'bar',
 			data: {
 				labels: labels,
 				datasets: datasets,
