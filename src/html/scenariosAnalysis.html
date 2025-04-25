@@ -5,24 +5,33 @@
   <div>
     <div class="row mb-3">
       <div class="col-4">
+        <select name="" id="type" class="form-select d-block">
+          <option value="tt">Товарный запас ТТ</option>
+          <option value="rc">Товарный запас РЦ</option>
+          <option value="represent">Представленность</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-4">
         <div class="column">
           <header class="column__header">Срочный</header>
           <h2 class="mb-3">Достижение цели - <span class="text-danger">Апрель</span></h2>
-          <canvas id="scenarios-fast-chart"></canvas>
+          <canvas id="fast"></canvas>
         </div>
       </div>
       <div class="col-4">
         <div class="column">
           <header class="column__header">Среднесрочный</header>
           <h2 class="mb-3">Достижение цели - <span class="text-danger">Май</span></h2>
-          <canvas id="scenarios-middle-chart"></canvas>
+          <canvas id="middle"></canvas>
         </div>
       </div>
       <div class="col-4">
         <div class="column">
           <header class="column__header">Нормальный</header>
           <h2 class="mb-3">Достижение цели - <span class="text-danger">Июнь</span></h2>
-          <canvas id="scenarios-normal-chart"></canvas>
+          <canvas id="normal"></canvas>
         </div>
       </div>
     </div>
