@@ -278,17 +278,17 @@ window.targetsChartDraw = async function () {
       case 'stock' : 
         planValue = data.stock[5].data[data.stock[4].data.length - 1];
         factValue = data.stock[4].data[data.stock[4].data.length - 1];
-        deltaValue = data.stock[5].data[data.stock[4].data.length - 1] - data.stock[4].data[data.stock[4].data.length - 1];
+        deltaValue = planValue -factValue;
       break;
       case 'offs' : 
         planValue = data.offs[1].data[data.offs[0].data.length - 1];
         factValue = data.offs[0].data[data.offs[0].data.length - 1];
-        deltaValue = data.offs[1].data[data.offs[0].data.length - 1] - data.offs[0].data[data.offs[0].data.length - 1];
+        deltaValue = planValue - factValue;
       break;
       case 'sales' : 
         planValue = data.sales[1].data[data.sales[0].data.length - 1];
         factValue = data.sales[0].data[data.sales[0].data.length - 1];
-        deltaValue = data.sales[1].data[data.sales[0].data.length - 1] - data.sales[0].data[data.sales[0].data.length - 1];
+        deltaValue = planValue - factValue;
       break;
       default: 
       break;

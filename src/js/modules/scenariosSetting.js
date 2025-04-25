@@ -9,7 +9,7 @@ window.scenariosSettingOpen = function() {
     });
 }
 
-scenariosSettingOpen();
+// scenariosSettingOpen();
 
 function scenariosSettingInit() {
     for (const form of document.querySelectorAll('.scenariosForm')){
