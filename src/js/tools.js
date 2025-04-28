@@ -9,6 +9,8 @@ import {
 	INTERNAL,
 	EXTERNAL,
 	DEPARTMENT,
+	FACTORPROCESS,
+	FACTORANALYSIS
 } from './config';
 import * as XLSX from 'xlsx';
 
@@ -44,6 +46,8 @@ export function fillDictionary(filter = false) {
 		internal: INTERNAL,
 		external: EXTERNAL,
 		department: DEPARTMENT,
+		factorprocess: FACTORPROCESS,
+		factoranalysis: FACTORANALYSIS
 	};
 	for (const dictionary of Object.keys(dictionarys)) {
 		const selectList = document.querySelectorAll(

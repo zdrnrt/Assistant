@@ -13,10 +13,10 @@ window.factorSettingOpen = function() {
 function factorSettingInit(){
     fillDictionary();
 
-    const filters = [
-		document.querySelector('[data-id="department"]'),
-		document.querySelector('[data-id="process"]'),
-	];
+			const filters = [
+			document.querySelector('[data-id="department"]'),
+			document.querySelector('[data-id="process"]'),
+		];
     for (const filter of filters) {
 		filter.addEventListener('change', factorSettingFilter);
 	}
