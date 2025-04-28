@@ -1,15 +1,7 @@
+import { moduleOpen } from "../tools";
+
 window.taskSettingOpen = function() {
-  fetch('./src/html/taskSetting.html')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Реакция сети' + response.statusText);
-          }
-          return response.text(); 
-      })
-      .then(html => {
-          document.getElementById('content').innerHTML = html;
-      })
-      .catch(error => {
-          console.error('Возникла проблема с операцией выборки:', error);
-      });
+    moduleOpen('./src/html/taskSetting.html')
 }
+
+taskSettingOpen();

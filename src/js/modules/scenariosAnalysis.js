@@ -7,7 +7,7 @@ window.scenariosAnalysisOpen = function () {
 	});
 };
 
-scenariosAnalysisOpen();
+// scenariosAnalysisOpen();
 
 function scenariosAnalysisInit() {
 	window.scenariosChartDraw();
@@ -19,7 +19,6 @@ window.scenariosChartDraw = function () {
 		.addEventListener('change', scenariosChartChangeType);
 	function scenariosChartChangeType(event) {
 		const value = event.target.value;
-		console.log(value)
 		chartAction[0].handler(value, fast);
 		chartAction[0].handler(value, middle);
 		chartAction[0].handler(value, normal);
@@ -384,8 +383,6 @@ window.scenariosChartDraw = function () {
 		{
 			name: 'Change data',
 			handler(value, chart) {
-				console.log(chart.canvas.id, value);
-				console.log(chartData[chart.canvas.id][value].datasets);
 				chart.data.labels = chartData[chart.canvas.id][value].labels;
 				chart.data.datasets = chartData[chart.canvas.id][value].datasets;
 				chart.update();

@@ -30,13 +30,13 @@ function dataInfoInit() {
 function dataInfoTableUpdate(event) {
 	const target = event.target.dataset.target
 	const schema = {
-		'dataInfoTableOut': [
-			`<tr> <td>Заказы РЦ-ТТ</td> <td>23.02.2025</td> <td>4 679</td> <td>4 500 </td> <td>96%</td> </tr> <tr> <td>Заказы Поставщик-ТТ</td> <td>23.02.2025</td> <td>2 897 	 </td> <td>2 897 </td> <td>100%</td> </tr> <tr> <td>Заказы на РЦ</td> <td>23.02.202</td> <td>5 000	</td> <td>4 905</td> <td>98%</td> </tr> <tr> <td>Прогноз</td> <td>23.02.2025</td> <td>17 000</td> <td>17 000</td> <td>100%</td> </tr>`,
-			`<tr> <td>Заказы РЦ-ТТ</td> <td>23.04.2025</td> <td>5 679</td> <td>5 500 </td> <td>80%</td> </tr> <tr> <td>Заказы Поставщик-ТТ</td> <td>23.04.2025</td> <td>1 897</td> <td>1 897</td> <td>60%</td> </tr> <tr> <td>Заказы на РЦ</td> <td>23.04.202</td> <td>4 000</td> <td>5 000</td> <td>90%</td> </tr> <tr> <td>Прогноз</td> <td>23.04.2025</td> <td>1 700</td> <td>1 700</td> <td>100%</td> </tr>`
-		],
 		'dataInfoTableIn': [
-			`<tr><td>Остатки ТТ</td> <td>23.04.2025</td> <td>10 000</td> <td>10 000</td> <td>100%</td> </tr> <tr> <td>Остатки РЦ</td> <td>23.04.2025</td> <td>1 000</td> <td>2 000</td> <td><span class="danger">-100%</span></td> </tr> <tr> <td>Продажи</td> <td>23.04.2025</td> <td>1 800</td> <td>1 800</td> <td>0%</td> </tr> <tr> <td>Планограмма</td> <td>23.04.2025</td> <td>200 000</td> <td>400 000</td> <td>100%</td></tr> `,
-			'<tr> <td>Остатки ТТ</td> <td>23.02.2025</td> <td>15 000</td> <td>1 000</td> <td><span class="danger">-93%</span></td> </tr> <tr> <td>Остатки РЦ</td> <td>23.02.2025</td> <td>9 000</td> <td>8 990</td> <td>0%</td> </tr> <tr> <td>Продажи</td> <td>23.02.2025</td> <td>18 900</td> <td>18 900</td> <td>0%</td> </tr> <tr> <td>Планограмма</td> <td>23.02.2025</td> <td>100 000</td> <td>200 000</td> <td>100%</td> </tr>'
+			'<tr><td>Остатки ТТ</td><td>23.02.2025</td><td> 15 000 </td><td> 1 000 </td><td>-93%</td></tr> <tr><td>Остатки РЦ</td><td>23.02.2025</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr> <tr><td>Продажи</td><td>23.02.2025</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr> <tr><td>Планограмма</td><td>23.02.2025</td><td> 100 000 </td><td> 200 000 </td><td>100%</td></tr>',
+			'<tr><td>Остатки ТТ</td><td>24.02.2025</td><td> 13 800 </td><td> 13 800 </td><td>0%</td></tr> <tr><td>Остатки РЦ</td><td>24.02.2025</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr> <tr><td>Продажи</td><td>24.02.2025</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr> <tr><td>Планограмма</td><td>24.02.2025</td><td> 80 000 </td><td> 80 000 </td><td>0%</td></tr>'
+		],
+		'dataInfoTableOut': [
+			'<tr><td>Заказы РЦ-ТТ</td><td>23.02.2025</td><td> 4 679 </td><td> 4 500 </td><td>96%</td></tr> <tr><td>Заказы Поставщик - ТТ</td><td>23.02.2025</td><td> 2 897 </td><td> 2 897 </td><td>100%</td></tr> <tr><td>Заказы на  РЦ</td><td>23.02.2025</td><td>5000</td><td>4905</td><td>98%</td></tr> <tr><td>Прогноз </td><td>23.02.2025</td><td> 17 000 </td><td> 17 000 </td><td>100%</td></tr>',
+			'<tr><td>Заказы РЦ-ТТ</td><td>24.02.2025</td><td> 5 898 </td><td> 5 900 </td><td>100%</td></tr> <tr><td>Заказы Поставщик - ТТ</td><td>24.02.2025</td><td> 3 165 </td><td> 3 456 </td><td>109%</td></tr> <tr><td>Заказы на  РЦ</td><td>24.02.2025</td><td> 4 800 </td><td> 4 905 </td><td>102%</td></tr> <tr><td>Прогноз </td><td>24.02.2025</td><td> 13 000 </td><td> 13 000 </td><td>100%</td></tr>'
 		]
 	}
 	const table = document.querySelector(`#${target} tbody`);
@@ -276,10 +276,7 @@ function dataInfoChartInDraw() {
 	setTimeout(() => {
 		window.dataInfoOlapIn = new Chart(chartOlapIn, configOlapIn);
 		window.dataInfoAutoIn = new Chart(chartAutoIn, configAutoIn);
-		window.dataInfoForecastIn = new Chart(
-			chartForecastIn,
-			configForecastIn
-		);
+		window.dataInfoForecastIn = new Chart(chartForecastIn, configForecastIn);
 	}, 0);
 }
 
@@ -339,7 +336,7 @@ function dataInfoChartOutDraw() {
 	}
 	setTimeout(() => {
 		window.dataInfoChartOut = new Chart(chartOut, {
-			type: 'line',
+			type: 'bar',
 			data: {
 				labels: labels,
 				datasets: datasets,

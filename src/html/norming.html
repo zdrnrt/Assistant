@@ -4,10 +4,10 @@
   </header>
   <div>
     <div class="row d-flex justify-content-start align-items-start mb-3">
-      <div class="col-5 h-100">
+      <div class="col-3 h-100">
         <div class="column">
           <header class="column__header">Настройка параметров нормы</header>
-          <select id="normingSelect" class="d-block mb-3 form-select">
+          <select id="select" class="d-block mb-3 form-select">
             <option value="normaRc">Норма товарного запаса РЦ</option>
             <option value="normaTt">Норма товарного запаса ТТ</option>
             <option value="normаOosRc">Норма OOS РЦ</option>
@@ -16,10 +16,10 @@
             <option value="normaUsRcTt">Норма УС РЦ-ТТ</option>
             <option value="normaAccuracy">Норма точности прогноза</option>
           </select>
-          <button class="btn btn-primary" onclick="normingModalOpen();">Настроить</button>
+          <button id="modalOpen" class="btn btn-primary" _onclick="normingModalOpen();">Настроить</button>
         </div>
       </div>
-      <div class="col-3 col-offset-1">
+      <div class="col-3">
         <div class="column">
           <button class="d-block mb-3 w-100 btn btn-outline-primary" data-bs-toggle="modal"
             data-bs-target="#modalTimetable">Настроить расписание</button>
@@ -28,27 +28,31 @@
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Запуск расчета
           </button>
-          <button class="d-block w-100 btn btn-primary"
-            onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <button id="apply" class="d-block w-100 btn btn-primary">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Применить
           </button>
+        </div>
+      </div>
+      <div class="col-6 h-100">
+        <div class="column">
+          <canvas id="chart"></canvas>
         </div>
       </div>
 
     </div>
     <div class="d-flex justify-content-end align-items-center gap-4 mb-3">
       <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
-        <button type="button" class="btn btn-outline-primary btn-color-primary" onclick="normingUpload();">
+        <button id="upload" type="button" class="btn btn-outline-primary btn-color-primary">
           <i class="fa fa-file-upload"></i>
         </button>
-        <button type="button" class="btn btn-primary" onclick="normingDownload();">
+        <button id="download" type="button" class="btn btn-primary">
           <i class="fa fa-save"></i>
         </button>
       </div>
     </div>
     <div class="table-container">
-      <table id="normingTable" class="table table--nowrap">
+      <table id="table" class="table table--nowrap">
         <colgroup>
           <col width="80">
           <col width="200">
@@ -390,7 +394,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="normaUsLabel">Норма OOS РЦ</h5>
+        <h5 class="modal-title" id="normaUsLabel">Норма УС поставщика</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form id="" onsubmit="dataFilter(event);" class="form">
