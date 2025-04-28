@@ -4,16 +4,23 @@
   </header>
   <div>
     <div class="row mb-3">
-      <div class="col-5">
+      <div class="col-4">
         <div class="column">
           <header class="column__header">Настройка отклонения</header>
-          <button class="btn btn-primary">Настройка отклонения</button>
-          <div class="mb-3">Для какого процесса (связь)</div>
-          <div class="mb-3">Как считаем (критерии вылета)</div>
-          <div class="mb-3">Текст отклонения</div>
+          <select data-id="factoranalysis" class="form-select mb-2">
+          </select>
+          <button id="config" class="btn btn-primary"  _data-bs-toggle="modal" _data-bs-target="#modalConfig">Настройка отклонения</button>
         </div>
       </div>
-      <div class="col-5">
+      <div class="col-3">
+          <button class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#modalStatus">Настройка статуса задач</button>
+          <button class="btn btn-primary w-100">Настройка каскадирования</button>
+      </div>
+      <div class="col-3">
+          <button class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#modalExecutor">Настройка исполнителя</button>
+          <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalSchedule">Настройка расписания</button>
+      </div>
+      <!-- <div class="col-5">
         <div class="column">
           <header class="column__header">Настройка оценки</header>
           <button class="btn btn-primary">Настройка типов задач</button>
@@ -45,14 +52,46 @@
           <button class="btn btn-outline-primary">Сохранить</button>
           <button class="btn btn-primary">Выгрузить</button>
         </div>
-      </div>
+      </div> -->
     </div>
-    <div class="mb-3 text-end">
-      <button class="btn btn-primary btn-lg">Расписание отправки</button>
+    <div class="row align-items-end mb-3">
+      <div class="col">
+        <div class="fw-bold h5">Показатель
+        </div>
+        <select data-id="target" class="form-select w-100">
+          <option value="">Все</option>
+          <option value="OOS">OOS</option>
+          <option value="OS">OS</option>
+        </select>
+      </div>
+      <div class="col">
+        <div class="fw-bold h5">Фактор</div>
+        <select data-id="factoranalysis" class="form-select w-100">
+          <option value="">Все</option>
+        </select>
+      </div>
+      <div class="col">
+        <div class="fw-bold h5">Департамент
+        </div>
+        <select data-id="department" class="form-select w-100">
+          <option value="">Все</option>
+        </select>
+      </div>
+      <div class="col">
+        <div class="fw-bold h5">Процесс</div>
+        <select data-id="factorprocess" class="form-select w-100">
+          <option value="">Все</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <button id="download" type="button" class="btn btn-primary">
+          <i class="fa fa-save"></i>
+        </button>
+      </div>
     </div>
     <div>
       <div class="table-container table-container--tasksetting border-bottom">
-        <table class="table table--nowrap table--fixed-head">
+        <table id="table" class="table table--nowrap table--fixed-head">
           <thead>
             <tr>
               <th>Фактор</th>
@@ -436,5 +475,232 @@
           </tbody>
         </table>
       </div>
+    </div>
+  </div>
+
+  <div class="modal modal-sm fade" id="modalConfig" tabindex="-1" aria-labelledby="modalConfigLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConfigLabel">&mdash;</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-5">
+          <div class="mb-3">
+            <label for="factorprocess" class="form-label">Связь с процессом:</label>
+            <select name="osProcess" data-id="factorprocess" id="factorprocess" class="form-select mb-2">
+            </select>
+          </div>
+          <div class="row align-items-center mb-3">
+            <div class="col-2">BIAS</div>
+            <div class="col-5">
+              <select name="" class="form-select mb-2">
+                <option value="less">Меньше</option>
+                <option value="more">Больше</option>
+                <option value="equal">Равно</option>
+              </select>
+            </div>
+            <div class="col-5">
+              <input type="text" class="form-control" id="" name="" value="-2">
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Оценка отклонения</div>
+            <div class="d-flex gap-4">
+              <button class="btn btn-primary">Скачать</button>
+              <button class="btn btn-outline-primary">Загрузить</button>
+            </div>
+          </div>
+          <div class="form-label">Выбрать срочость</div>
+          <label class="d-block mb-2">
+            <input type="radio" class="form-check-input m-0" id="" name="urgency">
+            Высокая
+          </label>
+          <label class="d-block mb-2">
+            <input type="radio" class="form-check-input m-0" id="" name="urgency">
+            Средняя
+          </label>
+          <label class="d-block">
+            <input type="radio" class="form-check-input m-0" id="" name="urgency">
+            Низкая
+          </label>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal modal-sm fade" id="modalSchedule" tabindex="-1" aria-labelledby="modalScheduleLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalScheduleLabel">Настройка расписания расчета</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-5">
+          <div class="mb-3">
+            <select name="" data-id="factorprocess" id="factorprocess" class="form-select mb-2">
+            </select>
+          </div>
+          <div class="row align-items-center mb-3">
+            <label class="col-3">
+              <input type="radio" class="form-check-input m-0" id="" name="urgency">
+              Пн
+            </label>
+            <div class="col-9">
+              <input type="time" class="form-control" id="" name="" value="" placeholder="Время">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <label class="col-3">
+              <input type="radio" class="form-check-input m-0" id="" name="urgency">
+              Вт
+            </label>
+            <div class="col-9">
+              <input type="time" class="form-control" id="" name="" value="" placeholder="Время">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <label class="col-3">
+              <input type="radio" class="form-check-input m-0" id="" name="urgency">
+              Ср
+            </label>
+            <div class="col-9">
+              <input type="time" class="form-control" id="" name="" value="" placeholder="Время">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <label class="col-3">
+              <input type="radio" class="form-check-input m-0" id="" name="urgency">
+              Чт
+            </label>
+            <div class="col-9">
+              <input type="time" class="form-control" id="" name="" value="" placeholder="Время">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <label class="col-3">
+              <input type="radio" class="form-check-input m-0" id="" name="urgency">
+              Пт
+            </label>
+            <div class="col-9">
+              <input type="time" class="form-control" id="" name="" value="" placeholder="Время">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <label class="col-3">
+              <input type="radio" class="form-check-input m-0" id="" name="urgency">
+              Сб
+            </label>
+            <div class="col-9">
+              <input type="time" class="form-control" id="" name="" value="" placeholder="Время">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <label class="col-3">
+              <input type="radio" class="form-check-input m-0" id="" name="urgency">
+              Вс
+            </label>
+            <div class="col-9">
+              <input type="time" class="form-control" id="" name="" value="" placeholder="Время">
+            </div>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal modal-sm fade" id="modalExecutor" tabindex="-1" aria-labelledby="modalExecutorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalExecutorLabel">Настройка исполнителя</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-5">
+          <div class="mb-3">
+            <select name="" data-id="factorprocess" id="factorprocess" class="form-select mb-2">
+            </select>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Исполнитель</div>
+            <div class="d-flex gap-4">
+              <button type="button" class="btn btn-primary">Скачать</button>
+              <button type="button" class="btn btn-outline-primary">Загрузить</button>
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <div class="col-6">
+              Выбрать срок дней
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" id="" name="" value="" placeholder="Дни">
+            </div>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal modal-sm fade" id="modalStatus" tabindex="-1" aria-labelledby="modalStatusLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalStatusLabel">Настройка статусов задач</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-5">
+          <div class="mb-3">
+            <select name="" data-id="factorprocess" id="factorprocess" class="form-select mb-2">
+            </select>
+          </div>
+          <div class="form-label">Кол-вло недель повторения</div>
+          <div class="row align-items-center mb-3">
+            <div class="col-6">
+              Новая
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" id="" name="" value="" placeholder="Дни">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <div class="col-6">
+              Повторяющаяся
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" id="" name="" value="" placeholder="Дни">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <div class="col-6">
+              Залипающая
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" id="" name="" value="" placeholder="Дни">
+            </div>
+          </div>
+          <div class="row align-items-center mb-3">
+            <div class="col-6">
+              Каскадированная
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" id="" name="" value="" placeholder="Дни">
+            </div>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+        </div>
+      </form>
     </div>
   </div>
