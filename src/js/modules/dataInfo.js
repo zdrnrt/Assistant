@@ -173,7 +173,7 @@ function dataInfoChartInDraw() {
 			labels: ['In', 'Grey'],
 			datasets: [
 				{
-					data: [60, 40],
+					data: [90, 10],
 					backgroundColor: colors,
 					borderColor: colors,
 					needleValue: 78,
@@ -209,7 +209,7 @@ function dataInfoChartInDraw() {
 			labels: ['In', 'Grey'],
 			datasets: [
 				{
-					data: [90, 10],
+					data: [70, 30],
 					backgroundColor: colors,
 					borderColor: colors,
 					needleValue: 78,
@@ -245,7 +245,7 @@ function dataInfoChartInDraw() {
 			labels: ['In', 'Grey'],
 			datasets: [
 				{
-					data: [65, 15],
+					data: [80, 20],
 					backgroundColor: colors,
 					borderColor: colors,
 					needleValue: 78,
@@ -383,7 +383,7 @@ function dataInfoChartOutDraw() {
 			labels: ['Out', 'Grey'],
 			datasets: [
 				{
-					data: [65, 35],
+					data: [100],
 					backgroundColor: colors,
 					borderColor: colors,
 					needleValue: 78,
@@ -419,7 +419,7 @@ function dataInfoChartOutDraw() {
 			labels: ['Out', 'Grey'],
 			datasets: [
 				{
-					data: [80, 20],
+					data: [98, 2],
 					backgroundColor: colors,
 					borderColor: colors,
 					needleValue: 78,
@@ -455,11 +455,9 @@ function dataInfoChartOutDraw() {
 			labels: ['Out', 'Grey'],
 			datasets: [
 				{
-					data: [55, 45],
+					data: [100],
 					backgroundColor: colors,
 					borderColor: colors,
-					needleValue: 78,
-					meterValue: 1.07,
 					borderWidth: 1,
 					cutout: '75%',
 					circumference: 180,

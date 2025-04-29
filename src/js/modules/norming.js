@@ -18,6 +18,8 @@ function normingInit() {
 	document
 		.getElementById('download')
 		.addEventListener('click', normingDownload);
+	document.getElementById('filter').addEventListener('change', normingFilter)
+	
 }
 
 function normingApply(event) {
@@ -325,4 +327,16 @@ function normingChartDraw(value = 'normaRc') {
 			},
 		});
 	}
+}
+
+function normingFilter(event){
+	const value = event.target.value;
+const tdList = document.querySelectorAll('#table tbody td:first-child');
+for (const td of tdList) {
+	if (td.textContent !== value && value != '') {
+		td.closest('tr').classList.add('d-none');
+	} else {
+		td.closest('tr').classList.remove('d-none');
+	}
+}
 }

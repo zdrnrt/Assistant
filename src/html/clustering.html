@@ -10,13 +10,13 @@
           <div class="mb-3">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" name="clusteringType">
-              Тип магазина
+              Тип торговой точки
             </label>
           </div>
           <div class="form-check mb-3">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" name="clasteringSquare">
-              Площадь магазина
+              Площадь торговой точки
             </label>
           </div>
           <div class="form-check mb-3">
@@ -156,34 +156,42 @@
           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
           Применить
         </button>
-        <button type="button" class="d-block w-100 mt-5 btn btn-primary"
+        <!-- <button type="button" class="d-block w-100 mt-5 btn btn-primary"
           onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
           Авторасчет
-        </button>
+        </button> -->
         <!-- </div> -->
       </div>
     </div>
     <div class="row">
       <div class="col-4">
         <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
-          <button type="button" class="btn btn-outline-primary btn-color-primary" data-bs-toggle="modal" data-bs-target="#modalInProgress">
+          <button type="button" class="btn btn-outline-primary btn-color-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalInProgress">
             <i class="fa fa-filter"></i>
           </button>
-          <button type="button" class="btn btn-outline-primary btn-color-primary" data-bs-toggle="modal" data-bs-target="#modalInProgress">
+          <button type="button" class="btn btn-outline-primary btn-color-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalInProgress">
             <i class="fa fa-sliders-h"></i>
           </button>
         </div>
         <canvas id="clusteringChart" style="max-height: 300px;"></canvas>
       </div>
       <div class="col-8 p-0">
-        <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
-          <button type="button" class="btn btn-outline-primary btn-color-primary">
-            <i class="fa fa-file-upload"></i>
-          </button>
-          <button id="download" type="button" class="btn btn-primary">
-            <i class="fa fa-save"></i>
-          </button>
+        <div class="row justify-content-between">
+          <div class="col-3">
+            <select id="filter" class="form-select w-100">
+              <option value="Товары">Товары</option>
+              <option value="Торговые точки">Торговые точки</option>
+            </select>
+          </div>
+          <div class="col-auto d-flex justify-content-end align-items-center gap-2 mb-2">
+            <button type="button" class="btn btn-outline-primary btn-color-primary btn-lg">
+              <i class="fa fa-file-upload"></i>
+            </button>
+            <button id="download" type="button" class="btn btn-primary btn-lg">
+              <i class="fa fa-save"></i>
+            </button>
+          </div>
         </div>
         <div class="table-container table-container--clustering border-bottom">
           <table id="table" class="table table--nowrap table--fixed-head">

@@ -1,4 +1,4 @@
-import { Chart } from 'chart.js/auto';
+import { Chart, scales } from 'chart.js/auto';
 import { moduleOpen } from '../tools';
 
 window.scenariosAnalysisOpen = function () {
@@ -19,6 +19,7 @@ window.scenariosChartDraw = function () {
 		.addEventListener('change', scenariosChartChangeType);
 	function scenariosChartChangeType(event) {
 		const value = event.target.value;
+		document.getElementById('info').dataset.state = value;
 		chartAction[0].handler(value, fast);
 		chartAction[0].handler(value, middle);
 		chartAction[0].handler(value, normal);
@@ -395,11 +396,28 @@ window.scenariosChartDraw = function () {
 		plugins: {
 			legend: {
 				display: false,
-				position: 'bottom',
 			},
 			title: {
 				display: false,
 			},
+			options: {
+				scales: {
+					y: {
+						suggestedMin: 50,
+                suggestedMax: 100,
+						beginAtZero: false,	
+						ticks: {
+							stepSize: 7000000
+						}
+					},
+					x: {
+						min: 8_000_000,
+						ticks: {
+							stepSize: 1000
+						}
+					}
+				}
+			}
 		},
 	};
 

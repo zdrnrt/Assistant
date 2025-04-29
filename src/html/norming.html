@@ -40,8 +40,19 @@
       </div>
 
     </div>
-    <div class="d-flex justify-content-end align-items-center gap-4 mb-3">
-      <div class="d-flex justify-content-end align-items-center gap-2 mb-2">
+    <div class="row justify-content-between align-items-end mb-3">
+      <div class="col-3">
+        <div class="fw-bold h5">Норма</div>
+        <select id="filter" class="form-select w-100">
+          <option value="">Все</option>
+          <option value="Товарный запас РЦ">Норма товарного запаса РЦ</option>
+          <option value="Товарный запас ТТ">Норма товарного запаса ТТ</option>
+          <option value="OOS TT">Норма OOS ТТ</option>
+          <option value="УС Поставщик - РЦ">Норма УС поставщик</option>
+          <option value="УС РЦ-ТТ">Норма УС РЦ-ТТ</option>
+        </select>
+      </div>
+      <div class="col-auto d-flex justify-content-end align-items-center gap-2 mb-2">
         <button id="upload" type="button" class="btn btn-outline-primary btn-color-primary">
           <i class="fa fa-file-upload"></i>
         </button>
@@ -53,20 +64,21 @@
     <div class="table-container">
       <table id="table" class="table table--nowrap">
         <colgroup>
-          <col width="80">
-          <col width="200">
-          <col width="56">
+          <col width="140">
           <col width="120">
-          <col width="140">
-          <col width="140">
-          <col width="135">
           <col width="">
-          <col width="80">
+          <col width="90">
+          <col width="90">
+          <col width="90">
+          <col width="90">
+          <col width="90">
+          <col width="90">
           <col width="90">
         </colgroup>
         <thead>
           <tr>
-            <th>Сеть</th>
+            <th>Норма</th><th>Сеть</th><th>Категория</th><th>SKU </th><th>Факт, шт</th><th>Факт, руб </th><th>План, шт</th><th>План, руб</th><th>МИН, шт</th><th>МАКС, шт</th>
+            <!-- <th>Сеть</th>
             <th style="width: 200px;">Категория</th>
             <th>SKU</th>
             <th>Прогноз, шт/дн</th>
@@ -75,40 +87,75 @@
             <th>План Остаток, шт</th>
             <th>План Остаток, руб</th>
             <th>МИН, шт</th>
-            <th>МАКС, шт</th>
+            <th>МАКС, шт</th> -->
           </tr>
         </thead>
         <tbody>
-          <tr><td>Вся сеть</td><td>Алкоголь</td><td> 1 190 </td><td> 690 </td><td> 16 273 </td><td> 1 886 332 </td><td> 14 646 </td><td> 1 697 699 </td><td> 11 717 </td><td> 17 575 </td></tr>
-          <tr><td>Вся сеть</td><td>Бакалея</td><td> 1 051 </td><td> 643 </td><td> 15 771 </td><td> 883 687 </td><td> 14 194 </td><td> 795 318 </td><td> 11 355 </td><td> 17 033 </td></tr>
-          <tr><td>Вся сеть</td><td>Готовая кулинария, салаты</td><td> 102 </td><td> 35 </td><td> 435 </td><td> 21 663 </td><td> 392 </td><td> 19 496 </td><td> 313 </td><td> 470 </td></tr>
-          <tr><td>Вся сеть</td><td>Детские товары</td><td> 68 </td><td> 10 </td><td> 714 </td><td> 76 408 </td><td> 643 </td><td> 68 767 </td><td> 514 </td><td> 771 </td></tr>
-          <tr><td>Вся сеть</td><td>Детское питание</td><td> 727 </td><td> 234 </td><td> 7 680 </td><td> 274 294 </td><td> 6 912 </td><td> 246 865 </td><td> 5 530 </td><td> 8 294 </td></tr>
-          <tr><td>Вся сеть</td><td>Диабетическое питание</td><td> 85 </td><td> 30 </td><td> 1 093 </td><td> 39 290 </td><td> 984 </td><td> 35 361 </td><td> 787 </td><td> 1 180 </td></tr>
-          <tr><td>Вся сеть</td><td>Замороженные продукты</td><td> 425 </td><td> 170 </td><td> 4 549 </td><td> 288 011 </td><td> 4 094 </td><td> 259 210 </td><td> 3 275 </td><td> 4 913 </td></tr>
-          <tr><td>Вся сеть</td><td>Кондитерские изделия</td><td> 1 574 </td><td> 733 </td><td> 23 092 </td><td> 1 548 114 </td><td> 20 783 </td><td> 1 393 302 </td><td> 16 626 </td><td> 24 939 </td></tr>
-          <tr><td>Вся сеть</td><td>Корма для животных</td><td> 217 </td><td> 191 </td><td> 7 384 </td><td> 188 055 </td><td> 6 646 </td><td> 169 249 </td><td> 5 316 </td><td> 7 975 </td></tr>
-          <tr><td>Вся сеть</td><td>Молочная гастрономия</td><td> 1 494 </td><td> 1 409 </td><td> 15 863 </td><td> 888 050 </td><td> 14 277 </td><td> 799 245 </td><td> 11 422 </td><td> 17 132 </td></tr>
-          <tr><td>Вся сеть</td><td>Мясная гастрономия</td><td> 701 </td><td> 320 </td><td> 3 442 </td><td> 338 411 </td><td> 3 098 </td><td> 304 570 </td><td> 2 478 </td><td> 3 718 </td></tr>
-          <tr><td>Вся сеть</td><td>Мясо и мясные изделия</td><td> 205 </td><td> 325 </td><td> 682 </td><td> 94 800 </td><td> 614 </td><td> 85 320 </td><td> 491 </td><td> 737 </td></tr>
-          <tr><td>Вся сеть</td><td>Напитки безалкогольные</td><td> 550 </td><td> 463 </td><td> 10 457 </td><td> 474 372 </td><td> 9 411 </td><td> 426 935 </td><td> 7 529 </td><td> 11 294 </td></tr>
-          <tr><td>Вся сеть</td><td>Овощи - Фрукты</td><td> 671 </td><td> 1 002 </td><td> 7 593 </td><td> 801 888 </td><td> 6 833 </td><td> 721 699 </td><td> 5 467 </td><td> 8 200 </td></tr>
-          <tr><td>Вся сеть</td><td>Одежда</td><td> 44 </td><td> 10 </td><td> 594 </td><td> 26 868 </td><td> 535 </td><td> 24 182 </td><td> 428 </td><td> 642 </td></tr>
-          <tr><td>Вся сеть</td><td>Рыбная гастрономия</td><td> 342 </td><td> 136 </td><td> 1 792 </td><td> 120 371 </td><td> 1 613 </td><td> 108 334 </td><td> 1 290 </td><td> 1 935 </td></tr>
-          <tr><td>Вся сеть</td><td>Сад и огород</td><td> 2 </td><td> 1 </td><td> 16 </td><td> 419 </td><td> 14 </td><td> 377 </td><td> 12 </td><td> 17 </td></tr>
-          <tr><td>Вся сеть</td><td>Сопутствующие товары</td><td> 801 </td><td> 583 </td><td> 22 492 </td><td> 809 622 </td><td> 20 243 </td><td> 728 659 </td><td> 16 194 </td><td> 24 291 </td></tr>
-          <tr><td>Вся сеть</td><td>Соусы, специи, приправы</td><td> 494 </td><td> 186 </td><td> 8 216 </td><td> 206 965 </td><td> 7 394 </td><td> 186 269 </td><td> 5 916 </td><td> 8 873 </td></tr>
-          <tr><td>Вся сеть</td><td>Сухие п/ф и закуски</td><td> 855 </td><td> 707 </td><td> 15 805 </td><td> 478 783 </td><td> 14 225 </td><td> 430 905 </td><td> 11 380 </td><td> 17 069 </td></tr>
-          <tr><td>Вся сеть</td><td>Табачные аксессуары</td><td> 46 </td><td> 25 </td><td> 778 </td><td> 112 222 </td><td> 700 </td><td> 100 999 </td><td> 560 </td><td> 840 </td></tr>
-          <tr><td>Вся сеть</td><td>Табачные изделия</td><td> 214 </td><td> 260 </td><td> 4 496 </td><td> 639 851 </td><td> 4 046 </td><td> 575 866 </td><td> 3 237 </td><td> 4 856 </td></tr>
-          <tr><td>Вся сеть</td><td>Товары для дома</td><td> 54 </td><td> 18 </td><td> 1 629 </td><td> 58 755 </td><td> 1 466 </td><td> 52 879 </td><td> 1 173 </td><td> 1 759 </td></tr>
-          <tr><td>Вся сеть</td><td>Товары для животных</td><td> 8 </td><td> 3 </td><td> 35 </td><td> 2 621 </td><td> 32 </td><td> 2 359 </td><td> 25 </td><td> 38 </td></tr>
-          <tr><td>Вся сеть</td><td>Товары для праздника и активного отдыха</td><td> 6 </td><td> 1 </td><td> 110 </td><td> 8 561 </td><td> 99 </td><td> 7 705 </td><td> 79 </td><td> 119 </td></tr>
-          <tr><td>Вся сеть</td><td>Товары для ремонта</td><td> 2 </td><td> 1 </td><td> 2 </td><td> 31 </td><td> 2 </td><td> 28 </td><td> 1 </td><td> 2 </td></tr>
-          <tr><td>Вся сеть</td><td>Хлеб, хлебобулочные изделия</td><td> 549 </td><td> 942 </td><td> 5 009 </td><td> 91 591 </td><td> 4 508 </td><td> 82 432 </td><td> 3 607 </td><td> 5 410 </td></tr>
-          <tr><td>Вся сеть</td><td>Чай, кофе, какао</td><td> 556 </td><td> 130 </td><td> 8 260 </td><td> 1 045 304 </td><td> 7 434 </td><td> 940 774 </td><td> 5 947 </td><td> 8 921 </td></tr>
-          <tr><td>Вся сеть</td><td>Яйцо</td><td> 40 </td><td> 236 </td><td> 1 283 </td><td> 88 549 </td><td> 1 155 </td><td> 79 694 </td><td> 924 </td><td> 1 386 </td></tr>
-          
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Алкоголь</td><td> 1 190 </td><td> 16 273 </td><td> 1 886 332 </td><td> 14 646 </td><td> 1 697 699 </td><td> 11 717 </td><td> 17 575 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Бакалея</td><td> 1 051 </td><td> 15 771 </td><td> 883 687 </td><td> 14 194 </td><td> 795 318 </td><td> 11 355 </td><td> 17 033 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Готовая кулинария, салаты</td><td> 102 </td><td> 435 </td><td> 21 663 </td><td> 392 </td><td> 19 496 </td><td> 313 </td><td> 470 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Детские товары</td><td> 68 </td><td> 714 </td><td> 76 408 </td><td> 643 </td><td> 68 767 </td><td> 514 </td><td> 771 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Детское питание</td><td> 727 </td><td> 7 680 </td><td> 274 294 </td><td> 6 912 </td><td> 246 865 </td><td> 5 530 </td><td> 8 294 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Диабетическое питание</td><td> 85 </td><td> 1 093 </td><td> 39 290 </td><td> 984 </td><td> 35 361 </td><td> 787 </td><td> 1 180 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Замороженные продукты</td><td> 425 </td><td> 4 549 </td><td> 288 011 </td><td> 4 094 </td><td> 259 210 </td><td> 3 275 </td><td> 4 913 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Кондитерские изделия</td><td> 1 574 </td><td> 23 092 </td><td> 1 548 114 </td><td> 20 783 </td><td> 1 393 302 </td><td> 16 626 </td><td> 24 939 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Корма для животных</td><td> 217 </td><td> 7 384 </td><td> 188 055 </td><td> 6 646 </td><td> 169 249 </td><td> 5 316 </td><td> 7 975 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Молочная гастрономия</td><td> 1 494 </td><td> 15 863 </td><td> 888 050 </td><td> 14 277 </td><td> 799 245 </td><td> 11 422 </td><td> 17 132 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Мясная гастрономия</td><td> 701 </td><td> 3 442 </td><td> 338 411 </td><td> 3 098 </td><td> 304 570 </td><td> 2 478 </td><td> 3 718 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Мясо и мясные изделия</td><td> 205 </td><td> 682 </td><td> 94 800 </td><td> 614 </td><td> 85 320 </td><td> 491 </td><td> 737 </td></tr>
+          <tr><td>Товарный запас ТТ</td><td>Вся сеть</td><td>Напитки безалкогольные</td><td> 550 </td><td> 10 457 </td><td> 474 372 </td><td> 9 411 </td><td> 426 935 </td><td> 7 529 </td><td> 11 294 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Алкоголь</td><td> 1 190 </td><td> 4 882 </td><td> 565 900 </td><td> 4 394 </td><td> 509 310 </td><td> 3 515 </td><td> 5 272 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Бакалея</td><td> 1 051 </td><td> 4 731 </td><td> 265 106 </td><td> 4 258 </td><td> 238 596 </td><td> 3 407 </td><td> 5 110 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Готовая кулинария, салаты</td><td> 102 </td><td> 131 </td><td> 6 499 </td><td> 117 </td><td> 5 849 </td><td> 94 </td><td> 141 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Детские товары</td><td> 68 </td><td> 214 </td><td> 22 922 </td><td> 193 </td><td> 20 630 </td><td> 154 </td><td> 231 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Детское питание</td><td> 727 </td><td> 2 304 </td><td> 82 288 </td><td> 2 074 </td><td> 74 059 </td><td> 1 659 </td><td> 2 488 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Диабетическое питание</td><td> 85 </td><td> 328 </td><td> 11 787 </td><td> 295 </td><td> 10 608 </td><td> 236 </td><td> 354 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Замороженные продукты</td><td> 425 </td><td> 1 365 </td><td> 86 403 </td><td> 1 228 </td><td> 77 763 </td><td> 983 </td><td> 1 474 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Кондитерские изделия</td><td> 1 574 </td><td> 6 928 </td><td> 464 434 </td><td> 6 235 </td><td> 417 991 </td><td> 4 988 </td><td> 7 482 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Корма для животных</td><td> 217 </td><td> 2 215 </td><td> 56 416 </td><td> 1 994 </td><td> 50 775 </td><td> 1 595 </td><td> 2 392 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Молочная гастрономия</td><td> 1 494 </td><td> 4 759 </td><td> 266 415 </td><td> 4 283 </td><td> 239 774 </td><td> 3 426 </td><td> 5 140 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Мясная гастрономия</td><td> 701 </td><td> 1 033 </td><td> 101 523 </td><td> 929 </td><td> 91 371 </td><td> 744 </td><td> 1 115 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Мясо и мясные изделия</td><td> 205 </td><td> 205 </td><td> 28 440 </td><td> 184 </td><td> 25 596 </td><td> 147 </td><td> 221 </td></tr>
+          <tr><td>Товарный запас РЦ</td><td>Вся сеть</td><td>Напитки безалкогольные</td><td> 550 </td><td> 3 137 </td><td> 142 312 </td><td> 2 823 </td><td> 128 080 </td><td> 2 259 </td><td> 3 388 </td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Алкоголь</td><td> 1 190 </td><td>96%</td><td>96%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Бакалея</td><td> 1 051 </td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Готовая кулинария, салаты</td><td> 102 </td><td>70%</td><td>70%</td><td>92%</td><td>92%</td><td>92%</td><td>92%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Детские товары</td><td> 68 </td><td>86%</td><td>86%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Детское питание</td><td> 727 </td><td>92%</td><td>92%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Диабетическое питание</td><td> 85 </td><td>94%</td><td>94%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Замороженные продукты</td><td> 425 </td><td>90%</td><td>90%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Кондитерские изделия</td><td> 1 574 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Корма для животных</td><td> 217 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Молочная гастрономия</td><td> 1 494 </td><td>90%</td><td>90%</td><td>95%</td><td>95%</td><td>95%</td><td>95%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Мясная гастрономия</td><td> 701 </td><td>89%</td><td>89%</td><td>94%</td><td>94%</td><td>94%</td><td>94%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Мясо и мясные изделия</td><td> 205 </td><td>78%</td><td>78%</td><td>94%</td><td>94%</td><td>94%</td><td>94%</td></tr>
+          <tr><td>OOS TT</td><td>Вся сеть</td><td>Напитки безалкогольные</td><td> 550 </td><td>96%</td><td>96%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Алкоголь</td><td> 1 190 </td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Бакалея</td><td> 1 051 </td><td>90%</td><td>90%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Готовая кулинария, салаты</td><td> 102 </td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Детские товары</td><td> 68 </td><td>95%</td><td>95%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Детское питание</td><td> 727 </td><td>95%</td><td>95%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Диабетическое питание</td><td> 85 </td><td>95%</td><td>95%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Замороженные продукты</td><td> 425 </td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Кондитерские изделия</td><td> 1 574 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Корма для животных</td><td> 217 </td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Молочная гастрономия</td><td> 1 494 </td><td>95%</td><td>95%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Мясная гастрономия</td><td> 701 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Мясо и мясные изделия</td><td> 205 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Напитки безалкогольные</td><td> 550 </td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Алкоголь</td><td> 1 190 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Бакалея</td><td> 1 051 </td><td>94%</td><td>94%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Готовая кулинария, салаты</td><td> 102 </td><td>97%</td><td>97%</td><td>92%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Детские товары</td><td> 68 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Детское питание</td><td> 727 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Диабетическое питание</td><td> 85 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Замороженные продукты</td><td> 425 </td><td>95%</td><td>95%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Кондитерские изделия</td><td> 1 574 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Корма для животных</td><td> 217 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Молочная гастрономия</td><td> 1 494 </td><td>97%</td><td>97%</td><td>95%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Мясная гастрономия</td><td> 701 </td><td>96%</td><td>96%</td><td>94%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Мясо и мясные изделия</td><td> 205 </td><td>97%</td><td>97%</td><td>94%</td><td>98%</td><td>98%</td><td>98%</td></tr>
+          <tr><td>УС Поставщик - РЦ</td><td>Вся сеть</td><td>Напитки безалкогольные</td><td> 550 </td><td>97%</td><td>97%</td><td>98%</td><td>98%</td><td>98%</td><td>98%</td></tr>
         </tbody>
       </table>
     </div>

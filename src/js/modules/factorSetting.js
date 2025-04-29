@@ -8,7 +8,7 @@ window.factorSettingOpen = function() {
         })
 }
 
-window.factorSettingOpen();
+// window.factorSettingOpen();
 
 function factorSettingInit(){
     fillDictionary();
