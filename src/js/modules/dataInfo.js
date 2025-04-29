@@ -84,30 +84,30 @@ function dataInfoDownload(event) {
 function dataInfoChartInDraw() {
 	const chartIn = document.getElementById('dataInfoChartIn');
 	const labels = [
-		'1.2',
-		'2.2',
-		'3.2',
-		'4.2',
-		'5.2',
-		'6.2',
-		'7.2',
-		'8.2',
-		'9.2',
-		'10.2',
-		'11.2',
-		'12.2',
-		'13.2',
-		'14.2',
-		'15.2',
-		'16.2',
-		'17.2',
-		'18.2',
-		'19.2',
-		'20.2',
-		'21.2',
-		'22.2',
-		'23.2',
-		'24.2',
+		'01.02',
+		'02.02',
+		'03.02',
+		'04.02',
+		'05.02',
+		'06.02',
+		'07.02',
+		'08.02',
+		'09.02',
+		'10.02',
+		'11.02',
+		'12.02',
+		'13.02',
+		'14.02',
+		'15.02',
+		'16.02',
+		'17.02',
+		'18.02',
+		'19.02',
+		'20.02',
+		'21.02',
+		'22.02',
+		'23.02',
+		'24.02',
 	];
 	const datasets = [
 		{
@@ -142,6 +142,17 @@ function dataInfoChartInDraw() {
 				labels: labels,
 				datasets: datasets,
 			},
+			options: {
+				indexAxis: 'y',
+				x: {
+					// beginAtZero: false,
+					min: 30,
+					ticks: {
+						// forces step size to be 50 units
+						stepSize: 100
+					}
+				}
+			}
 		});
 	}, 0);
 
@@ -283,30 +294,30 @@ function dataInfoChartInDraw() {
 function dataInfoChartOutDraw() {
 	const chartOut = document.getElementById('dataInfoChartOut');
 	const labels = [
-		'1.2',
-		'2.2',
-		'3.2',
-		'4.2',
-		'5.2',
-		'6.2',
-		'7.2',
-		'8.2',
-		'9.2',
-		'10.2',
-		'11.2',
-		'12.2',
-		'13.2',
-		'14.2',
-		'15.2',
-		'16.2',
-		'17.2',
-		'18.2',
-		'19.2',
-		'20.2',
-		'21.2',
-		'22.2',
-		'23.2',
-		'24.2',
+		'01.02',
+		'02.02',
+		'03.02',
+		'04.02',
+		'05.02',
+		'06.02',
+		'07.02',
+		'08.02',
+		'09.02',
+		'10.02',
+		'11.02',
+		'12.02',
+		'13.02',
+		'14.02',
+		'15.02',
+		'16.02',
+		'17.02',
+		'18.02',
+		'19.02',
+		'20.02',
+		'21.02',
+		'22.02',
+		'23.02',
+		'24.02',
 	];
 	const datasets = [
 		{
@@ -341,6 +352,17 @@ function dataInfoChartOutDraw() {
 				labels: labels,
 				datasets: datasets,
 			},
+			options: {
+				indexAxis: 'y',
+				x: {
+					// beginAtZero: false,
+					min: 30,
+					ticks: {
+						// forces step size to be 50 units
+						stepSize: 100
+					}
+				}
+			}
 		});
 	}, 0);
 

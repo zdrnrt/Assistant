@@ -1,24 +1,19 @@
 import { Chart, plugins, scales } from "chart.js/auto";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {moduleOpen} from '../tools'
 
 window.factorAnalysisOpen = function() {
-  fetch('./src/html/factorAnalysis.html')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Реакция сети' + response.statusText);
-          }
-          return response.text(); 
+  moduleOpen('./src/html/factorAnalysis.html')
+      .then(() => {
+        factorAnalysisInit()
       })
-      .then(html => {
-          document.getElementById('content').innerHTML = html;
-          factorOsDoughnutChartDraw();
+}
+
+function factorAnalysisInit(){
+  factorOsDoughnutChartDraw();
           factorOosDoughnutChartDraw();
           factorAnalysisOosBarChartDraw();
           factorAnalysisOsBarChartDraw();
-      })
-      .catch(error => {
-          console.error('Возникла проблема с операцией выборки:', error);
-      });
 }
 
 const configDoughnut = {

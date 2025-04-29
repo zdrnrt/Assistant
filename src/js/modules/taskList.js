@@ -6,7 +6,7 @@ window.taskListOpen = function () {
 	});
 };
 
-taskListOpen();
+// taskListOpen();
 
 function taskListInit() {
     fillDictionary();

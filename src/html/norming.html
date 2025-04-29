@@ -10,11 +10,11 @@
           <select id="select" class="d-block mb-3 form-select">
             <option value="normaRc">Норма товарного запаса РЦ</option>
             <option value="normaTt">Норма товарного запаса ТТ</option>
-            <option value="normаOosRc">Норма OOS РЦ</option>
+            <!-- <option value="normаOosRc">Норма OOS РЦ</option> -->
             <option value="normaOosTt">Норма OOS ТТ</option>
             <option value="normaUs">Норма УС поставщик</option>
             <option value="normaUsRcTt">Норма УС РЦ-ТТ</option>
-            <option value="normaAccuracy">Норма точности прогноза</option>
+            <!-- <option value="normaAccuracy">Норма точности прогноза</option> -->
           </select>
           <button id="modalOpen" class="btn btn-primary" _onclick="normingModalOpen();">Настроить</button>
         </div>
@@ -23,12 +23,11 @@
         <div class="column">
           <button class="d-block mb-3 w-100 btn btn-outline-primary" data-bs-toggle="modal"
             data-bs-target="#modalTimetable">Настроить расписание</button>
-          <button class="d-block mb-3 w-100 btn btn-outline-primary"
-            onclick="buttonToggleLoading(this); setTimeout( () => buttonToggleLoading(this), 2000)">
+          <button id="start" class="d-block mb-3 w-100 btn btn-outline-primary">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Запуск расчета
           </button>
-          <button id="apply" class="d-block w-100 btn btn-primary">
+          <button class="d-block w-100 btn btn-primary">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Применить
           </button>

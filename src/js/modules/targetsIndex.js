@@ -1,21 +1,11 @@
 import Chart from "chart.js/auto";
-import {formatNumber, fillDictionary} from '../tools'
+import {moduleOpen, formatNumber, fillDictionary} from '../tools'
 
 window.targetsIndexOpen = function () {
-  fetch("./src/html/targetsIndex.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Реакция сети" + response.statusText);
-      }
-      return response.text();
-    })
-    .then((html) => {
-      document.getElementById("content").innerHTML = html;
+  moduleOpen("./src/html/targetsIndex.html")
+    .then(() => {
       targetsIndexInit();
     })
-    .catch((error) => {
-      console.error("Возникла проблема с операцией выборки:", error);
-    });
 };
 
 // targetsIndexOpen();
@@ -24,9 +14,74 @@ function targetsIndexInit(){
   fillDictionary()
   targetsIndexChartExternalDraw();
   targetsIndexChartInternalDraw();
+  targetsIndexTableSchema();
   document.getElementById('targetsIndexType').addEventListener('change', targetsTargetsChange)
+  const filters = [
+		document.querySelector('[data-id="region"]'),
+		document.querySelector('[data-id="category"]'),
+	];
+  for (const filter of filters) {
+		filter.addEventListener('change', targetsIndexFilter);
+	}
 }
 
+function targetsIndexTableSchema() {
+	const schema = [
+    'region',
+    'targets',
+        '',
+        '',
+		'category',
+	];
+	const trList = document
+		.getElementById('table')
+		.querySelectorAll('tbody tr');
+	for (const tr of trList) {
+		tr.querySelectorAll('td').forEach((td, i) => {
+			td.setAttribute('data-type', schema[i]);
+		});
+	}
+}
+
+function targetsIndexClear(filters) {
+	return filters.every((filter) => filter.value === '');
+}
+
+function targetsIndexFilter() {
+  console.log('targetsIndexFilter')
+	const filters = [
+		document.querySelector('[data-id="region"]'),
+		document.querySelector('[data-id="category"]'),
+	];
+
+	const clearFilters = targetsIndexClear(filters);
+	const table = document.getElementById('table');
+	for (const tr of table.querySelectorAll('tr')) {
+		tr.classList.remove('d-none');
+	}
+	if (clearFilters) {
+		return;
+	}
+
+	for (const filter of filters) {
+		const value = filter.value;
+		if (value === '') {
+			continue;
+		}
+
+		const type = filter.dataset.id;
+		const tdList = table.querySelectorAll(
+			`${
+				clearFilters ? 'tr td' : 'tr:not(.d-none) td'
+			}[data-type="${type}"]`
+		);
+		for (const td of tdList) {
+			if (td.textContent !== value) {
+				td.closest('tr').classList.add('d-none');
+			}
+		}
+	}
+}
 function targetsTargetsChange () {
   document.getElementById("targetsExternal").classList.toggle("d-none");
   document.getElementById("targetsInternal").classList.toggle("d-none");
