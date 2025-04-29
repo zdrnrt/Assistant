@@ -23,25 +23,292 @@ function dataInfoInit() {
 	}
 	
 	for (const btn of document.querySelectorAll('.btn-update-table')){
-		btn.addEventListener('click', dataInfoTableUpdate);
+		btn.addEventListener('click', dataInfoUpdate);
 	}
 }
 
-function dataInfoTableUpdate(event) {
+function dataInfoUpdate(event) {
 	const target = event.target.dataset.target
 	const schema = {
 		'dataInfoTableIn': [
-			'<tr><td>Остатки ТТ</td><td>23.02.2025</td><td> 15 000 </td><td> 1 000 </td><td>-93%</td></tr> <tr><td>Остатки РЦ</td><td>23.02.2025</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr> <tr><td>Продажи</td><td>23.02.2025</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr> <tr><td>Планограмма</td><td>23.02.2025</td><td> 100 000 </td><td> 200 000 </td><td>100%</td></tr>',
+			// '<tr><td>Остатки ТТ</td><td>23.02.2025</td><td> 15 000 </td><td> 1 000 </td><td>-93%</td></tr> <tr><td>Остатки РЦ</td><td>23.02.2025</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr> <tr><td>Продажи</td><td>23.02.2025</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr> <tr><td>Планограмма</td><td>23.02.2025</td><td> 100 000 </td><td> 200 000 </td><td>100%</td></tr>',
 			'<tr><td>Остатки ТТ</td><td>24.02.2025</td><td> 13 800 </td><td> 13 800 </td><td>0%</td></tr> <tr><td>Остатки РЦ</td><td>24.02.2025</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr> <tr><td>Продажи</td><td>24.02.2025</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr> <tr><td>Планограмма</td><td>24.02.2025</td><td> 80 000 </td><td> 80 000 </td><td>0%</td></tr>'
 		],
 		'dataInfoTableOut': [
-			'<tr><td>Заказы РЦ-ТТ</td><td>23.02.2025</td><td> 4 679 </td><td> 4 500 </td><td>96%</td></tr> <tr><td>Заказы Поставщик - ТТ</td><td>23.02.2025</td><td> 2 897 </td><td> 2 897 </td><td>100%</td></tr> <tr><td>Заказы на  РЦ</td><td>23.02.2025</td><td>5000</td><td>4905</td><td>98%</td></tr> <tr><td>Прогноз </td><td>23.02.2025</td><td> 17 000 </td><td> 17 000 </td><td>100%</td></tr>',
-			'<tr><td>Заказы РЦ-ТТ</td><td>24.02.2025</td><td> 5 898 </td><td> 5 900 </td><td>100%</td></tr> <tr><td>Заказы Поставщик - ТТ</td><td>24.02.2025</td><td> 3 165 </td><td> 3 456 </td><td>109%</td></tr> <tr><td>Заказы на  РЦ</td><td>24.02.2025</td><td> 4 800 </td><td> 4 905 </td><td>102%</td></tr> <tr><td>Прогноз </td><td>24.02.2025</td><td> 13 000 </td><td> 13 000 </td><td>100%</td></tr>'
+			'<tr><td>Заказы РЦ-ТТ</td><td>24.02.2025</td><td> 5 898 </td><td> 5 900 </td><td>0%</td></tr> <tr><td>Заказы Поставщик - ТТ</td><td>24.02.2025</td><td> 3 165 </td><td> 3 456 </td><td>9%</td></tr> <tr><td>Заказы на  РЦ</td><td>24.02.2025</td><td> 4 800 </td><td> 4 905 </td><td>2%</td></tr> <tr><td>Прогноз </td><td>24.02.2025</td><td> 13 000 </td><td> 13 000 </td><td>0%</td></tr>'
 		]
 	}
+	// table.dataset.v = Number(table.dataset.v) === 0 ? 1 : 0 
 	const table = document.querySelector(`#${target} tbody`);
-	table.dataset.v = Number(table.dataset.v) === 0 ? 1 : 0 
-	document.querySelector(`#${target} tbody`).innerHTML = schema[target][table.dataset.v]
+	table.innerHTML = schema[target][0]
+	event.target.disabled = true; 
+
+
+	const chartOlapIn = document
+		.getElementById('dataInfoOlapIn')
+		.getContext('2d');
+	const chartAutoIn = document
+		.getElementById('dataInfoAutoIn')
+		.getContext('2d');
+	const chartForecastIn = document
+		.getElementById('dataInfoForecastIn')
+		.getContext('2d');
+	const colors = ['#FD6935', '#cdd5e1'];
+	const configOlapIn = {
+		plugins: [ChartDataLabels],
+		type: 'doughnut',
+		data: {
+			labels: ['In', 'Grey'],
+			datasets: [
+				{
+					data: [100],
+					backgroundColor: colors,
+					borderColor: colors,
+					needleValue: 78,
+					meterValue: 1.07,
+					borderWidth: 1,
+					cutout: '75%',
+					circumference: 180,
+					rotation: -90,
+				},
+			],
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					display: true,
+					align: 'center',
+					backgroundColor: '#fff',
+					borderRadius: 3,
+					font: {
+						size: 14,
+					},
+				},
+				legend: {
+					display: false,
+				},
+			},
+		},
+	};
+	const configAutoIn = {
+		plugins: [ChartDataLabels],
+		type: 'doughnut',
+		data: {
+			labels: ['In', 'Grey'],
+			datasets: [
+				{
+					data: [100],
+					backgroundColor: colors,
+					borderColor: colors,
+					needleValue: 78,
+					meterValue: 1.07,
+					borderWidth: 1,
+					cutout: '75%',
+					circumference: 180,
+					rotation: -90,
+				},
+			],
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					display: true,
+					align: 'center',
+					backgroundColor: '#fff',
+					borderRadius: 3,
+					font: {
+						size: 14,
+					},
+				},
+				legend: {
+					display: false,
+				},
+			},
+		},
+	};
+	const configForecastIn = {
+		plugins: [ChartDataLabels],
+		type: 'doughnut',
+		data: {
+			labels: ['In', 'Grey'],
+			datasets: [
+				{
+					data: [100],
+					backgroundColor: colors,
+					borderColor: colors,
+					needleValue: 78,
+					meterValue: 1.07,
+					borderWidth: 1,
+					cutout: '75%',
+					circumference: 180,
+					rotation: -90,
+				},
+			],
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					display: true,
+					align: 'center',
+					backgroundColor: '#fff',
+					borderRadius: 3,
+					font: {
+						size: 14,
+					},
+				},
+				legend: {
+					display: false,
+				},
+			},
+		},
+	};
+
+	if (Chart.getChart('dataInfoOlapIn')) {
+		window.dataInfoOlapIn.destroy();
+	}
+	if (Chart.getChart('dataInfoAutoIn')) {
+		window.dataInfoAutoIn.destroy();
+	}
+	if (Chart.getChart('dataInfoForecastIn')) {
+		window.dataInfoForecastIn.destroy();
+	}
+	setTimeout(() => {
+		window.dataInfoOlapIn = new Chart(chartOlapIn, configOlapIn);
+		window.dataInfoAutoIn = new Chart(chartAutoIn, configAutoIn);
+		window.dataInfoForecastIn = new Chart(chartForecastIn, configForecastIn);
+	}, 0);
+
+	const chartOlapOut = document
+		.getElementById('dataInfoOlapOut')
+		.getContext('2d');
+	const chartAutoOut = document
+		.getElementById('dataInfoAutoOut')
+		.getContext('2d');
+	const chartForecastOut = document
+		.getElementById('dataInfoForecastOut')
+		.getContext('2d');
+	const colorsOut = ['#3337A2', '#cdd5e1'];
+	const configOlapOut = {
+		plugins: [ChartDataLabels],
+		type: 'doughnut',
+		data: {
+			labels: ['Out', 'Grey'],
+			datasets: [
+				{
+					data: [100],
+					backgroundColor: colorsOut,
+					borderColor: colorsOut,
+					needleValue: 78,
+					meterValue: 1.07,
+					borderWidth: 1,
+					cutout: '75%',
+					circumference: 180,
+					rotation: -90,
+				},
+			],
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					display: true,
+					align: 'center',
+					backgroundColor: '#fff',
+					borderRadius: 3,
+					font: {
+						size: 14,
+					},
+				},
+				legend: {
+					display: false,
+				},
+			},
+		},
+	};
+	const configAutoOut = {
+		plugins: [ChartDataLabels],
+		type: 'doughnut',
+		data: {
+			labels: ['Out', 'Grey'],
+			datasets: [
+				{
+					data: [100],
+					backgroundColor: colorsOut,
+					borderColor: colorsOut,
+					needleValue: 78,
+					meterValue: 1.07,
+					borderWidth: 1,
+					cutout: '75%',
+					circumference: 180,
+					rotation: -90,
+				},
+			],
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					display: true,
+					align: 'center',
+					backgroundColor: '#fff',
+					borderRadius: 3,
+					font: {
+						size: 14,
+					},
+				},
+				legend: {
+					display: false,
+				},
+			},
+		},
+	};
+	const configForecastOut = {
+		plugins: [ChartDataLabels],
+		type: 'doughnut',
+		data: {
+			labels: ['Out', 'Grey'],
+			datasets: [
+				{
+					data: [100],
+					backgroundColor: colorsOut,
+					borderColor: colorsOut,
+					borderWidth: 1,
+					cutout: '75%',
+					circumference: 180,
+					rotation: -90,
+				},
+			],
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					display: true,
+					align: 'center',
+					backgroundColor: '#fff',
+					borderRadius: 3,
+					font: {
+						size: 14,
+					},
+				},
+				legend: {
+					display: false,
+				},
+			},
+		},
+	};
+	if (Chart.getChart('dataInfoOlapOut')) {
+		window.dataInfoOlapOut.destroy();
+	}
+		window.dataInfoOlapOut = new Chart(chartOlapOut, configOlapOut);
+	if (Chart.getChart('dataInfoAutoOut')) {
+		window.dataInfoAutoOut.destroy();
+	}
+		window.dataInfoAutoOut = new Chart(chartAutoOut, configAutoOut);
+	if (Chart.getChart('dataInfoForecastOut')) {
+		window.dataInfoForecastOut.destroy();
+	}
+		window.dataInfoForecastOut = new Chart(
+			chartForecastOut,
+			configForecastOut
+		);
 }
 
 function dataInfoTabOpen(event) {
@@ -135,7 +402,7 @@ function dataInfoChartInDraw() {
 	if (Chart.getChart('dataInfoChartIn')) {
 		window.dataInfoChartIn.destroy();
 	}
-	setTimeout(() => {
+	// setTimeout(() => {
 		window.dataInfoChartIn = new Chart(chartIn, {
 			type: 'bar',
 			data: {
@@ -154,7 +421,7 @@ function dataInfoChartInDraw() {
 				}
 			}
 		});
-	}, 0);
+	// }, 0);
 
 	const chartOlapIn = document
 		.getElementById('dataInfoOlapIn')
@@ -485,22 +752,16 @@ function dataInfoChartOutDraw() {
 	if (Chart.getChart('dataInfoOlapOut')) {
 		window.dataInfoOlapOut.destroy();
 	}
-	setTimeout(() => {
 		window.dataInfoOlapOut = new Chart(chartOlapOut, configOlapOut);
-	}, 0);
 	if (Chart.getChart('dataInfoAutoOut')) {
 		window.dataInfoAutoOut.destroy();
 	}
-	setTimeout(() => {
 		window.dataInfoAutoOut = new Chart(chartAutoOut, configAutoOut);
-	}, 0);
 	if (Chart.getChart('dataInfoForecastOut')) {
 		window.dataInfoForecastOut.destroy();
 	}
-	setTimeout(() => {
 		window.dataInfoForecastOut = new Chart(
 			chartForecastOut,
 			configForecastOut
 		);
-	}, 0);
 }

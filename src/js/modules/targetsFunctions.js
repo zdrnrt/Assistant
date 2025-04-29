@@ -1,25 +1,22 @@
 import {Modal} from 'bootstrap';
+import {moduleOpen} from '../tools'
+import { Chart } from 'chart.js';
 
 window.targetsFunctionOpen = function () {
-  fetch("./src/html/targetsFunctions.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Реакция сети" + response.statusText);
-      }
-      return response.text();
-    })
-    .then((html) => {
-      document.getElementById("content").innerHTML = html;
+  moduleOpen("./src/html/targetsFunctions.html")
+    .then(() => {
       targetsFunctionInit()
     })
-    .catch((error) => {
-      console.error("Возникла проблема с операцией выборки:", error);
-    });
 };
+
+targetsFunctionOpen();
 
 function targetsFunctionInit () {
   document.getElementById('targetsFunctionsAdd').addEventListener('click', targetsFunctionAdd)
   document.getElementById('openConfig').addEventListener('click', targetsFunctionConfig)
+  document.getElementById('apply').addEventListener('click', targetsFunctionChartsDraw)
+
+  // targetsFunctionChartsDraw();
 }
 
 function targetsFunctionConfig(){
@@ -161,3 +158,202 @@ window.targetsTargetsChange = function (elem) {
   document.getElementById("targetsExternal").classList.toggle("d-none");
   document.getElementById("targetsInternal").classList.toggle("d-none");
 };
+
+function targetsFunctionChartsDraw(){
+  document.getElementById('charts').classList.remove('d-none');
+
+  const chartLabels = [
+    '11.01',
+    '12.01',
+    '13.01',
+    '14.01',
+    '15.01',
+    '16.01',
+    '17.01',
+    '18.01',
+    '19.01',
+    '20.01',
+    '21.01',
+  ]
+
+  const chartData = {
+		normaTt: [
+			{
+				label: 'Рег',
+				data: [
+					7_526_057, 7_536_744, 7_519_518, 7_633_377, 7_532_513,
+					7_471_367, 7_439_333, 7_635_368, 7_356_560, 7_600_113,
+					7_727_610,
+				],
+				stack: 'group',
+				order: 1,
+			},
+			{
+				label: 'Овер ',
+				data: [
+					1_850_670, 1_823_406, 1_879_880, 1_877_060, 1_822_382,
+					1_867_842, 1_829_344, 1_847_266, 1_839_140, 1_868_880,
+					1_869_583,
+				],
+				stack: 'group',
+				order: 1,
+			},
+			{
+				label: 'Промо',
+				data: [
+					1_850_670, 1_823_406, 1_879_880, 1_877_060, 1_822_382,
+					1_867_842, 1_829_344, 1_847_266, 1_839_140, 1_868_880,
+					1_869_583,
+				],
+				stack: 'group',
+				order: 1,
+			},
+			{
+				label: 'Вывод',
+				data: [
+					1_110_402, 972_483, 1_253_253, 1_126_236, 971_937,
+					1_245_228, 1_097_607, 985_209, 1_226_093, 1_121_328,
+					997_111,
+				],
+				stack: 'group',
+				order: 1,
+			},
+			{
+				label: 'Итого план',
+				data: [
+					11_104_019, 10_940_435, 11_279_277, 11_262_359, 10_934_293,
+					11_207_051, 10_976_065, 11_083_598, 11_034_841, 11_213_282,
+					11_217_498,
+				],
+				type: 'line',
+				order: 0,
+			},
+			{
+				label: 'Итого, факт',
+				data: [
+					12_337_799, 12_156_039, 12_532_530, 12_513_732, 12_149_214,
+					12_452_279, 12_195_628, 12_315_109, 12_260_934, 12_459_202,
+					12_463_887,
+				],
+				stack: 'group',
+				order: 0,
+			},
+		],
+		normaOosTt: [
+			{
+				label: 'Факт, %',
+				data: [89, 90, 91, 89, 88, 91, 92, 90, 89, 89, 90],
+			},
+			{
+				label: 'План, %',
+				data: [98, 98, 98, 98, 98, 98, 98, 98, 98, 98, 98],
+			},
+		],
+    offs: [
+      {
+        label: 'Списание, факт',
+        data: [ 2.30, 2.50, 2.50, 2.50, 2.80, 2.90, 2.50, 2.50, 2.50, 2.50, 2.50, ]
+      },
+      {
+        label: 'Списание, план',
+        data: [ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, ],
+        type: 'line'
+      },
+    ]
+	};
+
+  const chart1 = document.getElementById('chart1');
+  const chart2 = document.getElementById('chart2');
+  const chart3 = document.getElementById('chart3');
+
+  if (Chart.getChart('chart1')) {
+      Chart.getChart('chart').destroy();
+    } else {
+      new Chart(chart1, {
+        type: 'bar',
+        data: {
+          labels: chartLabels,
+          datasets: chartData.normaTt,
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+            },
+            title: {
+              display: false,
+            },
+            decimation: {
+              enabled: false,
+            },
+          },
+          scales: {
+            x: {
+              display: true,
+            },
+          },
+        },
+      });
+    }
+  if (Chart.getChart('chart2')) {
+      Chart.getChart('chart2').destroy();
+    } else {
+      new Chart(chart2, {
+        type: 'bar',
+        data: {
+          labels: chartLabels,
+          datasets: chartData.normaOosTt,
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+            },
+            title: {
+              display: false,
+            },
+            decimation: {
+              enabled: false,
+            },
+          },
+          scales: {
+            x: {
+              display: true,
+            },
+          },
+        },
+      });
+    }
+  if (Chart.getChart('chart3')) {
+      Chart.getChart('chart3').destroy();
+    } else {
+      new Chart(chart3, {
+        type: 'bar',
+        data: {
+          labels: chartLabels,
+          datasets: chartData.offs,
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+            },
+            title: {
+              display: false,
+            },
+            decimation: {
+              enabled: false,
+            },
+          },
+          scales: {
+            x: {
+              display: true,
+            },
+          },
+        },
+      });
+    }
+}

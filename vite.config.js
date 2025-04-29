@@ -26,6 +26,7 @@ export default defineConfig({
 				taskList: resolve(__dirname, 'src/html/taskList.html'),
 				information: resolve(__dirname, 'src/html/information.html'),
 				chatBot: resolve(__dirname, 'src/html/chatBot.html'),
+				targetsDashboard: resolve(__dirname, 'src/html/targetsDashboard.html'),
 			}
 		}
 	}

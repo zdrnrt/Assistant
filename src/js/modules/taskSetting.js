@@ -20,7 +20,7 @@ window.taskSettingOpen = function () {
 	});
 };
 
-taskSettingOpen();
+// taskSettingOpen();
 
 function taskSettingConfig(){
 	document.getElementById('modalConfigLabel').textContent = document.getElementById('configTitle').value;
