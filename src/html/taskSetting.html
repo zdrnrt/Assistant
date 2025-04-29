@@ -7,14 +7,13 @@
       <div class="col-4">
         <div class="column">
           <header class="column__header">Настройка отклонения</header>
-          <select data-id="factoranalysis" class="form-select mb-2">
-          </select>
-          <button id="config" class="btn btn-primary"  _data-bs-toggle="modal" _data-bs-target="#modalConfig">Настройка отклонения</button>
+          <select id="configTitle" data-id="factoranalysis" class="form-select mb-2"></select>
+          <button id="config" class="btn btn-primary" _data-bs-toggle="modal" _data-bs-target="#modalConfig">Настройка отклонения</button>
         </div>
       </div>
       <div class="col-3">
           <button class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#modalStatus">Настройка статуса задач</button>
-          <button class="btn btn-primary w-100">Настройка каскадирования</button>
+          <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalCascad">Настройка каскадирования</button>
       </div>
       <div class="col-3">
           <button class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#modalExecutor">Настройка исполнителя</button>
@@ -66,7 +65,7 @@
       </div>
       <div class="col">
         <div class="fw-bold h5">Фактор</div>
-        <select data-id="factoranalysis" class="form-select w-100">
+        <select data-id="factoranalysis" data-filter class="form-select w-100">
           <option value="">Все</option>
         </select>
       </div>
@@ -487,8 +486,8 @@
         </div>
         <div class="modal-body fs-5">
           <div class="mb-3">
-            <label for="factorprocess" class="form-label">Связь с процессом:</label>
-            <select name="osProcess" data-id="factorprocess" id="factorprocess" class="form-select mb-2">
+            <label for="process" class="form-label">Связь с процессом:</label>
+            <select name="osProcess" data-id="process" id="process" class="form-select mb-2">
             </select>
           </div>
           <div class="row align-items-center mb-3">
@@ -533,6 +532,60 @@
     </div>
   </div>
 
+  <div class="modal modal-sm fade" id="modalCascad" tabindex="-1" aria-labelledby="modalCascadLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCascadLabel">Настройка каскадирования</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-5">
+          <div class="mb-3">
+            <select name="" data-id="process" id="factorprocess" class="form-select mb-2"></select>
+          </div>
+          <div class="row mb-3 align-items-center">
+            <div class="col-5"><label for="" class="form-label">Приоритет 1</label></div>
+            <div class="col-7 p-0"><select name="" class="form-select">
+              <option selected value="Специалист">Специалист</option>
+              <option value="Старший специалист">Старший специалист</option>
+              <option value="Руководитель ">Руководитель </option>
+              <option value="Директор">Директор</option>
+            </select></div>
+          </div>
+          <div class="row mb-3 align-items-center">
+            <div class="col-5"><label for="" class="form-label">Приоритет 2</label></div>
+            <div class="col-7 p-0"><select name="" class="form-select">
+              <option value="Специалист">Специалист</option>
+              <option selected value="Старший специалист">Старший специалист</option>
+              <option value="Руководитель ">Руководитель </option>
+              <option value="Директор">Директор</option>
+            </select></div>
+          </div>
+          <div class="row mb-3 align-items-center">
+            <div class="col-5"><label for="" class="form-label">Приоритет 3</label></div>
+            <div class="col-7 p-0"><select name="" class="form-select">
+              <option value="Специалист">Специалист</option>
+              <option value="Старший специалист">Старший специалист</option>
+              <option selected value="Руководитель ">Руководитель </option>
+              <option value="Директор">Директор</option>
+            </select></div>
+          </div>
+          <div class="row mb-3 align-items-center">
+            <div class="col-5"><label for="" class="form-label">Приоритет 4</label></div>
+            <div class="col-7 p-0"><select name="" class="form-select">
+              <option value="Специалист">Специалист</option>
+              <option value="Старший специалист">Старший специалист</option>
+              <option value="Руководитель ">Руководитель </option>
+              <option selected value="Директор">Директор</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Применить</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <div class="modal modal-sm fade" id="modalSchedule" tabindex="-1" aria-labelledby="modalScheduleLabel" aria-hidden="true">
     <div class="modal-dialog">
       <form class="modal-content">
@@ -542,7 +595,7 @@
         </div>
         <div class="modal-body fs-5">
           <div class="mb-3">
-            <select name="" data-id="factorprocess" id="factorprocess" class="form-select mb-2">
+            <select name="" data-id="process" id="factorprocess" class="form-select mb-2">
             </select>
           </div>
           <div class="row align-items-center mb-3">
@@ -625,7 +678,7 @@
         </div>
         <div class="modal-body fs-5">
           <div class="mb-3">
-            <select name="" data-id="factorprocess" id="factorprocess" class="form-select mb-2">
+            <select name="" data-id="process" id="factorprocess" class="form-select mb-2">
             </select>
           </div>
           <div class="mb-3">
@@ -660,7 +713,7 @@
         </div>
         <div class="modal-body fs-5">
           <div class="mb-3">
-            <select name="" data-id="factorprocess" id="factorprocess" class="form-select mb-2">
+            <select name="" data-id="process" id="factorprocess" class="form-select mb-2">
             </select>
           </div>
           <div class="form-label">Кол-вло недель повторения</div>
