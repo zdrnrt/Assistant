@@ -1,34 +1,91 @@
 import { Chart } from "chart.js/auto";
+import { moduleOpen } from "../tools";
 
 window.taskAnalyticOpen = function() {
-  fetch('./src/html/taskAnalytic.html')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Реакция сети' + response.statusText);
-          }
-          return response.text(); 
+    moduleOpen('./src/html/taskAnalytic.html')
+      .then(() => {
+        taskAnalyticInit();
       })
-      .then(html => {
-          document.getElementById('content').innerHTML = html;
-          taskAnalyticChartDraw();
-      })
-      .catch(error => {
-          console.error('Возникла проблема с операцией выборки:', error);
-      });
 }
 
-window.taskAnalyticChartDraw = function(){
-    const chartСommerce = document.getElementById('taskСommerceChart');
-    const chartOperation = document.getElementById('taskOperationChart');
-    const chartItem = document.getElementById('taskItemChart');
-    const chartMarketing = document.getElementById('taskMarketingChart');
-    const chartForecast = document.getElementById('taskForecastChart');
-    const chartLogistic = document.getElementById('taskLogisticChart');
+// taskAnalyticOpen();
 
-    const dataChart = [9, 2, 3, 4, 5, 7];
+function taskAnalyticInit(){
+    taskAnalyticChartDraw()
+}
+
+function taskAnalyticChartDraw(){
+
+    const dataChart = {
+        taskСommerceChart: [
+            {
+                label: '',
+                data: [10, 15, 14, 13, 18, 20]
+            }
+        ],
+        taskOperationChart: [
+            {
+                label: '',
+                data: [ 11, 3, 10, 8, 18, 22, ]
+            }
+        ],
+        taskItemChart: [
+            {
+                label: '',
+                data: [
+                    20,
+                    11,
+                    14,
+                    16,
+                    15,
+                    10,
+                ]
+            }
+        ],
+        taskMarketingChart: [
+            {
+                label: '',
+                data: [
+                    11,
+                    8,
+                    7,
+                    5,
+                    7,
+                    9,
+                ]
+            }
+        ],
+        taskForecastChart: [
+            {
+                label: '',
+                data: [
+                    10,
+                    11,
+                    14,
+                    16,
+                    17,
+                    18,
+                ]
+            }
+        ],
+        taskLogisticChart: [
+            {
+                label: '',
+                data: [
+                    6,
+                    9,
+                    11,
+                    14,
+                    18,
+                    10,
+                ]
+            }
+        ],
+    };
     const labelsChart = ['1', '2', '3', '4', '5', '6']
     const optionsChart = {
         responsive: true,
+        aspectRatio: 1,
         plugins: {
             legend: {
                 display: false,
@@ -51,28 +108,24 @@ window.taskAnalyticChartDraw = function(){
                 }
             }],
           xAxes: [{
-            // Hide x-axis here
               display: false
             }
           ]
         }
     }
-    const chartParmas = {
+    const chartParmas = (id) => ({
         type: 'bar',
         data: {
             labels: labelsChart,
-            datasets: [{
-                label: '',
-                data: dataChart
-            }],
+            datasets: dataChart[id],
         },
         options: optionsChart,
-    }
+    });
 
-    const сommerce =  new Chart(chartСommerce, chartParmas);
-    const operation =  new Chart(chartOperation, chartParmas);
-    const item =  new Chart(chartItem, chartParmas);
-    const marketing =  new Chart(chartMarketing, chartParmas);
-    const forecast =  new Chart(chartForecast, chartParmas);
-    const logistic =  new Chart(chartLogistic, chartParmas);
+    new Chart(document.getElementById('taskСommerceChart'), chartParmas('taskСommerceChart'));
+    new Chart(document.getElementById('taskOperationChart'), chartParmas('taskOperationChart'));
+    new Chart(document.getElementById('taskItemChart'), chartParmas('taskItemChart'));
+    new Chart(document.getElementById('taskMarketingChart'), chartParmas('taskMarketingChart'));
+    new Chart(document.getElementById('taskForecastChart'), chartParmas('taskForecastChart'));
+    new Chart(document.getElementById('taskLogisticChart'), chartParmas('taskLogisticChart'));
 }

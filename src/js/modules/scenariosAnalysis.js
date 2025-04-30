@@ -10,14 +10,16 @@ window.scenariosAnalysisOpen = function () {
 // scenariosAnalysisOpen();
 
 function scenariosAnalysisInit() {
-	window.scenariosChartDraw();
-}
+	scenariosChartDraw();
 
-window.scenariosChartDraw = function () {
 	document
 		.getElementById('type')
-		.addEventListener('change', scenariosChartChangeType);
-	function scenariosChartChangeType(event) {
+		.addEventListener('change', (event) => { scenariosChartDraw(event.target.value) });
+}
+
+function scenariosChartDraw (chartType = 'tt') {
+	
+	function scenariosChartChangeType(chartType = 'tt') {
 		const value = event.target.value;
 		document.getElementById('info').dataset.state = value;
 		chartAction[0].handler(value, fast);
@@ -324,7 +326,26 @@ window.scenariosChartDraw = function () {
 				],
 			},
 			rc: {
-				labels: [ '01.01', '15.01', '30.01', '01.02', '15.02', '28.02', '01.03', '15.03', '30.03', '01.04', '15.04', '30.04', '01.05', '15.05', '30.03', '01.06', '15.06', '30.06', ],
+				labels: [
+					'01.01',
+					'15.01',
+					'30.01',
+					'01.02',
+					'15.02',
+					'28.02',
+					'01.03',
+					'15.03',
+					'30.03',
+					'01.04',
+					'15.04',
+					'30.04',
+					'01.05',
+					'15.05',
+					'30.03',
+					'01.06',
+					'15.06',
+					'30.06',
+				],
 				datasets: [
 					{
 						label: 'Итого, план',
@@ -354,7 +375,26 @@ window.scenariosChartDraw = function () {
 				],
 			},
 			represent: {
-				labels: [ '01.01', '15.01', '30.01', '01.02', '15.02', '28.02', '01.03', '15.03', '30.03', '01.04', '15.04', '30.04', '01.05', '15.05', '30.03', '01.06', '15.06', '30.06', ],
+				labels: [
+					'01.01',
+					'15.01',
+					'30.01',
+					'01.02',
+					'15.02',
+					'28.02',
+					'01.03',
+					'15.03',
+					'30.03',
+					'01.04',
+					'15.04',
+					'30.04',
+					'01.05',
+					'15.05',
+					'30.03',
+					'01.06',
+					'15.06',
+					'30.06',
+				],
 				datasets: [
 					{
 						label: 'План, %',
@@ -384,68 +424,122 @@ window.scenariosChartDraw = function () {
 		{
 			name: 'Change data',
 			handler(value, chart) {
+				console.log(chart)
 				chart.data.labels = chartData[chart.canvas.id][value].labels;
 				chart.data.datasets = chartData[chart.canvas.id][value].datasets;
+				// chart.scales = {...chart.scales, ...chartGetScales(value)};
+				
 				chart.update();
 			},
 		},
 	];
-	// возможно отдельная функция для отрисовки каждого графика
+
+	const chartScales = {
+		tt: {
+						x: {
+							display: false
+						},
+						y: {
+							title: {
+								display: false,
+							},
+							min: 10_000_000,
+							// max: 100,
+							ticks: {
+								// forces step size to be 50 units
+								stepSize: 100_000,
+							},
+						},
+					
+		},
+		rc: {
+			x: {
+				display: false
+			},
+			y: {
+				title: {
+					display: false,
+				},
+				min: 3_000_000,
+				// max: 100,
+				ticks: {
+					// forces step size to be 50 units
+					stepSize: 100_000,
+				},
+			},
+		
+},
+		represent: {
+			x: {
+				display: false
+			},
+			y: {
+				title: {
+					display: false,
+				},
+				min: 70,
+				// max: 100,
+				ticks: {
+					// forces step size to be 50 units
+					stepSize: 5,
+				},
+			},
+		
+},
+	}
+
+	const chartGetScales = (type) => {
+		return chartScales[type]
+	}
+
 	const chartOptions = {
 		responsive: true,
-		plugins: {
-			legend: {
-				display: false,
+		aspectRatio: 1.5,
+			plugins: {
+				legend: {
+					display: false,
+				},
+				title: {
+					display: false,
+				},
 			},
-			title: {
-				display: false,
-			},
-			options: {
-				scales: {
-					y: {
-						suggestedMin: 50,
-                suggestedMax: 100,
-						beginAtZero: false,	
-						ticks: {
-							stepSize: 7000000
-						}
-					},
-					x: {
-						min: 8_000_000,
-						ticks: {
-							stepSize: 1000
-						}
-					}
-				}
-			}
-		},
+			scales: chartGetScales(chartType)
 	};
 
 	const fastChart = document.getElementById('fast');
 	const middleChart = document.getElementById('middle');
 	const normalChart = document.getElementById('normal');
+	if (Chart.getChart(fastChart)){
+		Chart.getChart(fastChart).destroy();
+	}
+	if (Chart.getChart(middleChart)){
+		Chart.getChart(middleChart).destroy();
+	}
+	if (Chart.getChart(normalChart)){
+		Chart.getChart(normalChart).destroy();
+	}
 
 	const fast = new Chart(fastChart, {
 		type: 'bar',
 		data: {
-			labels: chartData.fast.tt.labels,
-			datasets: chartData.fast.tt.datasets,
+			labels: chartData.fast[chartType].labels,
+			datasets: chartData.fast[chartType].datasets,
 		},
 		options: chartOptions,
 	});
 	const middle = new Chart(middleChart, {
 		type: 'bar',
 		data: {
-			labels: chartData.middle.tt.labels,
-			datasets: chartData.middle.tt.datasets,
+			labels: chartData.middle[chartType].labels,
+			datasets: chartData.middle[chartType].datasets,
 		},
 		options: chartOptions,
 	});
 	const normal = new Chart(normalChart, {
 		type: 'bar',
 		data: {
-			labels: chartData.normal.tt.labels,
-			datasets: chartData.normal.tt.datasets,
+			labels: chartData.normal[chartType].labels,
+			datasets: chartData.normal[chartType].datasets,
 		},
 		options: chartOptions,
 	});

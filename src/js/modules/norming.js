@@ -9,7 +9,7 @@ window.normingOpen = function () {
 	});
 };
 
-// normingOpen();
+normingOpen();
 
 function normingInit() {
 	normingInitModal();
@@ -29,7 +29,7 @@ function normingApply(event) {
 		normingChartDraw(document.getElementById('select').value);
 		// normingChartDraw('normaRc')
 		buttonToggleLoading(btn);
-	}, 500);
+	}, 200);
 }
 
 function normingInitModal() {
@@ -257,49 +257,55 @@ function normingChartDraw(value = 'normaRc') {
 		normaAccuracy: null,
 	};
 
-	const chartOptions = {
+	const chartScales = {
+		_normaRc: {
+			y: {
+				min: 5_000_000,
+			}
+		},
+		_normaTt: {
+			y: {
+				min: 10_000_000,
+				ticks: {
+					stepSize: 1_000_000
+				}
+			}
+		},
 		normaOosTt: {
-			scales: {
-				x: {
-					display: true,
-				},
-				y: {
+				// x: {
+				// 	display: true,
+				// },
+				y: {max: 100,
+					min: 82,
 					ticks: {
-						stepSize: 5,
+							stepSize: 2,
 					},
 				},
-			},
 		},
 		normaUs: {
             y: {
-                min: 80,
+							max: 97,
+                min: 75,
                 ticks: {
-                    stepSize: 5,
+                    stepSize: 2,
                 },
             },
 		},
 		normaUsRcTt: {
             y: {
+							max: 100,
+							min: 94,
                 ticks: {
-                    stepSize: 5,
+                    stepSize: 2,
                 },
             },
 		},
 	};
 
 	if (Chart.getChart('chart')) {
-		const chart = Chart.getChart('chart');
-        console.log(chart)
-		chart.data = {
-			labels: chartLabels,
-			datasets: chartData[value],
-		};
-		if (chartOptions[value]) {
-			// chart.scales.y = {...chart.scales.y, ...chartOptions[value].y};
-		}
-		chart.update();
-	} else {
-		const chart = new Chart(chartCanvas, {
+		Chart.getChart('chart').destroy();
+	}
+		new Chart(chartCanvas, {
 			type: 'bar',
 			data: {
 				labels: chartLabels,
@@ -319,14 +325,9 @@ function normingChartDraw(value = 'normaRc') {
 						enabled: false,
 					},
 				},
-				scales: {
-					x: {
-						display: true,
-					},
-				},
+				scales: chartScales[value]
 			},
 		});
-	}
 }
 
 function normingFilter(event){

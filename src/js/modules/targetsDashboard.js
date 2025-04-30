@@ -1,5 +1,6 @@
 import {moduleOpen} from '../tools'
-import { Chart } from 'chart.js';
+import { Chart, scales } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 window.targetsDashboardOpen = function () {
   moduleOpen("./src/html/targetsDashboard.html")
@@ -8,7 +9,7 @@ window.targetsDashboardOpen = function () {
     })
 };
 
-targetsDashboardOpen();
+// targetsDashboardOpen();
 
 function targetsDashboardInit () {
   targetsDashboardChartsDraw();
@@ -16,66 +17,69 @@ function targetsDashboardInit () {
 
 
 function targetsDashboardChartsDraw(){
-  const charts = {
-    'profit': {
-      title: 'Прибыль',
-      labels: '',
-      config: {}
 
-    },
-    'sales': {
-      title: 'Продажи',
-      labels: '',
-      config: {}
-
-    },
-    'offs': {
-      title: 'Списания',
-      labels: '',
-      config: {}
-
-    },
-    'inventory': {
-      title: 'Товарный запас',
-      labels: '',
-      config: {}
-
-    },
-    'representation': {
-      title: 'Представленность',
-      labels: '',
-      config: {}
-
-    },
-    'level': {
-      title: 'Уровень сервиса',
-      labels: '',
-      config: {}
-    }
-  };
-
-  for (const chart in charts){
-    if (Chart.getChart(chart)){
-      Chart.getChart(chart).destroy();
-    }
-    new Chart(document.getElementById(chart), {...charts[chart]
-
-    })
+  const chartsData = {
+    'profit': [
+      {
+        labels: 'План',
+        data: [1_000_000_000]
+      },
+      {
+        labels: 'Факт',
+        data: [800_000_000]
+      }
+    ],
+    'sales': [
+      {
+        labels: '',
+        data: []
+      },
+      {
+        labels: '',
+        data: []
+      }
+    ],
+    'offs': [
+      {
+        labels: '',
+        data: []
+      },
+      {
+        labels: '',
+        data: []
+      }
+    ],
+    'inventory': [
+      {
+        labels: '',
+        data: []
+      },
+      {
+        labels: '',
+        data: []
+      }
+    ],
+    'representation': [
+      {
+        labels: '',
+        data: []
+      },
+      {
+        labels: '',
+        data: []
+      }
+    ],
+    'level': [
+      {
+        labels: '',
+        data: []
+      },
+      {
+        labels: '',
+        data: []
+      }
+    ],
   }
-
-  const chartLabels = [
-    '11.01',
-    '12.01',
-    '13.01',
-    '14.01',
-    '15.01',
-    '16.01',
-    '17.01',
-    '18.01',
-    '19.01',
-    '20.01',
-    '21.01',
-  ]
 
   const chartData = {
 		normaTt: [
@@ -163,98 +167,301 @@ function targetsDashboardChartsDraw(){
     ]
 	};
 
-  const chart1 = document.getElementById('chart1');
-  const chart2 = document.getElementById('chart2');
-  const chart3 = document.getElementById('chart3');
+  const chartLabels = [
+    '11.01',
+    '12.01',
+    '13.01',
+    '14.01',
+    '15.01',
+    '16.01',
+    '17.01',
+    '18.01',
+    '19.01',
+    '20.01',
+    '21.01',
+  ]
 
-  if (Chart.getChart('chart1')) {
-      Chart.getChart('chart').destroy();
-    } else {
-      new Chart(chart1, {
+  const charts = {
+    'profit': {
+      title: 'Прибыль',
+      labels: '',
+      config: {
         type: 'bar',
+        colors: ['#FD6935', '#3337A2'],
         data: {
           labels: chartLabels,
-          datasets: chartData.normaTt,
-        },
-        options: {
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top',
-            },
-            title: {
-              display: false,
-            },
-            decimation: {
-              enabled: false,
-            },
-          },
-          scales: {
-            x: {
-              display: true,
-            },
-          },
-        },
-      });
+          datasets: chartData['profit']
+        }
+      }
+
+    },
+    // 'sales': {
+    //   title: 'Продажи',
+    //   labels: '',
+    //   config: {}
+
+    // },
+    // 'offs': {
+    //   title: 'Списания',
+    //   labels: '',
+    //   config: {}
+
+    // },
+    // 'inventory': {
+    //   title: 'Товарный запас',
+    //   labels: '',
+    //   config: {}
+
+    // },
+    // 'representation': {
+    //   title: 'Представленность',
+    //   labels: '',
+    //   config: {}
+
+    // },
+    // 'level': {
+    //   title: 'Уровень сервиса',
+    //   labels: '',
+    //   config: {}
+    // }
+  };
+
+  for (const chart in charts){
+    if (Chart.getChart(chart)){
+      Chart.getChart(chart).destroy();
     }
-  if (Chart.getChart('chart2')) {
-      Chart.getChart('chart2').destroy();
-    } else {
-      new Chart(chart2, {
-        type: 'bar',
-        data: {
-          labels: chartLabels,
-          datasets: chartData.normaOosTt,
+    // new Chart(document.getElementById(chart), charts[chart].config)
+  }
+
+  const chartDoughnutOptions = {
+      plugins: {
+        legend: {
+          position: 'bottom'
         },
-        options: {
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top',
-            },
-            title: {
-              display: false,
-            },
-            decimation: {
-              enabled: false,
+          datalabels: {
+            display: true,
+            align: 'center',
+            backgroundColor: '#fff',
+            borderRadius: 3,
+            font: {
+              size: 14,
             },
           },
-          scales: {
-            x: {
-              display: true,
-            },
-          },
+      }
+  }
+
+  const chartBarOptions = {
+    aspectRatio: 1,
+    plugins: {
+      legend: {
+        display: false,
+        position: 'bottom'
+      },
+        legend: {
+          display: false,
         },
-      });
+        scales: {
+          x: {
+            display: false
+          },
+          y: {
+            display: false
+          },
+        }
     }
-  if (Chart.getChart('chart3')) {
-      Chart.getChart('chart3').destroy();
-    } else {
-      new Chart(chart3, {
-        type: 'bar',
-        data: {
-          labels: chartLabels,
-          datasets: chartData.offs,
-        },
-        options: {
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top',
-            },
-            title: {
-              display: false,
-            },
-            decimation: {
-              enabled: false,
-            },
-          },
-          scales: {
-            x: {
-              display: true,
-            },
-          },
-        },
-      });
-    }
+}
+
+  const chartColors = [ '#FD6935', '#3337A2', ]
+
+  new Chart(document.getElementById('profit'), {
+    type: 'bar',
+    data: {
+      labels: [
+        'План',
+        'Факт',
+      ],
+      datasets: [{
+        data: [ 1_000_000_000, 800_000_000],
+        backgroundColor: chartColors,
+        hoverOffset: 4
+      }]
+    },
+    options: chartBarOptions
+})
+  new Chart(document.getElementById('sales'), {
+    type: 'bar',
+    data: {
+      labels: [
+        'План',
+        'Факт',
+      ],
+      datasets: [{
+        data: [ 15_000_000, 13_500_000],
+        backgroundColor: chartColors,
+        hoverOffset: 4
+      }]
+    },
+    options: chartBarOptions
+})
+  new Chart(document.getElementById('inventory'), {
+    type: 'bar',
+    data: {
+      labels: [
+        'План',
+        'Факт',
+      ],
+      datasets: [{
+        data: [10_000_000_000, 14_000_000_000],
+        backgroundColor: chartColors,
+        hoverOffset: 4
+      }]
+    },
+    options: chartBarOptions
+})
+  
+  new Chart(document.getElementById('offs'), {
+      type: 'doughnut',
+		  plugins: [ChartDataLabels],
+      data: {
+        labels: [
+          'План',
+          'Факт',
+        ],
+        datasets: [{
+          data: [2, 3.5],
+          backgroundColor: chartColors,
+          hoverOffset: 4
+        }]
+      },
+      options: chartDoughnutOptions
+  })
+
+  new Chart(document.getElementById('representation'), {
+      type: 'doughnut',
+		  plugins: [ChartDataLabels],
+      data: {
+        labels: [
+          'План',
+          'Факт',
+        ],
+        datasets: [{
+          data: [98, 88],
+          backgroundColor: chartColors,
+          hoverOffset: 4
+        }]
+      },
+      options: chartDoughnutOptions
+  })
+
+  new Chart(document.getElementById('level'), {
+      type: 'doughnut',
+		  plugins: [ChartDataLabels],
+      data: {
+        labels: [
+          'План',
+          'Факт',
+        ],
+        datasets: [{
+          data: [98, 90],
+          backgroundColor: chartColors,
+        }]
+      },
+      options: chartDoughnutOptions
+  })
+
+
+  // const chart1 = document.getElementById('chart1');
+  // const chart2 = document.getElementById('chart2');
+  // const chart3 = document.getElementById('chart3');
+
+  // if (Chart.getChart('chart1')) {
+  //     Chart.getChart('chart').destroy();
+  //   } else {
+  //     new Chart(chart1, {
+  //       type: 'bar',
+  //       data: {
+  //         labels: chartLabels,
+  //         datasets: chartData.normaTt,
+  //       },
+  //       options: {
+  //         plugins: {
+  //           legend: {
+  //             display: true,
+  //             position: 'top',
+  //           },
+  //           title: {
+  //             display: false,
+  //           },
+  //           decimation: {
+  //             enabled: false,
+  //           },
+  //         },
+  //         scales: {
+  //           x: {
+  //             display: true,
+  //           },
+  //         },
+  //       },
+  //     });
+  //   }
+  // if (Chart.getChart('chart2')) {
+  //     Chart.getChart('chart2').destroy();
+  //   } else {
+  //     new Chart(chart2, {
+  //       type: 'bar',
+  //       data: {
+  //         labels: chartLabels,
+  //         datasets: chartData.normaOosTt,
+  //       },
+  //       options: {
+  //         plugins: {
+  //           legend: {
+  //             display: true,
+  //             position: 'top',
+  //           },
+  //           title: {
+  //             display: false,
+  //           },
+  //           decimation: {
+  //             enabled: false,
+  //           },
+  //         },
+  //         scales: {
+  //           x: {
+  //             display: true,
+  //           },
+  //         },
+  //       },
+  //     });
+  //   }
+  // if (Chart.getChart('chart3')) {
+  //     Chart.getChart('chart3').destroy();
+  //   } else {
+  //     new Chart(chart3, {
+  //       type: 'bar',
+  //       data: {
+  //         labels: chartLabels,
+  //         datasets: chartData.offs,
+  //       },
+  //       options: {
+  //         plugins: {
+  //           legend: {
+  //             display: true,
+  //             position: 'top',
+  //           },
+  //           title: {
+  //             display: false,
+  //           },
+  //           decimation: {
+  //             enabled: false,
+  //           },
+  //         },
+  //         scales: {
+  //           x: {
+  //             display: true,
+  //           },
+  //         },
+  //       },
+  //     });
+  //   }
 }

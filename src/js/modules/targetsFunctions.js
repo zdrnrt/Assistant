@@ -9,7 +9,7 @@ window.targetsFunctionOpen = function () {
     })
 };
 
-targetsFunctionOpen();
+// targetsFunctionOpen();
 
 function targetsFunctionInit () {
   document.getElementById('targetsFunctionsAdd').addEventListener('click', targetsFunctionAdd)

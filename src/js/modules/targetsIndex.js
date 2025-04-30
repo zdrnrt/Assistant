@@ -48,7 +48,6 @@ function targetsIndexClear(filters) {
 }
 
 function targetsIndexFilter() {
-  console.log('targetsIndexFilter')
 	const filters = [
 		document.querySelector('[data-id="region"]'),
 		document.querySelector('[data-id="category"]'),
@@ -94,6 +93,7 @@ const chartConfig = {
     //   datasets: data.stock
     // },
     options: {
+      aspectRatio: 2.5,
       plugins: {
         legend: {
           display: false,
