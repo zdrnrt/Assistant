@@ -195,46 +195,17 @@ function targetsDashboardChartsDraw(){
       }
 
     },
-    // 'sales': {
-    //   title: 'Продажи',
-    //   labels: '',
-    //   config: {}
-
-    // },
-    // 'offs': {
-    //   title: 'Списания',
-    //   labels: '',
-    //   config: {}
-
-    // },
-    // 'inventory': {
-    //   title: 'Товарный запас',
-    //   labels: '',
-    //   config: {}
-
-    // },
-    // 'representation': {
-    //   title: 'Представленность',
-    //   labels: '',
-    //   config: {}
-
-    // },
-    // 'level': {
-    //   title: 'Уровень сервиса',
-    //   labels: '',
-    //   config: {}
-    // }
   };
 
   for (const chart in charts){
     if (Chart.getChart(chart)){
       Chart.getChart(chart).destroy();
     }
-    // new Chart(document.getElementById(chart), charts[chart].config)
   }
 
   const chartDoughnutOptions = {
-      plugins: {
+    aspectRatio: 1.5,
+    plugins: {
         legend: {
           position: 'bottom'
         },
@@ -251,7 +222,7 @@ function targetsDashboardChartsDraw(){
   }
 
   const chartBarOptions = {
-    aspectRatio: 1,
+    aspectRatio: 1.5,
     plugins: {
       legend: {
         display: false,

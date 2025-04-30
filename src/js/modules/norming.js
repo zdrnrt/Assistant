@@ -9,7 +9,7 @@ window.normingOpen = function () {
 	});
 };
 
-normingOpen();
+// normingOpen();
 
 function normingInit() {
 	normingInitModal();
