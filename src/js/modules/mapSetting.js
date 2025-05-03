@@ -8,6 +8,8 @@ window.mapSettingOpen = function () {
 	});
 };
 
+mapSettingOpen();
+
 function mapSettingInit() {
 	mapSettingTableSchema();
 	fillDictionary();

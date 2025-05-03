@@ -13,6 +13,7 @@ import {
 	FACTORANALYSIS
 } from './config';
 import * as XLSX from 'xlsx';
+import { buttonToggleLoading } from './blocks/button';
 
 export function moduleOpen(path) {
 	return fetch(path)
@@ -24,6 +25,13 @@ export function moduleOpen(path) {
 		})
 		.then((html) => {
 			document.getElementById('content').innerHTML = html;
+			const blankBtns = document.querySelectorAll('.btn--blank');
+			for (const btn of blankBtns){
+				btn.addEventListener('click', (event) => {
+					buttonToggleLoading(event.target.closest('.btn'))
+					setTimeout( () => buttonToggleLoading(event.target.closest('.btn')), 1500);
+				})
+			}
 		})
 		.catch((error) => {
 			console.error('Возникла проблема с операцией выборки:', error);

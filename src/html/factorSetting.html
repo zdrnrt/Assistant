@@ -29,7 +29,7 @@
             <option value="">Некорректные остатки РЦ</option>
             <option value="">Товар был, не отгрузили</option>
           </select>
-          <div class="btn btn-primary d-block w-50 mx-auto" data-bs-toggle="modal" data-bs-target="#modalOos">Настроить</div>
+          <button class="btn btn-primary d-block w-50 mx-auto" data-bs-toggle="modal" data-bs-target="#modalOos">Настроить</button>
         </div>
       </div>
       <div class="col-4">
@@ -50,8 +50,8 @@
             <option value="">Завышенный промо заказ на ТТ</option>
             <option value="">Завышенный заказ ТТ </option>
           </select>
-          <div class="btn btn-primary d-block w-50 mx-auto" data-bs-toggle="modal" data-bs-target="#modalOs">Настроить
-          </div>
+          <button class="btn btn-primary d-block w-50 mx-auto" data-bs-toggle="modal" data-bs-target="#modalOs">Настроить
+          </button>
         </div>
       </div>
     </div>
@@ -166,9 +166,7 @@
             <div class="modal-body">
               <div class="mb-3">
                 <label for="osProcess" class="form-label">Связь с процессом:</label>
-                <select name="osProcess" id="osProcess" class="form-select mb-2">
-                  <option value="never">Расчет прогноза продаж промо</option>
-                  <option value="never">Процесс управления оценкой</option>
+                <select name="osProcess" id="osProcess" data-id="factorprocess" class="form-select mb-2">
                 </select>
               </div>
               <div class="mb-3">
@@ -197,7 +195,7 @@
             </div>
             <div class="modal-footer">
               <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-              <button type="submit" class="btn btn-primary">Сохранить</button>
+              <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Сохранить</button>
             </div>
         </div>
         </form>
@@ -214,9 +212,7 @@
             <div class="modal-body">
               <div class="mb-3">
                 <label for="oosProcess" class="form-label">Связь с процессом:</label>
-                <select name="oosProcess" id="oosProcess" class="form-select mb-2">
-                  <option value="never">Расчет прогноза продаж промо</option>
-                  <option value="never">Процесс управления оценкой</option>
+                <select name="oosProcess" id="oosProcess" data-id="factorprocess" class="form-select mb-2">
                 </select>
               </div>
               <div class="mb-3">
@@ -245,7 +241,7 @@
             </div>
             <div class="modal-footer">
               <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-              <button type="submit" class="btn btn-primary">Сохранить</button>
+              <button type="button" _type="submit" class="btn btn-primary" data-bs-dismiss="modal">Сохранить</button>
             </div>
         </div>
         </form>

@@ -10,7 +10,7 @@ window.dataInfoOpen = function () {
 	});
 };
 
-dataInfoOpen();
+// dataInfoOpen();
 
 function dataInfoInit() {
 	const tabs = document.querySelectorAll('.dataInfoTab');

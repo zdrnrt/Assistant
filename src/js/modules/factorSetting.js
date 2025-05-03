@@ -1,36 +1,29 @@
-import { Chart } from "chart.js";
-import { moduleOpen, fillDictionary } from '../tools'
+import { Chart } from 'chart.js';
+import { moduleOpen, fillDictionary } from '../tools';
 
-window.factorSettingOpen = function() {
-    moduleOpen('./src/html/factorSetting.html')
-        .then(() => {
-            factorSettingInit();
-        })
-}
+window.factorSettingOpen = function () {
+	moduleOpen('./src/html/factorSetting.html').then(() => {
+		factorSettingInit();
+	});
+};
 
 // window.factorSettingOpen();
 
-function factorSettingInit(){
-    fillDictionary();
+function factorSettingInit() {
+	fillDictionary();
 
-			const filters = [
-			document.querySelector('[data-id="department"]'),
-			document.querySelector('[data-id="process"]'),
-		];
-    for (const filter of filters) {
+	const filters = [
+		document.querySelector('[data-id="department"]'),
+		document.querySelector('[data-id="process"]'),
+	];
+	for (const filter of filters) {
 		filter.addEventListener('change', factorSettingFilter);
 	}
-    factorSettingTableSchema();
+	factorSettingTableSchema();
 }
 
 function factorSettingTableSchema() {
-	const schema = [
-        '',
-        '',
-        '',
-		'department',
-		'process',
-	];
+	const schema = ['', '', '', 'department', 'process'];
 	const trList = document
 		.getElementById('table')
 		.querySelectorAll('tbody tr');

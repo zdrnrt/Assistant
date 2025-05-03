@@ -36,27 +36,27 @@
             
         </header>
         <nav id="nav" class="aside__nav aside-nav overflow-auto">
-          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#map-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center nav-item--active " data-bs-toggle="collapse" data-bs-target="#map-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
             <img src="./public/images/icons/settings.svg" class="nav-item__icon">
             <div class="nav-item__title">Карта процессов</div>
             <img src="./public/images/icons/angle.svg" class="nav-item__angle">
           </button>
-          <div id="map-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
-            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); mapSettingOpen();">
+          <div id="map-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse show" data-bs-parent="nav">
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center nav-item--active" onclick="tabChange(this); mapSettingOpen();">
               <div class="nav-item__title">Настройка</div>
             </button>
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); mapAnalysisOpen();">
               <div class="nav-item__title">Анализ</div>
             </button>
           </div>
-          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center nav-item--active" data-bs-toggle="collapse" data-bs-target="#data-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
+          <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" data-bs-toggle="collapse" data-bs-target="#data-nav-collapse" aria-expanded="true" aria-controls="nav-collapse">
             <img src="./public/images/icons/table.svg" class="nav-item__icon">
             <!-- <i class="fa fa-table nav-item__icon"></i> -->
             <div class="nav-item__title">Данные</div>
             <img src="./public/images/icons/angle.svg" class="nav-item__angle">
           </button>
-          <div id="data-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse show" data-bs-parent="nav">
-            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center nav-item--active" onclick="tabChange(this); dataInfoOpen();">
+          <div id="data-nav-collapse" class="collapse aside-nav__item aside-nav__item--collapse" data-bs-parent="nav">
+            <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); dataInfoOpen();">
               <div class="nav-item__title">Полнота и актуальнсть</div>
             </button>
             <button class="aside-nav__item nav-item d-flex justify-content-start align-items-center" onclick="tabChange(this); dataOptimisationOpen();">
