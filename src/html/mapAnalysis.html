@@ -44,7 +44,16 @@
       <!-- <button class="btn btn-primary btn-lg">Выгрузить</button> -->
     </div>
     <div class="table-container table-container--mapanalysis">
-      <table id="table" class="table _table--nowrap">
+      <table id="table" class="table table--fixed-head table--fix">
+        <colgroup>
+          <col width="">
+          <col width="">
+          <col width="180">
+          <col width="180">
+          <col width="160">
+          <col width="100">
+          <col width="70">
+        </colgroup>
         <thead>
           <tr>
             <th>Главный процесс</th>
@@ -60,7 +69,7 @@
           <tr>
             <td data-type="mainprocess">Процесс прогнозирования спроса</td>
             <td data-type="process">Процесс прогнозирования регулярного спроса</td>
-            <td data-type="subprocess">Расчет прогноза продаж</td>
+            <td data-type="subprocess">Расчет прогноза продаж регулярный</td>
             <td data-type="input">Чистый ряд данных. Коэффициенты</td>
             <td data-type="executor">Отдел прогнозирования</td>
             <td data-type="tool" data-type="">Инструмент</td>
