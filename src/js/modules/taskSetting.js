@@ -3,24 +3,28 @@ import { Modal } from 'bootstrap';
 
 window.taskSettingOpen = function () {
 	moduleOpen('./src/html/taskSetting.html').then(() => {
-		fillDictionary();
-		taskSettingTableSchema();
-		const filters = [
-			document.querySelector('[data-id="target"]'),
-			document.querySelector('[data-id="factoranalysis"][data-filter]'),
-			document.querySelector('[data-id="department"]'),
-			document.querySelector('[data-id="factorprocess"]'),
-		];
-
-		for (const filter of filters) {
-			filter.addEventListener('change', taskSettingFilter);
-		}
-
-		document.getElementById('config').addEventListener('click', taskSettingConfig)
+		taskSettingInit()
 	});
 };
 
 // taskSettingOpen();
+
+function taskSettingInit(){
+	fillDictionary();
+	taskSettingTableSchema();
+	const filters = [
+		document.querySelector('[data-id="target"]'),
+		document.querySelector('[data-id="factoranalysis"][data-filter]'),
+		document.querySelector('[data-id="department"]'),
+		document.querySelector('[data-id="factorprocess"]'),
+	];
+
+	for (const filter of filters) {
+		filter.addEventListener('change', taskSettingFilter);
+	}
+
+	document.getElementById('config').addEventListener('click', taskSettingConfig)
+}
 
 function taskSettingConfig(){
 	document.getElementById('modalConfigLabel').textContent = document.getElementById('configTitle').value;
@@ -59,9 +63,9 @@ function taskSettingClear(filters) {
 function taskSettingFilter() {
 	const filters = [
 		document.querySelector('[data-id="target"]'),
-		document.querySelector('[data-id="factoranalysis"]'),
+		document.querySelector('[data-id="factoranalysis"][data-filter]'),
 		document.querySelector('[data-id="department"]'),
-		document.querySelector('[data-id="factorprocess"][data-filter]'),
+		document.querySelector('[data-id="factorprocess"]'),
 	];
 	console.log(filters)
 	const clearFilters = taskSettingClear(filters);
