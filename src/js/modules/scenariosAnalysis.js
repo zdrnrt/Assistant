@@ -18,15 +18,8 @@ function scenariosAnalysisInit() {
 }
 
 function scenariosChartDraw (chartType = 'tt') {
+	document.getElementById('info').dataset.state = chartType;
 	
-	function scenariosChartChangeType(chartType = 'tt') {
-		const value = event.target.value;
-		document.getElementById('info').dataset.state = value;
-		chartAction[0].handler(value, fast);
-		chartAction[0].handler(value, middle);
-		chartAction[0].handler(value, normal);
-	}
-
 	const chartData = {
 		fast: {
 			tt: {
