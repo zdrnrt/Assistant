@@ -27,6 +27,7 @@ export default defineConfig({
 				information: resolve(__dirname, 'src/html/information.html'),
 				chatBot: resolve(__dirname, 'src/html/chatBot.html'),
 				targetsDashboard: resolve(__dirname, 'src/html/targetsDashboard.html'),
+				structure: resolve(__dirname, 'src/html/structure.html'),
 			}
 		}
 	}
