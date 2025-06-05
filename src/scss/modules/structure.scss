@@ -1,0 +1,14 @@
+.kpi-column{
+  &:hover{
+    box-shadow: var(--bs-box-shadow);
+    .kpi-column__data{
+      z-index: 10;
+    }
+  }
+  &__data{
+    top: -5px;
+    left: -5px;
+    border-radius: 5px;
+    background-color: #FD6935;
+  }
+}
