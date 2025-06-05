@@ -7,7 +7,7 @@ window.structureOpen = function () {
   });
 };
 
-structureOpen();
+// structureOpen();
 
 function structureInit(){
   document.getElementById('formUpload').addEventListener('submit', structureUpdate)

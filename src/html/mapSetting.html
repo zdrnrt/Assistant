@@ -1250,31 +1250,65 @@
           <form id="" onsubmit="dataFilter(event);" class="form">
             <div class="modal-body">
               <div class="mb-3">
-                <label for="dataInterval" class="form-label">Интервал</label>
-                <input type="text" class="form-control" id="dataInterval">
+                <select name="repeate" id="repeate" class="form-select" onchange="">
+                  <option value="day">Повторять ежедневно</option>
+                  <option value="week">Повторять ежеднедельно</option>
+                  <option value="month">Повторять ежемесячно</option>
+                  <option value="never">Никогда</option>
+                </select>
               </div>
-              <div class="mb-3">
-                <label for="dataRepeat" class="form-label">Дни повторения</label>
-                <input type="text" class="form-control" id="dataRepeat">
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Интервал</label></div>
+                <div class="col-7">
+                  <input type="number" class="form-control" id="interval">
+                </div>
+                <div class="col-2">дней</div>
               </div>
-              <div class="mb-3">
-                <label for="dataTime" class="form-label">Время</label>
-                <input type="text" class="form-control" id="dataTime">
-              </div>
-              <div class="mb-3">
-                <label for="dataBegin" class="form-label">Начало</label>
-                <input type="text" class="form-control" id="dataBegin">
-              </div>
-              <div class="mb-3 row">
-                <div class="col-3"><label for="dataEnd" class="form-label">Окончание</label></div>
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Время запуска</label></div>
                 <div class="col-9">
-                  <select name="dataEnd" id="dataEnd" class="form-select mb-2">
-                    <option value="never">Никогда</option>
-                    <option value="after">Спустя</option>
-                    <option value="date">Дата</option>
-                  </select>
-                  <div>
-                    <input type="number" class="form-control" id="dataEndValue">
+                  <input type="date" class="form-control" id="interval">
+                </div>
+              </div>
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Дата начала</label></div>
+                <div class="col-9">
+                  <input type="date" class="form-control" id="interval">
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <div class="col-3 form-label">Окончание</div>
+                <div class="col-9">
+                  <div class="row align-items-center mb-3">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="never" class="form-check-input m-0">
+                        Никогда
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-3">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="after" class="form-check-input m-0">
+                        Спустя
+                      </label>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control w-25 d-inline"> раз
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-3">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="date" class="form-check-input m-0">
+                        Дата
+                      </label>
+                    </div>
+                    <div class="col">
+                      <input type="date" class="form-control">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1300,19 +1334,28 @@
             <select name="" data-id="mainprocess" class="d-block w-100 form-select mb-3">
             </select>
             <div class="mb-3">
-              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Входные данные</button>
+              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span
+                  class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Входные
+                данные</button>
             </div>
             <div class="mb-3">
-              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Выходные данные</button>
+              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span
+                  class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Выходные
+                данные</button>
             </div>
             <div class="mb-3">
-              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Исполнитель</button>
+              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span
+                  class="spinner-border spinner-border-sm me-2" role="status"
+                  aria-hidden="true"></span>Исполнитель</button>
             </div>
             <div class="mb-3">
-              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>KPI</button>
+              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span
+                  class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>KPI</button>
             </div>
             <div class="mb-3">
-              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>География</button>
+              <button class="d-block mx-auto w-50 btn btn-primary btn--blank" type="button"><span
+                  class="spinner-border spinner-border-sm me-2" role="status"
+                  aria-hidden="true"></span>География</button>
             </div>
             <div class="text-end">
               <a href="#">Скачать шаблон</a>
