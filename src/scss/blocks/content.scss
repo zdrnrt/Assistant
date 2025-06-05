@@ -6,4 +6,9 @@
     margin-bottom: 1.6rem;
     padding-bottom: 1.8rem;
   }
+  &__content{
+    &--fixed{
+      height: calc(100% - 60px);
+    }
+  }
 }

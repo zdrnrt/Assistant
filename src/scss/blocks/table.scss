@@ -19,15 +19,27 @@
   }
 
   &--tasksetting {
-    max-height: 400px;
+    max-height: calc(100% - 180px);
   }
-
+  
   &--tasklist {
-    max-height: 400px;
+    max-height: calc(100% - 60px);
   }
 
   &--mapanalysis {
-    max-height: 425px;
+    max-height: calc(100% - 245px);
+  }
+  
+  &--data {
+    max-height: calc(100% - 280px);
+  }
+  
+  &--norming {
+    max-height: calc(100% - 350px);
+  }
+  
+  &--factorSetting {
+    max-height: calc(100% - 185px);
   }
 }
 
@@ -47,7 +59,6 @@
     [data-id="value"],
     [data-id="risk"],
     [data-id="value"] input{
-
       color: var(--bs-danger);
     }
   }
@@ -98,6 +109,14 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+  }
+
+  &--map{
+    max-height: calc(100% - 85px);
+  }
+
+  &--data{
+    max-height: calc(100% - 280px);
   }
 
   thead {
