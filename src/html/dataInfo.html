@@ -46,12 +46,12 @@
         </div>
         <div class="col-2">
           <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
-          data-bs-target="#modalInConfig">Настроить набор данных</button>
+            data-bs-target="#modalInConfig">Настроить набор данных</button>
           <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
-          data-bs-target="#modalTimetable">Расписание проверки</button>
+            data-bs-target="#modalTimetable">Расписание проверки</button>
           <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
-          data-bs-target="#modalTimetable">Расписание отправки</button>
-          <button class="btn btn-primary btn-update-table d-block w-100" data-target="dataInfoTableIn">Обновить</button>
+            data-bs-target="#modalTimetable">Расписание отправки</button>
+          <!-- <button class="btn btn-primary btn-update-table d-block w-100" data-target="dataInfoTableIn">Обновить</button> -->
         </div>
 
       </div>
@@ -61,26 +61,52 @@
         </div>
         <div class="col-6">
           <div class="mb-3 text-end">
-            <button type="button" class="btn btn-primary btn-lg dataInfoTableDownload" data-target="dataInfoTableIn">
+            <button class="btn btn-primary btn-update-table" data-target="dataInfoTableIn">Обновить</button>
+
+            <!-- <button type="button" class="btn btn-primary btn-lg dataInfoTableDownload" data-target="dataInfoTableIn">
               <i class="fa fa-save"></i>
-            </button>
+            </button> -->
           </div>
           <div class="table-container table-container--datainfo">
             <table id="dataInfoTableIn" class="table table--fixed-head">
               <thead>
                 <tr>
                   <th>Тип данных</th>
-                  <th>Дата сбора</th>
+                  <th>Дата обновления</th>
                   <th>Целевое значение</th>
                   <th>Фактическое значение</th>
                   <th>% откл</th>
                 </tr>
               </thead>
               <tbody data-v="0">
-                <tr><td>Остатки ТТ</td><td>23.02.2025</td><td> 15 000 </td><td> 1 000 </td><td>-93%</td></tr>
-                <tr><td>Остатки РЦ</td><td>23.02.2025</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr>
-                <tr><td>Продажи</td><td>23.02.2025</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr>
-                <tr><td>Планограмма</td><td>23.02.2025</td><td> 100 000 </td><td> 200 000 </td><td>100%</td></tr>
+                <tr>
+                  <td>Остатки ТТ</td>
+                  <td>23.02.2025 12:00</td>
+                  <td> 15 000 </td>
+                  <td> 1 000 </td>
+                  <td>-93%</td>
+                </tr>
+                <tr>
+                  <td>Остатки РЦ</td>
+                  <td>23.02.2025 12:00</td>
+                  <td> 9 000 </td>
+                  <td> 8 990 </td>
+                  <td>0%</td>
+                </tr>
+                <tr>
+                  <td>Продажи</td>
+                  <td>23.02.2025 12:00</td>
+                  <td> 18 900 </td>
+                  <td> 18 900 </td>
+                  <td>0%</td>
+                </tr>
+                <tr>
+                  <td>Планограмма</td>
+                  <td>23.02.2025 12:00</td>
+                  <td> 100 000 </td>
+                  <td> 200 000 </td>
+                  <td>100%</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -120,12 +146,12 @@
         </div>
         <div class="col-2">
           <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
-          data-bs-target="#modalOutConfig">Настроить набор данных</button>
+            data-bs-target="#modalOutConfig">Настроить набор данных</button>
           <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
-          data-bs-target="#modalTimetable">Расписание проверки</button>
+            data-bs-target="#modalTimetable">Расписание проверки</button>
           <button class="btn btn-primary d-block mb-3 w-100" data-bs-toggle="modal"
-          data-bs-target="#modalTimetable">Расписание отправки</button>
-          <button class="btn btn-primary btn-update-table d-block w-100" data-target="dataInfoTableOut">Обновить</button>
+            data-bs-target="#modalTimetable">Расписание отправки</button>
+          <!-- <button class="btn btn-primary btn-update-table d-block w-100" data-target="dataInfoTableOut">Обновить</button> -->
 
         </div>
 
@@ -136,26 +162,51 @@
         </div>
         <div class="col-6">
           <div class="mb-3 text-end">
-            <button type="button" class="btn btn-primary btn-lg dataInfoTableDownload" data-target="dataInfoTableOut">
+            <button class="btn btn-primary btn-update-table" data-target="dataInfoTableOut">Обновить</button>
+            <!-- <button type="button" class="btn btn-primary btn-lg dataInfoTableDownload" data-target="dataInfoTableOut">
               <i class="fa fa-save"></i>
-            </button>
+            </button> -->
           </div>
           <div class="table-container table-container--datainfo">
             <table id="dataInfoTableOut" class="table table--fixed-head">
               <thead>
                 <tr>
                   <th>Тип данных</th>
-                  <th>Дата&nbsp;сбора</th>
+                  <th>Дата&nbsp;обновления</th>
                   <th>Целевое&nbsp;значение</th>
                   <th>Фактическое&nbsp;значение</th>
                   <th>%&nbsp;откл</th>
                 </tr>
               </thead>
               <tbody data-v="0">
-                <tr><td>Заказы РЦ-ТТ</td><td>23.02.2025</td><td> 4 679 </td><td> 4 500 </td><td>-4%</td></tr>
-                <tr><td>Заказы Поставщик - ТТ</td><td>23.02.2025</td><td> 2 897 </td><td> 2 897 </td><td>0%</td></tr>
-                <tr><td>Заказы на  РЦ</td><td>23.02.2025</td><td>5000</td><td>4905</td><td>-2%</td></tr>
-                <tr><td>Прогноз </td><td>23.02.2025</td><td> 17 000 </td><td> 17 000 </td><td>0%</td></tr>
+                <tr>
+                  <td>Заказы РЦ-ТТ</td>
+                  <td>23.02.2025</td>
+                  <td> 4 679 </td>
+                  <td> 4 500 </td>
+                  <td>-4%</td>
+                </tr>
+                <tr>
+                  <td>Заказы Поставщик - ТТ</td>
+                  <td>23.02.2025</td>
+                  <td> 2 897 </td>
+                  <td> 2 897 </td>
+                  <td>0%</td>
+                </tr>
+                <tr>
+                  <td>Заказы на РЦ</td>
+                  <td>23.02.2025</td>
+                  <td>5000</td>
+                  <td>4905</td>
+                  <td>-2%</td>
+                </tr>
+                <tr>
+                  <td>Прогноз </td>
+                  <td>23.02.2025</td>
+                  <td> 17 000 </td>
+                  <td> 17 000 </td>
+                  <td>0%</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -539,31 +590,65 @@
           <form id="" onsubmit="dataFilter(event);" class="form">
             <div class="modal-body">
               <div class="mb-3">
-                <label for="dataInterval" class="form-label">Интервал</label>
-                <input type="text" class="form-control" id="dataInterval">
+                <select name="repeate" id="repeate" class="form-select" onchange="">
+                  <option value="day">Повторять ежедневно</option>
+                  <option value="week">Повторять ежеднедельно</option>
+                  <option value="month">Повторять ежемесячно</option>
+                  <option value="never">Никогда</option>
+                </select>
               </div>
-              <div class="mb-3">
-                <label for="dataRepeat" class="form-label">Дни повторения</label>
-                <input type="text" class="form-control" id="dataRepeat">
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Интервал</label></div>
+                <div class="col-7">
+                  <input type="number" class="form-control" id="interval">
+                </div>
+                <div class="col-2">дней</div>
               </div>
-              <div class="mb-3">
-                <label for="dataTime" class="form-label">Время</label>
-                <input type="text" class="form-control" id="dataTime">
-              </div>
-              <div class="mb-3">
-                <label for="dataBegin" class="form-label">Начало</label>
-                <input type="text" class="form-control" id="dataBegin">
-              </div>
-              <div class="mb-3 row">
-                <div class="col-3 pt-4"><label for="dataEnd" class="form-label">Окончание</label></div>
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Время запуска</label></div>
                 <div class="col-9">
-                  <select name="dataEnd" id="dataEnd" class="form-select mb-2" onchange="">
-                    <option value="never">Никогда</option>
-                    <option value="after">Спустя</option>
-                    <option value="date">Дата</option>
-                  </select>
-                  <div>
-                    <input type="number" class="form-control" id="dataEndValue">
+                  <input type="date" class="form-control" id="interval">
+                </div>
+              </div>
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Дата начала</label></div>
+                <div class="col-9">
+                  <input type="date" class="form-control" id="interval">
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <div class="col-3 form-label">Окончание</div>
+                <div class="col-9">
+                  <div class="row align-items-center mb-3">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="never" class="form-check-input m-0">
+                        Никогда
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-3 form-group">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="after" class="form-check-input m-0">
+                        Спустя
+                      </label>
+                    </div>
+                    <div class="col">
+                      <input name="endAfter" type="number" class="form-control w-25 d-inline"> раз
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-3 form-group">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="date" class="form-check-input m-0">
+                        Дата
+                      </label>
+                    </div>
+                    <div class="col">
+                      <input name="endDate" type="date" class="form-control">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -576,7 +661,8 @@
         </div>
       </div>
     </div>
-    <div class="modal fade modal-lg" id="modalInConfig" tabindex="-1" aria-labelledby="modalInConfigLabel" aria-hidden="true">
+    <div class="modal fade modal-lg" id="modalInConfig" tabindex="-1" aria-labelledby="modalInConfigLabel"
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -590,57 +676,57 @@
                   <p class="mb-3 h4">Набор для OLAP</p>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  Остатки ТТ
+                    Остатки ТТ
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Остатки РЦ
+
+                    Остатки РЦ
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Продажи
+
+                    Продажи
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Списания ТТ
+
+                    Списания ТТ
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Списания РЦ
+
+                    Списания РЦ
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Прогноз продаж
+
+                    Прогноз продаж
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Матрица
+
+                    Матрица
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Планограмма 
+
+                    Планограмма
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Кратность короба
+
+                    Кратность короба
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  Минимальная партия
+
+                    Минимальная партия
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
-                  График заказа/доставки
+
+                    График заказа/доставки
                   </label>
                 </div>
                 <div class="col-4">
@@ -675,7 +761,7 @@
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                    Планограмма 
+                    Планограмма
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
@@ -706,7 +792,7 @@
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                    Цены 
+                    Цены
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
@@ -727,7 +813,8 @@
         </div>
       </div>
     </div>
-    <div class="modal fade modal-lg" id="modalOutConfig" tabindex="-1" aria-labelledby="modalInConfigLabel" aria-hidden="true">
+    <div class="modal fade modal-lg" id="modalOutConfig" tabindex="-1" aria-labelledby="modalInConfigLabel"
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -745,12 +832,12 @@
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
+
                     Отчет_2
                   </label>
                   <label class="d-block mb-2">
                     <input type="checkbox" class="form-check-input m-0 me-1" id="" name="">
-                  
+
                     Отчет_3
                   </label>
                   <label class="d-block mb-2">

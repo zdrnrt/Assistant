@@ -5,10 +5,12 @@
   <div>
     <div class="row mb-3">
       <div class="col-2">
-        <button type="button" class="d-block w-100 mb-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
+        <button type="button" class="d-block w-100 mb-2 btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#modalTimetable">
           Расписание проверки
         </button>
-        <button type="button" class="d-block w-100 mb-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTimetable">
+        <button type="button" class="d-block w-100 mb-2 btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#modalTimetable">
           Расписание отправки
         </button>
         <button type="button" class="d-block w-100 btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSet">
@@ -51,7 +53,7 @@
             <td>25.02.2025</td>
             <td>15000</td>
             <td>14989</td>
-            <td>0%	</td>
+            <td>0% </td>
             <td></td>
           </tr>
           <tr>
@@ -67,7 +69,7 @@
             <td>25.02.2025</td>
             <td>15000</td>
             <td>14989</td>
-            <td>0%	</td>
+            <td>0% </td>
             <td></td>
           </tr>
           <tr>
@@ -83,13 +85,13 @@
             <td>25.02.2025</td>
             <td>15000</td>
             <td>14989</td>
-            <td>0%	</td>
+            <td>0% </td>
             <td></td>
           </tr>
         </tbody>
       </table>
     </div>
-      
+
     <div class="modal fade" id="modalTimetable" tabindex="-1" aria-labelledby="moadlTimetableLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -100,31 +102,65 @@
           <form id="" onsubmit="dataFilter(event);" class="form">
             <div class="modal-body">
               <div class="mb-3">
-                <label for="dataInterval" class="form-label">Интервал</label>
-                <input type="text" class="form-control" id="dataInterval">
+                <select name="repeate" id="repeate" class="form-select" onchange="">
+                  <option value="day">Повторять ежедневно</option>
+                  <option value="week">Повторять ежеднедельно</option>
+                  <option value="month">Повторять ежемесячно</option>
+                  <option value="never">Никогда</option>
+                </select>
               </div>
-              <div class="mb-3">
-                <label for="dataRepeat" class="form-label">Дни повторения</label>
-                <input type="text" class="form-control" id="dataRepeat">
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Интервал</label></div>
+                <div class="col-7">
+                  <input type="number" class="form-control" id="interval">
+                </div>
+                <div class="col-2">дней</div>
               </div>
-              <div class="mb-3">
-                <label for="dataTime" class="form-label">Время</label>
-                <input type="text" class="form-control" id="dataTime">
-              </div>
-              <div class="mb-3">
-                <label for="dataBegin" class="form-label">Начало</label>
-                <input type="text" class="form-control" id="dataBegin">
-              </div>
-              <div class="mb-3 row">
-                <div class="col-3"><label for="dataEnd" class="form-label">Окончание</label></div>
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Время запуска</label></div>
                 <div class="col-9">
-                  <select name="dataEnd" id="dataEnd" class="form-select mb-2" onchange="">
-                    <option value="never">Никогда</option>
-                    <option value="after">Спустя</option>
-                    <option value="date">Дата</option>
-                  </select>
-                  <div>
-                    <input type="number" class="form-control" id="dataEndValue">
+                  <input type="date" class="form-control" id="interval">
+                </div>
+              </div>
+              <div class="mb-3 row align-items-center">
+                <div class="col-3"><label for="interval" class="form-label">Дата начала</label></div>
+                <div class="col-9">
+                  <input type="date" class="form-control" id="interval">
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <div class="col-3 form-label">Окончание</div>
+                <div class="col-9">
+                  <div class="row align-items-center mb-3">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="never" class="form-check-input m-0">
+                        Никогда
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-3">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="after" class="form-check-input m-0">
+                        Спустя
+                      </label>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control w-25 d-inline"> раз
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-3">
+                    <div class="col-3">
+                      <label>
+                        <input name="end" type="radio" value="date" class="form-check-input m-0">
+                        Дата
+                      </label>
+                    </div>
+                    <div class="col">
+                      <input type="date" class="form-control">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -248,7 +284,7 @@
             </label>
             <label class="d-block col-6 mb-3">
               <input type="checkbox" class="form-check-input" id="" name="">
-              Цена продажи 
+              Цена продажи
             </label>
             <label class="d-block col-6 mb-3">
               <input type="checkbox" class="form-check-input" id="" name="">
@@ -260,7 +296,7 @@
             </label>
             <label class="d-block col-6 mb-3">
               <input type="checkbox" class="form-check-input" id="" name="">
-              Планограмма 
+              Планограмма
             </label>
           </div>
           <div class="modal-footer">
