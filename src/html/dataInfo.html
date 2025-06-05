@@ -70,7 +70,7 @@
               <thead>
                 <tr>
                   <th>Тип данных</th>
-                  <th>Дата сбора</th>
+                  <th>Дата обновления</th>
                   <th>Целевое значение</th>
                   <th>Фактическое значение</th>
                   <th>% откл</th>
@@ -79,28 +79,28 @@
               <tbody data-v="0">
                 <tr>
                   <td>Остатки ТТ</td>
-                  <td>23.02.2025</td>
+                  <td>23.02.2025 12:00</td>
                   <td> 15 000 </td>
                   <td> 1 000 </td>
                   <td>-93%</td>
                 </tr>
                 <tr>
                   <td>Остатки РЦ</td>
-                  <td>23.02.2025</td>
+                  <td>23.02.2025 12:00</td>
                   <td> 9 000 </td>
                   <td> 8 990 </td>
                   <td>0%</td>
                 </tr>
                 <tr>
                   <td>Продажи</td>
-                  <td>23.02.2025</td>
+                  <td>23.02.2025 12:00</td>
                   <td> 18 900 </td>
                   <td> 18 900 </td>
                   <td>0%</td>
                 </tr>
                 <tr>
                   <td>Планограмма</td>
-                  <td>23.02.2025</td>
+                  <td>23.02.2025 12:00</td>
                   <td> 100 000 </td>
                   <td> 200 000 </td>
                   <td>100%</td>
@@ -170,7 +170,7 @@
               <thead>
                 <tr>
                   <th>Тип данных</th>
-                  <th>Дата&nbsp;сбора</th>
+                  <th>Дата&nbsp;обновления</th>
                   <th>Целевое&nbsp;значение</th>
                   <th>Фактическое&nbsp;значение</th>
                   <th>%&nbsp;откл</th>
@@ -626,7 +626,7 @@
                       </label>
                     </div>
                   </div>
-                  <div class="row align-items-center mb-3">
+                  <div class="row align-items-center mb-3 form-group">
                     <div class="col-3">
                       <label>
                         <input name="end" type="radio" value="after" class="form-check-input m-0">
@@ -634,10 +634,10 @@
                       </label>
                     </div>
                     <div class="col">
-                      <input type="number" class="form-control w-25 d-inline"> раз
+                      <input name="endAfter" type="number" class="form-control w-25 d-inline"> раз
                     </div>
                   </div>
-                  <div class="row align-items-center mb-3">
+                  <div class="row align-items-center mb-3 form-group">
                     <div class="col-3">
                       <label>
                         <input name="end" type="radio" value="date" class="form-check-input m-0">
@@ -645,7 +645,7 @@
                       </label>
                     </div>
                     <div class="col">
-                      <input type="date" class="form-control">
+                      <input name="endDate" type="date" class="form-control">
                     </div>
                   </div>
                 </div>

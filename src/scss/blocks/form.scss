@@ -24,6 +24,7 @@
   }
 }
 .form-check-input{
+  margin-top: 0;
   &:checked{
     background-color: $cl-purple;
     border-color: $cl-purple;

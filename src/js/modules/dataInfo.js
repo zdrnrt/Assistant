@@ -32,10 +32,10 @@ function dataInfoUpdate(event) {
 	const schema = {
 		'dataInfoTableIn': [
 			// '<tr><td>Остатки ТТ</td><td>23.02.2025</td><td> 15 000 </td><td> 1 000 </td><td>-93%</td></tr> <tr><td>Остатки РЦ</td><td>23.02.2025</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr> <tr><td>Продажи</td><td>23.02.2025</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr> <tr><td>Планограмма</td><td>23.02.2025</td><td> 100 000 </td><td> 200 000 </td><td>100%</td></tr>',
-			'<tr><td>Остатки ТТ</td><td>24.02.2025</td><td> 13 800 </td><td> 13 800 </td><td>0%</td></tr> <tr><td>Остатки РЦ</td><td>24.02.2025</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr> <tr><td>Продажи</td><td>24.02.2025</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr> <tr><td>Планограмма</td><td>24.02.2025</td><td> 80 000 </td><td> 80 000 </td><td>0%</td></tr>'
+			'<tr><td>Остатки ТТ</td><td>24.02.2025 12:00</td><td> 13 800 </td><td> 13 800 </td><td>0%</td></tr> <tr><td>Остатки РЦ</td><td>24.02.2025 12:00</td><td> 9 000 </td><td> 8 990 </td><td>0%</td></tr> <tr><td>Продажи</td><td>24.02.2025 12:00</td><td> 18 900 </td><td> 18 900 </td><td>0%</td></tr> <tr><td>Планограмма</td><td>24.02.2025 12:00</td><td> 80 000 </td><td> 80 000 </td><td>0%</td></tr>'
 		],
 		'dataInfoTableOut': [
-			'<tr><td>Заказы РЦ-ТТ</td><td>24.02.2025</td><td> 5 898 </td><td> 5 900 </td><td>0%</td></tr> <tr><td>Заказы Поставщик - ТТ</td><td>24.02.2025</td><td> 3 165 </td><td> 3 456 </td><td>9%</td></tr> <tr><td>Заказы на  РЦ</td><td>24.02.2025</td><td> 4 800 </td><td> 4 905 </td><td>2%</td></tr> <tr><td>Прогноз </td><td>24.02.2025</td><td> 13 000 </td><td> 13 000 </td><td>0%</td></tr>'
+			'<tr><td>Заказы РЦ-ТТ</td><td>24.02.2025 12:00</td><td> 5 898 </td><td> 5 900 </td><td>0%</td></tr> <tr><td>Заказы Поставщик - ТТ</td><td>24.02.2025 12:00</td><td> 3 165 </td><td> 3 456 </td><td>9%</td></tr> <tr><td>Заказы на  РЦ</td><td>24.02.2025 12:00</td><td> 4 800 </td><td> 4 905 </td><td>2%</td></tr> <tr><td>Прогноз </td><td>24.02.2025 12:00</td><td> 13 000 </td><td> 13 000 </td><td>0%</td></tr>'
 		]
 	}
 	// table.dataset.v = Number(table.dataset.v) === 0 ? 1 : 0 
