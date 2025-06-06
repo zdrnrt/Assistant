@@ -1,14 +1,24 @@
 .kpi-column{
   &:hover{
-    box-shadow: var(--bs-box-shadow);
-    .kpi-column__data{
+    .kpi-column__info{
       z-index: 10;
+      opacity: 1;
+      visibility: visible;
     }
   }
   &__data{
     top: -5px;
     left: -5px;
+    z-index: 1;
     border-radius: 5px;
     background-color: #FD6935;
+  }
+  &__info{
+    left: 10px;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .15s ease-in-out;
+    box-shadow: var(--bs-box-shadow);
   }
 }
