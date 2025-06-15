@@ -1,11 +1,4 @@
 .kpi-column{
-  &:hover{
-    .kpi-column__info{
-      z-index: 10;
-      opacity: 1;
-      visibility: visible;
-    }
-  }
   &__data{
     top: -5px;
     left: -5px;
@@ -16,9 +9,29 @@
   &__info{
     left: 10px;
     top: 10px;
-    opacity: 0;
-    visibility: hidden;
+    // opacity: 0;
+    // visibility: hidden;
     transition: all .15s ease-in-out;
     box-shadow: var(--bs-box-shadow);
+  }
+}
+
+.kpi-value{
+  top: -10px;
+  left: -10px;
+  border-radius: $border-radius;
+  border: 2px solid $cl-border;
+  &--positive{
+    color: $succes;
+    border-color: $succes;
+  }
+  &--negative{
+    color: var(--bs-danger);
+    border-color: var(--bs-danger);
+  }
+  &--leader{
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }

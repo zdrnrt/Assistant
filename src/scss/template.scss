@@ -57,7 +57,9 @@ body {
 .content{
     // overflow: scroll;
 }
-
+.success{
+    color: var(--bs-green);
+}
 .danger{
     color: var(--bs-danger);
 }
